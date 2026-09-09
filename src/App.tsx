@@ -7,6 +7,7 @@ import Vision from "./pages/Vision";
 import OS from "./pages/OS";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
+import Affiliate from "./pages/Affiliate";
 import Legal from "./pages/Legal";
 
 export default function App() {
@@ -20,6 +21,8 @@ export default function App() {
         <Route path="/os" element={<OS />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/affiliate" element={<Affiliate />} />
+        <Route path="/partners" element={<Navigate to="/affiliate" replace />} />
         <Route path="/privacy" element={<Legal kind="privacy" />} />
         <Route path="/legal" element={<Legal kind="terms" />} />
         <Route path="*" element={<Navigate to="/" replace />} />

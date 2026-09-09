@@ -28,6 +28,7 @@ export const companyLinks: NavChild[] = [
   { group: "Company", label: "Talk to AIORA", to: "/contact", desc: "Start with the workflow that leaks the most revenue." },
   { group: "Company", label: "Customers", to: "/#proof", desc: "Deployments, labelled honestly." },
   { group: "Company", label: "Pricing", to: "/pricing", desc: "Six agent lines. One monthly price." },
+  { group: "Company", label: "Affiliate Program", to: "/affiliate", desc: "Earn a 50/50 revenue share as an AIORA partner." },
 ];
 
 export const navLinks: NavLink[] = [
@@ -159,6 +160,7 @@ export const footerCols = [
       { label: "About", to: "/contact" },
       { label: "Pricing", to: "/pricing" },
       { label: "Customers", to: "/#proof" },
+      { label: "Affiliate Program", to: "/affiliate" },
       { label: "Contact", to: "/contact" },
     ],
   },
