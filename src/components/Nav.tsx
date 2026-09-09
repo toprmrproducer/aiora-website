@@ -26,7 +26,7 @@ export default function Nav() {
     <>
       <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-5 md:pt-4">
         <div ref={wrap} className="pointer-events-auto mx-auto max-w-[1240px]">
-          <nav className="relative flex h-[58px] items-center rounded-2xl bg-[#f3f1ec]/92 px-3 shadow-[0_12px_40px_-18px_rgba(12,12,13,0.35)] ring-1 ring-ink/10 backdrop-blur-xl md:h-[64px] md:px-5">
+          <nav className="relative flex h-[58px] items-center rounded-2xl bg-[#f4f1ea] px-3 shadow-[0_16px_50px_-20px_rgba(12,12,13,0.45)] ring-1 ring-ink/10 md:h-[64px] md:px-5">
             <Wordmark />
 
             <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 lg:flex">
