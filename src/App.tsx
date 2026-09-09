@@ -10,6 +10,9 @@ import Pricing from "./pages/Pricing";
 import Customers from "./pages/Customers";
 import Contact from "./pages/Contact";
 import Affiliate from "./pages/Affiliate";
+import Retail from "./pages/Retail";
+import Clinics from "./pages/Clinics";
+import Hospitality from "./pages/Hospitality";
 import Legal from "./pages/Legal";
 
 export default function App() {
@@ -27,6 +30,9 @@ export default function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/affiliate" element={<Affiliate />} />
         <Route path="/partners" element={<Navigate to="/affiliate" replace />} />
+        <Route path="/retail" element={<Retail />} />
+        <Route path="/clinics" element={<Clinics />} />
+        <Route path="/hospitality" element={<Hospitality />} />
         <Route path="/privacy" element={<Legal kind="privacy" />} />
         <Route path="/legal" element={<Legal kind="terms" />} />
         <Route path="*" element={<Navigate to="/" replace />} />

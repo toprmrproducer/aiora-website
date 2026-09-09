@@ -40,7 +40,7 @@ export default function Pricing() {
         eyebrow="AIORA, six agent lines"
         cosmic
         imageSrc={asset("assets/scenes/pricing-rings-wide.jpg")}
-        imagePosition="60% center"
+        imagePosition="70% center"
         title={<>Not a chatbot. Agents that <span className="text-wine">act</span> inside your systems.</>}
         body="Each agent captures, understands, decides and acts inside your own systems. Every agent comes with a WhatsApp interface for your team and customers, plus the AIORA Dashboard."
         micro="One flat price per agent. Run one, or run all six."
@@ -159,6 +159,8 @@ export default function Pricing() {
 
       {/* Every agent, fully equipped */}
       <section className="grain relative overflow-hidden bg-ink py-24 text-ivory md:py-32">
+        <img src={asset("assets/scenes/sc-pricing-dash.jpg")} alt="" aria-hidden className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-20" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/60" />
         <div className="site-container relative">
           <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-end">
             <Reveal>

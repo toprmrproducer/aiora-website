@@ -19,9 +19,9 @@ export const solutionLinks: NavChild[] = [
   { group: "By workflow", label: "WhatsApp", to: "/whatsapp", desc: "Give every message a next step.", icon: "whatsapp" },
   { group: "By workflow", label: "Meta", to: "/meta", desc: "Meet customers on Facebook and Instagram.", icon: "meta" },
   { group: "By workflow", label: "Vision", to: "/vision", desc: "Surface the footage that needs a human.", icon: "vision" },
-  { group: "By industry", label: "Retail and grocery", to: "/os", desc: "Catalog, orders and follow-up in one loop." },
-  { group: "By industry", label: "Clinics and services", to: "/os", desc: "Capture the enquiry and book the slot." },
-  { group: "By industry", label: "Hospitality", to: "/os", desc: "Answer, book and route before they go elsewhere." },
+  { group: "By industry", label: "Retail and grocery", to: "/retail", desc: "Catalog, orders and follow-up in one loop." },
+  { group: "By industry", label: "Clinics and services", to: "/clinics", desc: "Capture the enquiry and book the slot." },
+  { group: "By industry", label: "Hospitality", to: "/hospitality", desc: "Answer, book and route before they go elsewhere." },
 ];
 
 export const companyLinks: NavChild[] = [
@@ -137,7 +137,7 @@ export const caseStudies = [
     kind: "Voice + Vision",
     result: "Voice agent for member enquiries with AIORA Vision on the floor.",
     status: "In build",
-    image: "assets/scenes/06-aiora-vision-human-review-abstract.png",
+    image: "assets/scenes/sc-team-night.jpg",
   },
 ];
 

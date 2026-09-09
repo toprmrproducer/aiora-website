@@ -18,7 +18,7 @@ export function PageHero({
         {cosmic ? (
           <>
             <CosmicScene className="hero-scene-page" src={imageSrc} objectPosition={imagePosition} tone="dark" flip={cosmicFlip} />
-            <div className={`pointer-events-none absolute inset-0 z-[8] bg-gradient-to-r ${cosmicFlip ? "from-transparent via-ink/50 to-ink/90" : "from-ink/90 via-ink/45 to-transparent"}`} />
+            <div className={`pointer-events-none absolute inset-0 z-[8] bg-gradient-to-r ${cosmicFlip ? "from-transparent via-ink/55 to-ink/95" : "from-ink/95 via-ink/60 to-ink/10"}`} />
             {/* Blend the composed image's plate edges into the ink ground (top + right seam) */}
             <div className="pointer-events-none absolute inset-x-0 top-0 z-[8] h-28 bg-gradient-to-b from-ink/85 to-transparent" />
             <div className="pointer-events-none absolute inset-y-0 right-0 z-[8] w-[14%] bg-gradient-to-l from-ink/80 to-transparent" />

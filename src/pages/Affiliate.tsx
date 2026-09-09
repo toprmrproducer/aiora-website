@@ -31,8 +31,8 @@ export default function Affiliate() {
       <PageHero
         eyebrow="AIORA Affiliate Program"
         cosmic
-        imageSrc={asset("assets/scenes/hero-full.jpg")}
-        imagePosition="72% center"
+        imageSrc={asset("assets/scenes/sc-affiliate-hero.jpg")}
+        imagePosition="68% center"
         title={<>Real conversations. <span className="text-wine">Real revenue.</span></>}
         body="Partner with AIORA and earn a 50/50 revenue share by introducing businesses to AI agents that actually answer, qualify and book. You bring the relationship. We handle the build, the support and the payouts."
         micro="50/50 revenue share. Done-for-you support. Real partner success."
@@ -124,7 +124,7 @@ export default function Affiliate() {
         eyebrow="More than commissions"
         title="It is more than just a partnership."
         body="When a business you introduce grows because their customers finally get answered, that is a win you share in, month after month. Bigger businesses, happier people, and a revenue stream that grows with them."
-        imageSrc={asset("assets/scenes/hero-full.png")}
+        imageSrc={asset("assets/scenes/sc-partnership.jpg")}
         imageLabel="Partnership"
       />
 
