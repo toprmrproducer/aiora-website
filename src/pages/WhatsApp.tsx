@@ -1,12 +1,14 @@
 import PageWrap from "../components/PageWrap";
 import { PageHero, Steps, CardRow, Split } from "../components/blocks";
 import CTASection from "../components/CTASection";
+import { asset } from "../lib/asset";
 
 export default function WhatsApp() {
   return (
     <PageWrap>
       <PageHero
         eyebrow="WhatsApp AI"
+        imageSrc={asset("assets/scenes/team.png")}
         title={<>Every WhatsApp conversation has <span className="text-wine">context</span>.</>}
         body="Help customers find answers, browse options, book and place requests without making them wait for a person to reply."
         micro="Built around the way your business already works."
@@ -23,8 +25,8 @@ export default function WhatsApp() {
           "Share the catalog and help customers browse and choose.",
           "Book the slot, confirm the order, route the follow-up.",
         ]}
-        imageSrc="/assets/curated/talks-route-memory.webp"
-        imageLabel="Conversation memory"
+        imageSrc={asset("assets/curated/talks-route-memory.webp")}
+        imageLabel="Conversation in motion"
       />
 
       <Steps

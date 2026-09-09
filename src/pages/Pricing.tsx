@@ -2,6 +2,7 @@ import PageWrap from "../components/PageWrap";
 import { PageHero } from "../components/blocks";
 import { Reveal, Section, Button, icons } from "../components/ui";
 import CTASection from "../components/CTASection";
+import { asset } from "../lib/asset";
 
 const lines = [
   { name: "AIORA Sales", tag: "Wins and closes business on WhatsApp", icon: "growth",
@@ -37,6 +38,8 @@ export default function Pricing() {
     <PageWrap>
       <PageHero
         eyebrow="AIORA, six agent lines"
+        videoSrc={asset("assets/video/orb.mp4")}
+        poster={asset("assets/posters/orb.jpg")}
         title={<>Not a chatbot. Agents that <span className="text-wine">act</span> inside your systems.</>}
         body="Each agent captures, understands, decides and acts inside your own systems. Every agent comes with a WhatsApp interface for your team and customers, plus the AIORA Dashboard."
         micro="One flat price per agent. Run one, or run all six."

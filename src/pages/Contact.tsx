@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PageWrap from "../components/PageWrap";
 import { Reveal, icons } from "../components/ui";
-import Orb from "../components/Orb";
+import { asset } from "../lib/asset";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -20,8 +20,9 @@ export default function Contact() {
 
   return (
     <PageWrap>
-      <section className="grain relative min-h-screen overflow-hidden bg-ink pt-32 text-ivory">
-        <div className="absolute -left-40 top-10 hidden h-[520px] w-[520px] opacity-70 md:block"><Orb className="h-full w-full" /></div>
+      <section className="relative min-h-screen overflow-hidden bg-ink pt-32 text-ivory">
+        <img src={asset("assets/scenes/support-human.png")} alt="" aria-hidden className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/55" />
         <div className="site-container relative grid gap-16 pb-28 lg:grid-cols-[1fr_1fr] lg:items-start">
           <div>
             <Reveal><p className="eyebrow text-crimson">Talk to AIORA</p></Reveal>
@@ -86,6 +87,12 @@ export default function Contact() {
                       <option>WhatsApp AI</option>
                       <option>AIORA Vision</option>
                       <option>AIORA OS (the full platform)</option>
+                      <option>AIORA Sales</option>
+                      <option>AIORA Ops</option>
+                      <option>AIORA Talks</option>
+                      <option>AIORA Tracks</option>
+                      <option>AIORA Assists</option>
+                      <option>Pricing / six agent lines</option>
                     </select>
                   </div>
                   <div>

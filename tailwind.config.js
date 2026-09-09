@@ -13,6 +13,7 @@ export default {
       },
       fontFamily: {
         sans: ["Manrope", "system-ui", "sans-serif"],
+        display: ["Outfit", "Manrope", "system-ui", "sans-serif"],
       },
       letterSpacing: {
         label: "0.22em",

@@ -1,5 +1,5 @@
 import { motion, useInView, useScroll, useSpring, animate } from "framer-motion";
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type ReactNode, type RefObject } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { fadeUp, viewport } from "../lib/motion";
 
@@ -29,7 +29,35 @@ type BtnProps = {
   className?: string;
   arrow?: boolean;
 };
+function useMagnetic<T extends HTMLElement>() {
+  const ref = useRef<T>(null);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!fine || reduce) return;
+    const enter = (e: PointerEvent) => {
+      const r = el.getBoundingClientRect();
+      const dx = (e.clientX - (r.left + r.width / 2)) * 0.22;
+      const dy = (e.clientY - (r.top + r.height / 2)) * 0.22;
+      el.style.transform = `translate3d(${dx}px, ${dy}px, 0)`;
+    };
+    const leave = () => {
+      el.style.transform = "translate3d(0,0,0)";
+    };
+    el.addEventListener("pointermove", enter);
+    el.addEventListener("pointerleave", leave);
+    return () => {
+      el.removeEventListener("pointermove", enter);
+      el.removeEventListener("pointerleave", leave);
+    };
+  }, []);
+  return ref;
+}
+
 export function Button({ children, to, href, onClick, variant = "solid", className = "", arrow }: BtnProps) {
+  const mag = useMagnetic<HTMLAnchorElement | HTMLButtonElement>();
   const cls =
     variant === "link" || variant === "linkLight"
       ? `link-arrow ${variant === "linkLight" ? "text-ivory" : "text-ink"} ${className}`
@@ -45,9 +73,9 @@ export function Button({ children, to, href, onClick, variant = "solid", classNa
       {(arrow || variant === "link" || variant === "linkLight") && <Arrow className="arw" />}
     </>
   );
-  if (to) return (<Link to={to} className={cls}>{inner}</Link>);
-  if (href) return (<a href={href} className={cls}>{inner}</a>);
-  return (<button onClick={onClick} className={cls}>{inner}</button>);
+  if (to) return (<Link ref={mag as RefObject<HTMLAnchorElement>} to={to} className={cls}>{inner}</Link>);
+  if (href) return (<a ref={mag as RefObject<HTMLAnchorElement>} href={href} className={cls}>{inner}</a>);
+  return (<button ref={mag as RefObject<HTMLButtonElement>} onClick={onClick} className={cls}>{inner}</button>);
 }
 
 /* ---------- Section ---------- */
@@ -90,23 +118,25 @@ export const icons: Record<string, JSX.Element> = {
 };
 
 /* ---------- Animated Stat ---------- */
-export function Stat({ value, suffix = "", label, light }: { value: number; suffix?: string; label: string; light?: boolean }) {
+export function Stat({
+  value, suffix = "", label, light, display: staticDisplay,
+}: { value?: number; suffix?: string; label: string; light?: boolean; display?: string }) {
   const ref = useRef<HTMLDivElement>(null);
   const inView = useInView(ref, { once: true, margin: "-15%" });
-  const [display, setDisplay] = useState(0);
+  const [shown, setShown] = useState(0);
   useEffect(() => {
-    if (!inView) return;
+    if (!inView || value == null) return;
     const controls = animate(0, value, {
       duration: 1.6, ease: [0.22, 1, 0.36, 1],
-      onUpdate: (v) => setDisplay(v),
+      onUpdate: (v) => setShown(v),
     });
     return () => controls.stop();
   }, [inView, value]);
-  const isFloat = !Number.isInteger(value);
+  const isFloat = value != null && !Number.isInteger(value);
   return (
     <div ref={ref}>
       <div className="display text-[clamp(2.6rem,6vw,4.4rem)]">
-        {isFloat ? display.toFixed(1) : Math.round(display)}
+        {staticDisplay ?? (isFloat ? shown.toFixed(1) : Math.round(shown))}
         <span className="text-wine">{suffix}</span>
       </div>
       <div className={`mt-3 text-sm leading-snug ${light ? "text-graphite-light" : "text-graphite"}`}>{label}</div>

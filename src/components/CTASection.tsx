@@ -1,6 +1,6 @@
-import { motion } from "framer-motion";
 import { Reveal, Button } from "./ui";
-import Orb from "./Orb";
+import { VideoBg } from "./Media";
+import { asset } from "../lib/asset";
 
 export default function CTASection({
   eyebrow = "START WITH ONE WORKFLOW",
@@ -14,13 +14,8 @@ export default function CTASection({
   secondary?: { label: string; to: string };
 }) {
   return (
-    <section className="grain relative overflow-hidden bg-ink py-28 text-ivory md:py-40">
-      <motion.div
-        className="absolute -right-40 top-1/2 hidden h-[560px] w-[560px] -translate-y-1/2 opacity-90 md:block"
-        initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 0.9, scale: 1 }} viewport={{ once: true }} transition={{ duration: 1.2 }}
-      >
-        <Orb className="h-full w-full" />
-      </motion.div>
+    <section className="relative overflow-hidden bg-ink py-28 text-ivory md:py-40">
+      <VideoBg src={asset("assets/video/orb.mp4")} poster={asset("assets/posters/orb.jpg")} overlay="dark" />
       <div className="site-container relative">
         <div className="max-w-2xl">
           <Reveal><p className="eyebrow text-crimson">{eyebrow}</p></Reveal>

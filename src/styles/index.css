@@ -32,11 +32,12 @@ body {
 @layer components {
   .site-container { @apply mx-auto w-full max-w-site px-6 md:px-10; }
 
-  /* Editorial display type — light weight, tight tracking, tight leading */
+  /* Editorial display: Outfit Light, matching the selected comps */
   .display {
+    font-family: Outfit, Manrope, system-ui, sans-serif;
     font-weight: 300;
-    letter-spacing: -0.03em;
-    line-height: 0.98;
+    letter-spacing: -0.038em;
+    line-height: 0.92;
   }
   .display-serif-accent { font-weight: 400; font-style: italic; }
 
@@ -47,8 +48,8 @@ body {
   .lead { @apply text-lg leading-relaxed md:text-xl; font-weight: 400; }
 
   .btn {
-    @apply relative inline-flex items-center justify-center gap-2 rounded-full text-[15px] font-semibold transition-all duration-300;
-    padding: 0.85rem 1.6rem;
+    @apply relative inline-flex items-center justify-center gap-2 rounded-full text-[14px] font-medium transition-all duration-300;
+    padding: 0.78rem 1.45rem;
     will-change: transform;
   }
   .btn-solid { @apply bg-ink text-ivory; }
@@ -82,16 +83,22 @@ body {
   .grain-mask { pointer-events: none; }
 }
 
-/* Film grain overlay */
+/* Film grain overlay: one instance on the shell */
 .grain::after {
   content: "";
   position: fixed;
   inset: 0;
   z-index: 60;
   pointer-events: none;
-  opacity: 0.05;
+  opacity: 0.045;
   mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn, .link-arrow, a.rounded-full {
+    transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
 }
 
 /* thin custom scrollbar */

@@ -3,15 +3,21 @@ import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { navLinks, productLinks } from "../lib/data";
 import { Arrow } from "./ui";
+import { Wordmark } from "./Logo";
 
 export default function Nav() {
   const { scrollY } = useScroll();
   const [scrolled, setScrolled] = useState(false);
+  const [hidden, setHidden] = useState(false);
   const [openProducts, setOpenProducts] = useState(false);
   const [mobile, setMobile] = useState(false);
   const { pathname } = useLocation();
   const onHome = pathname === "/";
-  useMotionValueEvent(scrollY, "change", (v) => setScrolled(v > 40));
+  useMotionValueEvent(scrollY, "change", (v) => {
+    setScrolled(v > 40);
+    const prev = (scrollY.getPrevious() ?? 0);
+    setHidden(v > 80 && v > prev);
+  });
 
   // dark hero only exists at top of Home; elsewhere start solid
   const solid = scrolled || !onHome;
@@ -21,16 +27,14 @@ export default function Nav() {
     <>
       <motion.header
         initial={{ y: -24, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+        animate={{ y: hidden && !mobile ? -88 : 0, opacity: 1 }}
+        transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed inset-x-0 top-0 z-50 transition-[background,box-shadow,backdrop-filter] duration-500 ${
           solid ? "bg-ivory/85 shadow-[0_1px_0_rgba(12,12,13,0.08)] backdrop-blur-xl" : "bg-transparent"
         }`}
       >
         <nav className="site-container flex h-[72px] items-center justify-between">
-          <Link to="/" className={`text-[19px] font-semibold uppercase tracking-[0.34em] ${textCls}`}>
-            AIORA
-          </Link>
+          <Wordmark invert={!solid} />
 
           <ul className={`hidden items-center gap-9 lg:flex ${textCls}`}>
             {navLinks.map((l) => (
@@ -85,8 +89,10 @@ export default function Nav() {
           <div className="flex items-center gap-3">
             <Link
               to="/contact"
-              className={`hidden rounded-full px-5 py-2.5 text-[14px] font-semibold transition-all duration-300 md:inline-flex ${
-                solid ? "bg-ink text-ivory hover:bg-wine" : "bg-ivory text-ink hover:bg-white"
+              className={`hidden rounded-full px-5 py-2.5 text-[13px] font-medium transition-all duration-300 md:inline-flex ${
+                solid
+                  ? "bg-ink text-ivory hover:bg-wine"
+                  : "border border-ivory/45 text-ivory hover:border-ivory hover:bg-ivory/10"
               }`}
             >
               Book a call
@@ -106,7 +112,7 @@ export default function Nav() {
             className="fixed inset-0 z-[60] bg-ink text-ivory lg:hidden"
           >
             <div className="site-container flex h-[72px] items-center justify-between">
-              <span className="text-[19px] font-semibold uppercase tracking-[0.34em]">AIORA</span>
+              <Wordmark invert />
               <button onClick={() => setMobile(false)} aria-label="Close">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
               </button>
@@ -116,7 +122,7 @@ export default function Nav() {
               variants={{ show: { transition: { staggerChildren: 0.06, delayChildren: 0.1 } } }}
               className="site-container mt-6 flex flex-col gap-1"
             >
-              {productLinks.map((c) => (
+              {[...productLinks, { label: "Pricing", to: "/pricing", desc: "" }, { label: "Contact", to: "/contact", desc: "" }].map((c) => (
                 <motion.li key={c.to} variants={{ hidden: { opacity: 0, y: 20 }, show: { opacity: 1, y: 0 } }}>
                   <Link to={c.to} onClick={() => setMobile(false)} className="block border-b border-ivory/10 py-5 text-3xl font-light tracking-tightest">
                     {c.label}

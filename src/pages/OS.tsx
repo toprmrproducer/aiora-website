@@ -1,18 +1,34 @@
 import PageWrap from "../components/PageWrap";
-import { PageHero, CardRow, Steps } from "../components/blocks";
+import { PageHero, CardRow, Steps, Split } from "../components/blocks";
 import CTASection from "../components/CTASection";
+import { asset } from "../lib/asset";
 
 export default function OS() {
   return (
     <PageWrap>
       <PageHero
         eyebrow="AIORA OS"
-        imageSrc="/assets/scenes/07-aiora-os-orchestration-landscape.png"
+        videoSrc={asset("assets/video/orbit-structure.mp4")}
+        poster={asset("assets/posters/orbit-structure.jpg")}
+        imageSrc={asset("assets/scenes/07-aiora-os-orchestration-landscape.png")}
         title={<>Your customers get an answer. Your business <span className="text-wine">keeps moving</span>.</>}
         body="AIORA brings voice, WhatsApp, orders and customer follow-up into one operating layer, so every enquiry has somewhere to go."
         micro="Built around the way your business already works."
         primary={{ label: "See AIORA in action", to: "/contact" }}
         secondary={{ label: "Book a call", to: "/contact" }}
+      />
+
+      <Split
+        eyebrow="The operating layer"
+        title="One system your team can actually run."
+        body="Bring voice, WhatsApp, orders and follow-up into one place so every enquiry has somewhere to go. The object on the right is the idea: one core, many orbits."
+        videoSrc={asset("assets/video/spin-form.mp4")}
+        poster={asset("assets/posters/spin-form.jpg")}
+        points={[
+          "One place to review conversations, requests and customer activity.",
+          "Configured around the channels and rules you already use.",
+          "Expand only after the first workflow is working.",
+        ]}
       />
 
       <CardRow

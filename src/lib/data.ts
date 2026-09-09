@@ -31,6 +31,7 @@ export const offerings = [
     body: "Handle common calls, capture intent and move customers toward the right next action.",
     to: "/voice",
     art: "voice",
+    image: "assets/scenes/voice-human.png",
   },
   {
     tag: "WHATSAPP AI",
@@ -38,6 +39,7 @@ export const offerings = [
     body: "Help customers find answers, browse options, book and place requests without waiting for a person.",
     to: "/whatsapp",
     art: "whatsapp",
+    image: "assets/scenes/team.png",
   },
   {
     tag: "AIORA VISION",
@@ -45,6 +47,7 @@ export const offerings = [
     body: "Turn camera activity into reviewable alerts, so your team focuses on the moments that matter.",
     to: "/vision",
     art: "vision",
+    image: "assets/scenes/forest-portal.png",
   },
   {
     tag: "AIORA OS",
@@ -52,7 +55,19 @@ export const offerings = [
     body: "Bring voice, WhatsApp, orders and follow-up into one place, so every enquiry has somewhere to go.",
     to: "/os",
     art: "os",
+    image: "assets/scenes/07-aiora-os-orchestration-landscape.png",
   },
+];
+
+export const stills = [
+  { src: "assets/scenes/01-home-hero-eclipse.png", label: "Threshold" },
+  { src: "assets/scenes/voice-human.png", label: "Voice" },
+  { src: "assets/scenes/forest-portal.png", label: "Vision" },
+  { src: "assets/scenes/dunes.png", label: "Operations" },
+  { src: "assets/scenes/04-future-of-work-human-data-horizon.png", label: "Horizon" },
+  { src: "assets/scenes/08-final-cta-cosmic-threshold.png", label: "Next step" },
+  { src: "assets/scenes/05-aiora-talks-acoustic-portrait.png", label: "Talks" },
+  { src: "assets/scenes/06-aiora-vision-human-review-abstract.png", label: "Review" },
 ];
 
 export const gapStats = [
@@ -61,10 +76,17 @@ export const gapStats = [
   { big: "Real value", small: "requires a unified strategy, platform and partner" },
 ];
 
-export const resultStats = [
+export const resultStats: { value?: number; suffix?: string; display?: string; label: string }[] = [
   { value: 3.5, suffix: "x", label: "average productivity gain" },
   { value: 60, suffix: "%", label: "faster time to insight" },
-  { value: 24, suffix: "h", label: "from first meeting to live" },
+  { display: "Higher", label: "revenue, happier customers and leaner operations" },
+];
+
+export const gapFails = [
+  "Stuck in pilots",
+  "Lack of clear ROI",
+  "Fragmented tools",
+  "No execution support",
 ];
 
 export const whyCards = [
@@ -80,18 +102,21 @@ export const caseStudies = [
     kind: "AI Voice",
     result: "Inbound calls answered with business context and routed to the right next step.",
     status: "Deployed",
+    image: "assets/scenes/05-aiora-talks-acoustic-portrait.png",
   },
   {
     name: "KV Toys",
     kind: "Workflow automation",
-    result: "Workflow streamlined — 30% error reduction and a 13% revenue lift reported.",
+    result: "Workflow streamlined. 30% error reduction and a 13% revenue lift reported.",
     status: "Deployed",
+    image: "assets/scenes/03-real-business-operations-panorama.png",
   },
   {
     name: "Anytime Fitness",
     kind: "Voice + Vision",
     result: "Voice agent for member enquiries with AIORA Vision on the floor.",
     status: "In build",
+    image: "assets/scenes/06-aiora-vision-human-review-abstract.png",
   },
 ];
 

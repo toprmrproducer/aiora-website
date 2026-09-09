@@ -1,18 +1,27 @@
 import PageWrap from "../components/PageWrap";
-import { PageHero, Steps, CardRow, ResponsibleNote, FAQ } from "../components/blocks";
+import { PageHero, Steps, CardRow, ResponsibleNote, FAQ, Split } from "../components/blocks";
 import CTASection from "../components/CTASection";
+import { asset } from "../lib/asset";
 
 export default function Vision() {
   return (
     <PageWrap>
       <PageHero
         eyebrow="AIORA Vision"
-        imageSrc="/assets/scenes/06-aiora-vision-human-review-abstract.png"
+        imageSrc={asset("assets/scenes/forest-portal.png")}
         title={<>Do not wait for an incident to <span className="text-wine">start paying attention</span>.</>}
         body="AIORA Vision turns camera activity into reviewable alerts, so your team can focus on the moments that may need attention instead of watching hours of footage."
         micro="Detection and alert availability depend on approved camera setup and configured use cases."
         primary={{ label: "See a detection workflow", to: "/contact" }}
         secondary={{ label: "Assess my site", to: "/contact" }}
+      />
+
+      <Split
+        eyebrow="See the moment, then review it"
+        title="Your team should know where to look."
+        body="AIORA Vision turns camera activity into reviewable alerts, so people spend time on the footage that may need attention instead of watching hours of empty screens."
+        imageSrc={asset("assets/scenes/canyon-portal.png")}
+        imageLabel="Site review"
       />
 
       <CardRow

@@ -1,13 +1,14 @@
 import PageWrap from "../components/PageWrap";
 import { PageHero, Steps, CardRow, Split, FAQ } from "../components/blocks";
 import CTASection from "../components/CTASection";
+import { asset } from "../lib/asset";
 
 export default function Voice() {
   return (
     <PageWrap>
       <PageHero
         eyebrow="AIORA Voice"
-        imageSrc="/assets/scenes/05-aiora-talks-acoustic-portrait.png"
+        imageSrc={asset("assets/scenes/voice-human.png")}
         title={<>Your phone should create <span className="text-wine">momentum</span>, not missed opportunities.</>}
         body="AIORA Voice helps your business handle inbound calls, understand why the customer called and move them toward a booking, order or qualified handoff."
         micro="Configured around your hours, services and escalation rules."
@@ -19,8 +20,10 @@ export default function Voice() {
         eyebrow="The real cost"
         title="A missed call is rarely just a missed call."
         body="It can be the appointment that never gets booked, the order that goes elsewhere or the customer who never calls back. When your team is serving people, driving or simply overloaded, the phone cannot be the weak point."
-        imageSrc="/assets/curated/talks-route-hero.webp"
-        imageLabel="Voice route"
+        videoSrc={asset("assets/video/wave.mp4")}
+        poster={asset("assets/posters/wave.jpg")}
+        imageSrc={asset("assets/scenes/voice-human.png")}
+        imageLabel="Voice portrait"
       />
 
       <Steps
@@ -55,7 +58,7 @@ export default function Voice() {
           "Follow the booking or order process you already use.",
           "Set a clear fallback and human escalation route.",
         ]}
-        imageSrc="/assets/curated/talks-route-handoff.webp"
+        imageSrc={asset("assets/curated/talks-route-handoff.webp")}
         imageLabel="Human handoff"
       />
 

@@ -1,25 +1,30 @@
 import type { ReactNode } from "react";
 import { Reveal, Button, Section, ImageSlot, icons } from "./ui";
 import Orb from "./Orb";
+import { VideoBg, VideoFrame } from "./Media";
 
 export function PageHero({
-  eyebrow, title, body, micro, primary, secondary, imageSrc,
+  eyebrow, title, body, micro, primary, secondary, imageSrc, videoSrc, poster,
 }: {
-  eyebrow: string; title: ReactNode; body: string; micro?: string; imageSrc?: string;
+  eyebrow: string; title: ReactNode; body: string; micro?: string; imageSrc?: string; videoSrc?: string; poster?: string;
   primary: { label: string; to: string }; secondary?: { label: string; to: string };
 }) {
   return (
-    <section className="grain relative flex min-h-[80svh] items-center overflow-hidden bg-ink text-ivory">
+    <section className="relative flex min-h-[80svh] items-center overflow-hidden bg-ink text-ivory">
       <div className="absolute inset-0">
-        {imageSrc ? (
-          <img src={imageSrc} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" />
+        {videoSrc ? (
+          <VideoBg src={videoSrc} poster={poster || imageSrc} overlay="dark" />
+        ) : imageSrc ? (
+          <>
+            <img src={imageSrc} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/25" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/60" />
+          </>
         ) : (
           <div className="absolute inset-0 bg-radial-crimson opacity-40" />
         )}
-        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/30" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/60" />
       </div>
-      {!imageSrc && (
+      {!imageSrc && !videoSrc && (
         <div className="absolute right-[5%] top-1/2 hidden h-[340px] w-[340px] -translate-y-1/2 md:block lg:h-[460px] lg:w-[460px]">
           <Orb className="h-full w-full" />
         </div>
@@ -92,13 +97,14 @@ export function CardRow({ eyebrow, title, cards, tone = "light2", cols = 4 }: {
   );
 }
 
-export function Split({ eyebrow, title, body, points, imageSrc, imageLabel, reverse, tone = "light" }: {
+export function Split({ eyebrow, title, body, points, imageSrc, imageLabel, reverse, tone = "light", videoSrc, poster }: {
   eyebrow: string; title: string; body: string; points?: string[];
   imageSrc?: string; imageLabel?: string; reverse?: boolean; tone?: "light" | "light2";
+  videoSrc?: string; poster?: string;
 }) {
   return (
     <Section tone={tone} pad="xl">
-      <div className={`grid items-center gap-14 lg:grid-cols-2 ${reverse ? "" : ""}`}>
+      <div className="grid items-center gap-14 lg:grid-cols-2">
         <Reveal className={reverse ? "lg:order-2" : ""}>
           <p className="eyebrow text-crimson">{eyebrow}</p>
           <h2 className="display mt-6 text-[clamp(2.2rem,5vw,3.6rem)]">{title}</h2>
@@ -115,7 +121,11 @@ export function Split({ eyebrow, title, body, points, imageSrc, imageLabel, reve
           )}
         </Reveal>
         <Reveal delay={0.08} className={reverse ? "lg:order-1" : ""}>
-          <ImageSlot src={imageSrc} alt={title} label={imageLabel ?? "Product visual"} className="aspect-[4/3] w-full rounded-2xl" />
+          {videoSrc ? (
+            <VideoFrame src={videoSrc} poster={poster || imageSrc} className="aspect-[4/3] w-full rounded-2xl" />
+          ) : (
+            <ImageSlot src={imageSrc} alt={title} label={imageLabel ?? "Product visual"} className="aspect-[4/3] w-full rounded-2xl" />
+          )}
         </Reveal>
       </div>
     </Section>
