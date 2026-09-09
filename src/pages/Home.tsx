@@ -15,25 +15,30 @@ export default function Home() {
     <PageWrap>
       <section className="relative z-10 flex h-svh min-h-[720px] items-center overflow-hidden text-ivory">
         <img
-          src={asset("assets/scenes/hero-full.jpg")}
+          src={asset("assets/scenes/hero-full.png")}
           alt=""
           className="absolute inset-0 h-full w-full object-cover"
-          style={{ objectPosition: "68% center" }}
+          style={{ objectPosition: "72% center" }}
         />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ivory via-ivory/70 to-transparent md:via-ivory/40" />
 
         <div className="site-container relative z-10 w-full pb-16 pt-28">
           <div className="max-w-[38rem]">
             <motion.p
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.12 }}
-              className="eyebrow max-w-[22ch] text-ivory/75"
+              className="eyebrow max-w-[22ch] font-bold text-ink/55"
             >
               Artificial intelligence for<br />real business
             </motion.p>
 
-            <h1 aria-label="From potential to performance." className="display mt-8 text-[clamp(3.4rem,7.6vw,6.4rem)] text-ivory">
-              {["From", "potential", "to performance."].map((line, i) => (
+            <h1 aria-label="From potential to performance." className="display mt-8 text-[clamp(3.4rem,7.6vw,6.4rem)] font-semibold text-ink">
+              {[
+                <>From</>,
+                <>potential</>,
+                <>to <span className="text-wine">performance.</span></>,
+              ].map((line, i) => (
                 <motion.span
-                  key={line}
+                  key={i}
                   className="block"
                   initial={{ opacity: 0, y: 36 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -46,7 +51,7 @@ export default function Home() {
 
             <motion.p
               initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.62 }}
-              className="mt-8 max-w-[34ch] text-[16px] leading-relaxed text-ivory/78 md:text-[17px]"
+              className="mt-8 max-w-[34ch] text-[16px] font-medium leading-relaxed text-ink/75 md:text-[17px]"
             >
               AIORA builds the AI operating system for modern companies. We help you turn ambitious ideas into
               measurable outcomes across your business.
@@ -56,8 +61,8 @@ export default function Home() {
               initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.78 }}
               className="mt-10 flex flex-wrap items-center gap-3"
             >
-              <Button to="/contact" variant="solidLight">Book a call</Button>
-              <Button to="/os" variant="outlineLight">Explore our products</Button>
+              <Button to="/contact" variant="solid">Book a call</Button>
+              <Button to="/os" variant="outline">Explore our products</Button>
             </motion.div>
           </div>
         </div>

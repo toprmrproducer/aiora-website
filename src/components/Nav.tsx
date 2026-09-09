@@ -25,7 +25,9 @@ export default function Nav() {
   }, []);
 
   const activeMega = navLinks.find((l) => l.label === open);
-  const light = pastHero;
+  // Home hero is light-dominant, so the nav must read dark there from the top; dark-hero pages start light-on-dark.
+  const onHome = pathname === "/";
+  const light = onHome || pastHero;
   const ink = light ? "text-ink" : "text-ivory";
 
   return (
@@ -45,7 +47,7 @@ export default function Nav() {
                       <Link
                         to={l.to}
                         onMouseEnter={() => setOpen(null)}
-                        className={`rounded-lg px-3.5 py-2 text-[13px] font-medium tracking-wide opacity-80 transition-opacity hover:opacity-100 ${isOn ? "opacity-100 underline decoration-current decoration-1 underline-offset-[10px]" : ""}`}
+                        className={`rounded-lg px-3.5 py-2 text-[14px] font-semibold tracking-wide opacity-90 transition-opacity hover:opacity-100 ${isOn ? "opacity-100 underline decoration-current decoration-1 underline-offset-[10px]" : ""}`}
                       >
                         {l.label.toUpperCase()}
                       </Link>
@@ -53,7 +55,7 @@ export default function Nav() {
                       <button
                         onMouseEnter={() => setOpen(l.label)}
                         onClick={() => setOpen(isOpen ? null : l.label)}
-                        className={`rounded-lg px-3.5 py-2 text-[13px] font-medium tracking-wide opacity-80 transition-opacity hover:opacity-100 ${isOpen || isOn ? "opacity-100 underline decoration-current decoration-1 underline-offset-[10px]" : ""}`}
+                        className={`rounded-lg px-3.5 py-2 text-[14px] font-semibold tracking-wide opacity-90 transition-opacity hover:opacity-100 ${isOpen || isOn ? "opacity-100 underline decoration-current decoration-1 underline-offset-[10px]" : ""}`}
                       >
                         {l.label.toUpperCase()}
                       </button>
@@ -66,7 +68,7 @@ export default function Nav() {
             <div className="ml-auto flex items-center gap-2">
               <Link
                 to="/contact"
-                className={`hidden rounded-full border px-5 py-2 text-[13px] font-medium transition-colors md:inline-flex ${
+                className={`hidden rounded-full border px-5 py-2 text-[14px] font-semibold transition-colors md:inline-flex ${
                   light ? "border-ink/25 text-ink hover:bg-ink hover:text-ivory" : "border-ivory/40 text-ivory hover:bg-ivory hover:text-ink"
                 }`}
               >
