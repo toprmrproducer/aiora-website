@@ -1,6 +1,8 @@
 import PageWrap from "../components/PageWrap";
-import { PageHero, Steps, CardRow, Split } from "../components/blocks";
+import { PageHero, Steps, CardRow } from "../components/blocks";
+import { Reveal, Section, icons } from "../components/ui";
 import CTASection from "../components/CTASection";
+import { WhatsAppThreadMock } from "../components/ProductMock";
 import { asset } from "../lib/asset";
 
 export default function WhatsApp() {
@@ -18,18 +20,27 @@ export default function WhatsApp() {
         secondary={{ label: "Explore the platform", to: "/os" }}
       />
 
-      <Split
-        eyebrow="The channel your customers already use"
-        title="Meet customers where the conversation already happens."
-        body="AIORA brings your business context into WhatsApp, so enquiries, catalog questions, bookings and orders move forward instead of sitting unread."
-        points={[
-          "Answer common questions with real business context.",
-          "Share the catalog and help customers browse and choose.",
-          "Book the slot, confirm the order, route the follow-up.",
-        ]}
-        imageSrc={asset("assets/curated/talks-route-memory.webp")}
-        imageLabel="Conversation in motion"
-      />
+      <Section tone="light" pad="xl">
+        <div className="grid items-center gap-14 lg:grid-cols-2">
+          <Reveal>
+            <p className="eyebrow text-crimson">The channel your customers already use</p>
+            <h2 className="display mt-6 text-[clamp(2.2rem,5vw,3.6rem)]">Meet customers where the conversation already happens.</h2>
+            <p className="lead mt-7 max-w-prose2 text-graphite">
+              AIORA brings your business context into WhatsApp, so enquiries, catalog questions, bookings and orders move forward instead of sitting unread.
+            </p>
+            <ul className="mt-8 space-y-3">
+              {[
+                "Answer common questions with real business context.",
+                "Share the catalog and help customers browse and choose.",
+                "Book the slot, confirm the order, route the follow-up.",
+              ].map((p) => (
+                <li key={p} className="flex items-start gap-3 text-graphite"><span className="mt-1 text-wine">{icons.check}</span>{p}</li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal delay={0.1}><WhatsAppThreadMock /></Reveal>
+        </div>
+      </Section>
 
       <Steps
         eyebrow="How it works"

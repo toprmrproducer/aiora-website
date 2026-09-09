@@ -149,6 +149,15 @@ export const testimonialsA = [
   { quote: "It sounds like our business, only more consistent, at every hour.", who: "Founder", org: "D2C brand", photo: "assets/people/p5.jpg" },
 ];
 
+// Praise wall (role-based, illustrative until named clients approve attribution).
+export const praise = [
+  { quote: "Our phone stopped being the weak point. Every caller now has somewhere to go.", who: "Owner", org: "Multi-location service business", photo: "assets/people/p6.jpg" },
+  { quote: "It sounds like our business, only more consistent, at every hour of the day.", who: "Founder", org: "D2C brand", photo: "assets/people/p5.jpg" },
+  { quote: "We started with one agent, saw the return, then added three more.", who: "Director", org: "Multi-location retailer", photo: "assets/people/p2.jpg" },
+  { quote: "Comments and DMs used to sit for hours. Now every one gets a reply and a next step.", who: "Marketing Lead", org: "Beauty brand", photo: "assets/people/p3.jpg" },
+  { quote: "The team finally spends time on the customers in front of them, not the phone.", who: "Operations Lead", org: "Hospitality group", photo: "assets/people/p8.jpg" },
+];
+
 export const testimonialFeatured = {
   quote: "We stopped losing customers to a busy line. AIORA answers, captures intent and books the next step, so the team can actually serve the people in front of them.",
   who: "Operations Director",

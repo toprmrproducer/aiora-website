@@ -1,6 +1,8 @@
 import PageWrap from "../components/PageWrap";
-import { PageHero, Steps, CardRow, ResponsibleNote, FAQ, Split } from "../components/blocks";
+import { PageHero, Steps, CardRow, ResponsibleNote, FAQ } from "../components/blocks";
+import { Reveal, Section } from "../components/ui";
 import CTASection from "../components/CTASection";
+import { VisionAlertMock } from "../components/ProductMock";
 import { asset } from "../lib/asset";
 
 export default function Vision() {
@@ -18,13 +20,18 @@ export default function Vision() {
         secondary={{ label: "Assess my site", to: "/contact" }}
       />
 
-      <Split
-        eyebrow="See the moment, then review it"
-        title="Your team should know where to look."
-        body="AIORA Vision turns camera activity into reviewable alerts, so people spend time on the footage that may need attention instead of watching hours of empty screens."
-        imageSrc={asset("assets/curated/vision-route-review.webp")}
-        imageLabel="Site review"
-      />
+      <Section tone="light" pad="xl">
+        <div className="grid items-center gap-14 lg:grid-cols-2">
+          <Reveal>
+            <p className="eyebrow text-crimson">See the moment, then review it</p>
+            <h2 className="display mt-6 text-[clamp(2.2rem,5vw,3.6rem)]">Your team should know where to look.</h2>
+            <p className="lead mt-7 max-w-prose2 text-graphite">
+              AIORA Vision turns camera activity into reviewable alerts, so people spend time on the footage that may need attention instead of watching hours of empty screens.
+            </p>
+          </Reveal>
+          <Reveal delay={0.1}><VisionAlertMock /></Reveal>
+        </div>
+      </Section>
 
       <CardRow
         eyebrow="When something looks wrong"

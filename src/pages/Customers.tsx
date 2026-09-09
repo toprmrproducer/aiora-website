@@ -2,7 +2,8 @@ import PageWrap from "../components/PageWrap";
 import { PageHero } from "../components/blocks";
 import { Reveal, Section, Button } from "../components/ui";
 import CTASection from "../components/CTASection";
-import { caseStudies, testimonialsA, deployments } from "../lib/data";
+import { TestimonialMarquee } from "../components/Testimonials";
+import { caseStudies, testimonialsA, deployments, praise } from "../lib/data";
 import { asset } from "../lib/asset";
 
 // Honest "trusted" strip: real AIORA deployments and pilots, by sector.
@@ -50,6 +51,8 @@ export default function Customers() {
           </Reveal>
         </div>
       </Section>
+
+      <TestimonialMarquee items={praise} eyebrow="What teams say" title="Teams that stopped losing the moments that matter." />
 
       {/* Proof, by delivery status */}
       <Section tone="light" pad="lg">

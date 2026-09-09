@@ -5,6 +5,7 @@ import { Reveal, Button, Section, Stat, icons, Arrow } from "../components/ui";
 import { VideoBg, VideoFrame } from "../components/Media";
 import CTASection from "../components/CTASection";
 import CosmicScene from "../components/CosmicScene";
+import Typewriter from "../components/Typewriter";
 import {
   offerings, gapStats, resultStats, whyCards,
   caseStudies, testimonialsA, testimonialFeatured, gapFails,
@@ -16,24 +17,25 @@ export default function Home() {
     <PageWrap>
       <section className="relative z-10 flex h-svh min-h-[720px] items-center overflow-hidden bg-ivory text-ivory">
         <CosmicScene src={asset("assets/scenes/hero-full.jpg")} objectPosition="center center" />
-        <div className="pointer-events-none absolute inset-0 z-[8] bg-gradient-to-r from-ivory/95 via-ivory/50 to-transparent md:via-ivory/40 lg:via-ivory/30" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[8] h-32 bg-gradient-to-t from-ivory/80 to-transparent" />
+        {/* Left readability wash only — right side stays fully clear over the subject */}
+        <div className="pointer-events-none absolute inset-0 z-[8]" style={{ background: "linear-gradient(90deg, var(--ivory) 0%, rgba(244,241,234,0.82) 24%, rgba(244,241,234,0.35) 42%, rgba(244,241,234,0) 56%)" }} />
 
         <div className="site-container relative z-10 w-full pb-16 pt-28">
-          <div className="max-w-[38rem]">
-            <motion.p
+          <div className="max-w-[40rem]">
+            <motion.div
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.12 }}
-              className="eyebrow max-w-[22ch] font-bold text-ink/55"
+              className="flex items-center gap-3"
             >
-              Artificial intelligence for<br />real business
-            </motion.p>
+              <span className="flex gap-0.5 text-wine" aria-hidden>
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg key={i} width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.2 6.8.8-5 4.6 1.3 6.7L12 17.9 5.9 20.3 7.2 13.6 2.2 9l6.8-.8z" /></svg>
+                ))}
+              </span>
+              <span className="eyebrow font-bold text-ink/60">Five-star rated by the businesses we build for</span>
+            </motion.div>
 
-            <h1 aria-label="From potential to performance." className="display mt-8 text-[clamp(3.4rem,7.6vw,6.4rem)] font-semibold text-ink">
-              {[
-                <>From</>,
-                <>potential</>,
-                <>to <span className="text-wine">performance.</span></>,
-              ].map((line, i) => (
+            <h1 aria-label="AI that gets results, confidently." className="display-tech mt-7 text-[clamp(3rem,7vw,5.9rem)] text-ink">
+              {["AI that gets", "results"].map((line, i) => (
                 <motion.span
                   key={i}
                   className="block"
@@ -44,15 +46,15 @@ export default function Home() {
                   {line}
                 </motion.span>
               ))}
+              <motion.span
+                className="block text-wine font-tech-mono"
+                initial={{ opacity: 0, y: 36 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.42 }}
+              >
+                <Typewriter words={["Confidently.", "Reliably.", "Measurably."]} />
+              </motion.span>
             </h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.62 }}
-              className="mt-8 max-w-[34ch] text-[16px] font-medium leading-relaxed text-ink/75 md:text-[17px]"
-            >
-              AIORA builds the AI operating system for modern companies. We help you turn ambitious ideas into
-              measurable outcomes across your business.
-            </motion.p>
 
             <motion.div
               initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.78 }}
@@ -104,8 +106,12 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="relative min-h-[70vh] lg:min-h-full">
-            <img src={asset("assets/scenes/02-implementation-gap-forest-portal.png")} alt="A figure before a towering lit portal" className="absolute inset-0 h-full w-full object-cover" />
+          <div className="flex items-center justify-center px-6 py-10 md:px-10 lg:py-16">
+            <Reveal className="w-full">
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-[460px] overflow-hidden rounded-3xl shadow-[0_50px_120px_-50px_rgba(12,12,13,0.6)]">
+                <img src={asset("assets/scenes/02-implementation-gap-forest-portal.png")} alt="A figure before a towering lit portal" className="absolute inset-0 h-full w-full object-cover" />
+              </div>
+            </Reveal>
           </div>
         </div>
       </section>
@@ -218,13 +224,17 @@ export default function Home() {
             </p>
           </Reveal>
         </div>
-        <div className="mt-20 grid gap-12 sm:grid-cols-3 sm:gap-0">
+        <div className="mt-16 grid gap-6 sm:grid-cols-3">
           {whyCards.map((c, i) => (
-            <Reveal key={c.title} delay={0.05 * i}>
-              <div className={`text-center ${i === 0 ? "" : "sm:border-l sm:border-ink/12"} sm:px-10`}>
-                <span className="inline-flex justify-center text-ink/70">{icons[c.icon]}</span>
-                <h3 className="mt-7 text-[18px] font-semibold tracking-tight">{c.title}</h3>
-                <p className="mx-auto mt-3 max-w-[28ch] text-[14px] leading-relaxed text-graphite">{c.body}</p>
+            <Reveal key={c.title} delay={0.06 * i}>
+              <div className="card-lift group relative h-full overflow-hidden rounded-3xl border border-ink/10 bg-ivory p-9 hover:border-wine/30 hover:shadow-[0_40px_90px_-50px_rgba(124,37,48,0.45)]">
+                <div className="pointer-events-none absolute -right-16 -top-16 h-40 w-40 rounded-full bg-radial-crimson opacity-0 transition-opacity duration-500 group-hover:opacity-60" />
+                <div className="relative flex items-center justify-between">
+                  <span className="grid h-14 w-14 place-items-center rounded-2xl bg-wine/8 text-wine transition-colors duration-500 group-hover:bg-wine group-hover:text-ivory">{icons[c.icon]}</span>
+                  <span className="font-tech-mono text-sm text-ink/25">0{i + 1}</span>
+                </div>
+                <h3 className="relative mt-8 text-[22px] font-semibold tracking-tight">{c.title}</h3>
+                <p className="relative mt-3 text-[15px] leading-relaxed text-graphite">{c.body}</p>
               </div>
             </Reveal>
           ))}
@@ -265,17 +275,20 @@ export default function Home() {
         <div className="mt-16 grid gap-6 md:grid-cols-2">
           {testimonialsA.map((t, i) => (
             <Reveal key={t.who} delay={0.05 * i}>
-              <figure className="flex h-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-ivory-2/40 md:flex-row">
-                <div className="relative aspect-[4/5] w-full shrink-0 md:aspect-auto md:w-[42%]">
-                  <img src={asset(t.photo)} alt="" className="absolute inset-0 h-full w-full object-cover object-top" />
-                </div>
-                <div className="flex flex-1 flex-col justify-between p-7 md:p-8">
-                  <blockquote className="text-[17px] leading-relaxed text-ink">{t.quote}</blockquote>
-                  <figcaption className="mt-8">
-                    <div className="font-semibold text-ink">{t.who}</div>
-                    <div className="mt-1 text-sm text-graphite">{t.org}</div>
-                  </figcaption>
-                </div>
+              <figure className="card-lift flex h-full flex-col rounded-3xl border border-ink/10 bg-ivory p-8 hover:border-ink/25 hover:shadow-[0_30px_70px_-40px_rgba(12,12,13,0.4)] md:p-10">
+                <span className="flex gap-0.5 text-wine" aria-hidden>
+                  {Array.from({ length: 5 }).map((_, s) => (
+                    <svg key={s} width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.2 6.8.8-5 4.6 1.3 6.7L12 17.9 5.9 20.3 7.2 13.6 2.2 9l6.8-.8z" /></svg>
+                  ))}
+                </span>
+                <blockquote className="mt-6 flex-1 text-[19px] leading-relaxed text-ink md:text-[21px]">&ldquo;{t.quote}&rdquo;</blockquote>
+                <figcaption className="mt-8 flex items-center gap-4 border-t border-ink/10 pt-6">
+                  <img src={asset(t.photo)} alt="" className="h-12 w-12 rounded-full object-cover object-top" />
+                  <span>
+                    <span className="block font-semibold text-ink">{t.who}</span>
+                    <span className="mt-0.5 block text-sm text-graphite">{t.org}</span>
+                  </span>
+                </figcaption>
               </figure>
             </Reveal>
           ))}
