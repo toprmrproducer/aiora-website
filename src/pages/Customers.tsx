@@ -22,8 +22,8 @@ export default function Customers() {
       <PageHero
         eyebrow="Customers"
         cosmic
-        imageSrc={asset("assets/scenes/05-aiora-talks-acoustic-portrait.png")}
-        imagePosition="70% 35%"
+        imageSrc={asset("assets/scenes/customers-team.jpg")}
+        imagePosition="center 32%"
         title={<>Real businesses. <span className="text-wine">Real progress.</span></>}
         body="See how AIORA helps customer-facing businesses answer every enquiry and move it forward."
         primary={{ label: "Book a call", to: "/contact" }}

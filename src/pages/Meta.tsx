@@ -17,8 +17,8 @@ export default function Meta() {
       <PageHero
         eyebrow="Meta, Facebook and Instagram"
         cosmic
-        imageSrc={asset("assets/scenes/hero-full.jpg")}
-        imagePosition="72% 38%"
+        imageSrc={asset("assets/scenes/meta-portrait.jpg")}
+        imagePosition="75% center"
         title={<>Meet customers where they <span className="text-wine">already scroll</span>.</>}
         body="AIORA handles your Facebook and Instagram conversations with the same business context, so comments and messages turn into booked, answered and fulfilled requests."
         micro="Meta · Facebook · Instagram"

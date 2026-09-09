@@ -39,8 +39,8 @@ export default function Pricing() {
       <PageHero
         eyebrow="AIORA, six agent lines"
         cosmic
-        imageSrc={asset("assets/scenes/hero-full.jpg")}
-        imagePosition="74% 40%"
+        imageSrc={asset("assets/scenes/pricing-rings-wide.jpg")}
+        imagePosition="60% center"
         title={<>Not a chatbot. Agents that <span className="text-wine">act</span> inside your systems.</>}
         body="Each agent captures, understands, decides and acts inside your own systems. Every agent comes with a WhatsApp interface for your team and customers, plus the AIORA Dashboard."
         micro="One flat price per agent. Run one, or run all six."
