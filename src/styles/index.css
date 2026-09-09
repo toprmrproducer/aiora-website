@@ -135,6 +135,16 @@ body {
 @keyframes testi-slide { from { transform: translateX(0); } to { transform: translateX(calc(-50% - 0.625rem)); } }
 @media (prefers-reduced-motion: reduce) { .animate-testi-slide { animation: none; } }
 
+/* hero layer idle float — drives translateY off a per-layer --amp */
+@keyframes hl-float {
+  0%, 100% { transform: translateY(0); }
+  25% { transform: translateY(calc(var(--amp, 10px) * -1)); }
+  75% { transform: translateY(calc(var(--amp, 10px) * 0.6)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  [style*="hl-float"] { animation: none !important; }
+}
+
 /* thin custom scrollbar */
 ::-webkit-scrollbar { width: 10px; }
 ::-webkit-scrollbar-track { background: #e7e1d6; }
