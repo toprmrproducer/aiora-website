@@ -117,7 +117,7 @@ export default function Home() {
       </section>
 
       <section className="relative overflow-hidden bg-ink py-32 text-ivory md:py-44">
-        <img src={asset("assets/scenes/03-real-business-operations-panorama.png")} alt="" aria-hidden className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-75" />
+        <img src={asset("assets/stock/stock-15.png")} alt="" aria-hidden className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-75" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/50 to-ink/10" />
         <div className="site-container relative grid items-center gap-16 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
