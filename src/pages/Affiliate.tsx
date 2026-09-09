@@ -30,7 +30,7 @@ export default function Affiliate() {
     <PageWrap>
       <PageHero
         eyebrow="AIORA Affiliate Program"
-        imageSrc={asset("assets/scenes/hero-full.png")}
+        cosmic
         title={<>Real conversations. <span className="text-wine">Real revenue.</span></>}
         body="Partner with AIORA and earn a 50/50 revenue share by introducing businesses to AI agents that actually answer, qualify and book. You bring the relationship. We handle the build, the support and the payouts."
         micro="50/50 revenue share. Done-for-you support. Real partner success."

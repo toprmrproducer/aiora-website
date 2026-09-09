@@ -8,7 +8,7 @@ export default function WhatsApp() {
     <PageWrap>
       <PageHero
         eyebrow="WhatsApp AI"
-        imageSrc={asset("assets/scenes/team.png")}
+        cosmic
         title={<>Every WhatsApp conversation has <span className="text-wine">context</span>.</>}
         body="Help customers find answers, browse options, book and place requests without making them wait for a person to reply."
         micro="Built around the way your business already works."

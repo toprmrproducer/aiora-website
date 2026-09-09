@@ -4,6 +4,7 @@ import PageWrap from "../components/PageWrap";
 import { Reveal, Button, Section, Stat, icons, Arrow } from "../components/ui";
 import { VideoBg, VideoFrame } from "../components/Media";
 import CTASection from "../components/CTASection";
+import CosmicScene from "../components/CosmicScene";
 import {
   offerings, gapStats, resultStats, whyCards,
   caseStudies, testimonialsA, testimonialFeatured, gapFails,
@@ -13,14 +14,11 @@ import { asset } from "../lib/asset";
 export default function Home() {
   return (
     <PageWrap>
-      <section className="relative z-10 flex h-svh min-h-[720px] items-center overflow-hidden text-ivory">
-        <img
-          src={asset("assets/scenes/hero-full.png")}
-          alt=""
-          className="absolute inset-0 h-full w-full object-cover"
-          style={{ objectPosition: "72% center" }}
-        />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ivory via-ivory/70 to-transparent md:via-ivory/40" />
+      <section className="relative z-10 flex h-svh min-h-[720px] items-center overflow-hidden bg-ivory text-ivory">
+        <CosmicScene />
+        {/* Ivory wash keeps the headline legible over the left half of the scene. */}
+        <div className="pointer-events-none absolute inset-0 z-[8] bg-gradient-to-r from-ivory via-ivory/75 to-transparent md:via-ivory/45 lg:via-ivory/30" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[8] h-40 bg-gradient-to-t from-ivory to-transparent" />
 
         <div className="site-container relative z-10 w-full pb-16 pt-28">
           <div className="max-w-[38rem]">

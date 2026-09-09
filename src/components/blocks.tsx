@@ -2,17 +2,26 @@ import type { ReactNode } from "react";
 import { Reveal, Button, Section, ImageSlot, icons } from "./ui";
 import Orb from "./Orb";
 import { VideoBg, VideoFrame } from "./Media";
+import CosmicScene from "./CosmicScene";
 
 export function PageHero({
-  eyebrow, title, body, micro, primary, secondary, imageSrc, videoSrc, poster,
+  eyebrow, title, body, micro, primary, secondary, imageSrc, videoSrc, poster, cosmic, cosmicFlip,
 }: {
   eyebrow: string; title: ReactNode; body: string; micro?: string; imageSrc?: string; videoSrc?: string; poster?: string;
+  cosmic?: boolean; cosmicFlip?: boolean;
   primary: { label: string; to: string }; secondary?: { label: string; to: string };
 }) {
   return (
     <section className="relative flex min-h-[80svh] items-center overflow-hidden bg-ink text-ivory">
       <div className="absolute inset-0">
-        {videoSrc ? (
+        {cosmic ? (
+          <>
+            <CosmicScene tone="dark" flip={cosmicFlip} />
+            {/* Keep the copy side readable over the floating scene. */}
+            <div className={`pointer-events-none absolute inset-0 z-[8] bg-gradient-to-r ${cosmicFlip ? "from-ink/10 via-ink/55 to-ink" : "from-ink via-ink/70 to-ink/10"}`} />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[8] h-32 bg-gradient-to-t from-ink to-transparent" />
+          </>
+        ) : videoSrc ? (
           <VideoBg src={videoSrc} poster={poster || imageSrc} overlay="dark" />
         ) : imageSrc ? (
           <>
@@ -24,12 +33,12 @@ export function PageHero({
           <div className="absolute inset-0 bg-radial-crimson opacity-40" />
         )}
       </div>
-      {!imageSrc && !videoSrc && (
+      {!imageSrc && !videoSrc && !cosmic && (
         <div className="absolute right-[5%] top-1/2 hidden h-[340px] w-[340px] -translate-y-1/2 md:block lg:h-[460px] lg:w-[460px]">
           <Orb className="h-full w-full" />
         </div>
       )}
-      <div className="site-container relative w-full pt-32">
+      <div className="site-container relative z-10 w-full pt-32">
         <Reveal><p className="eyebrow text-ivory/70">{eyebrow}</p></Reveal>
         <Reveal delay={0.06}>
           <h1 className="display mt-7 max-w-[15ch] text-[clamp(2.8rem,7vw,5.8rem)]">{title}</h1>
