@@ -15,17 +15,21 @@ import { asset } from "../lib/asset";
 export default function Home() {
   return (
     <PageWrap>
-      <section className="relative z-10 overflow-hidden bg-ivory text-ink lg:flex lg:h-svh lg:min-h-[720px] lg:items-center">
-        {/* Figma "AI ORA HERO" composition. Image band on mobile, full-bleed on desktop. */}
-        <div className="relative h-[54svh] min-h-[380px] w-full lg:absolute lg:inset-0 lg:h-full">
-          <HeroLayers tone="light" />
-          {/* desktop: left readability wash; extreme edges stay clean */}
-          <div className="pointer-events-none absolute inset-0 z-[8] hidden lg:block" style={{ background: "linear-gradient(90deg, rgba(244,241,234,0.92) 0%, rgba(244,241,234,0.62) 28%, rgba(244,241,234,0.14) 48%, rgba(244,241,234,0) 60%)" }} />
-          {/* mobile: fade the band into the copy below */}
+      <section className="relative z-10 overflow-hidden bg-ivory text-ink">
+        {/* The exact 1920x1080 AI ORA HERO frame. Shown whole on desktop (copy overlays
+            the frame's empty left space, matching Figma); cropped to the subject on
+            mobile with the copy stacked below so it stays readable and sexy. */}
+        <div className="relative w-full">
+          <img
+            src={asset("assets/scenes/hero-full.jpg")}
+            alt="AIORA"
+            className="block h-[54svh] min-h-[380px] w-full object-cover object-[76%_center] lg:h-auto lg:aspect-[1920/1032] lg:max-h-[92svh] lg:object-[right_center]"
+          />
+          <div className="pointer-events-none absolute inset-0 z-[8] hidden lg:block" style={{ background: "linear-gradient(90deg, rgba(244,241,234,0.96) 0%, rgba(244,241,234,0.6) 30%, rgba(244,241,234,0.1) 50%, rgba(244,241,234,0) 60%)" }} />
           <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[8] h-40 bg-gradient-to-t from-ivory to-transparent lg:hidden" />
         </div>
 
-        <div className="site-container relative z-10 w-full pb-14 pt-8 lg:pb-16 lg:pt-28">
+        <div className="site-container relative z-10 w-full pb-14 pt-8 lg:absolute lg:inset-0 lg:flex lg:items-center lg:pb-0 lg:pt-0">
           <div className="max-w-[40rem]">
             <motion.div
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.12 }}
