@@ -36,15 +36,17 @@ Vite + React + TypeScript + Tailwind + Framer Motion + react-router-dom. Manrope
 
 All copy is from the client-approved mockups + the vault AIORA Funnel Copy. Motion: scroll reveals, per-word hero build, animated counters, product marquees, hover lifts, page transitions, the CSS crimson orb, film grain. Respects `prefers-reduced-motion`.
 
-## Images — auto-upgrading slots
+## Images
 
-The cinematic hero scenes were still rendering in ChatGPT when this was built, so every image uses a graceful crimson fallback that **auto-upgrades the moment the real file exists**. Drop the finished art into `public/assets/scenes/` with these exact names:
+Real cinematic scenes are wired from the AIORA asset library into `public/assets/scenes/` (all QA-passed, no text, logos or fabricated proof):
 
-- `hero-portrait.jpg` — home hero (woman + planet)
-- `portal-figure.jpg` — implementation-gap section (figure before a lit portal)
-- `testimonial.jpg` — featured testimonial portrait (use an **approved** operator only)
+- `01-home-hero-eclipse.png` — home hero, full bleed
+- `02-implementation-gap-forest-portal.png` — implementation-gap section
+- `03-real-business-operations-panorama.png` — results section background
+- `05/06/07-...` — Voice / Vision / OS page heroes
+- `08-final-cta-cosmic-threshold.png` — available for CTA use
 
-Real assets already wired: 4K `ai.ora` wordmark + `ao` monogram (`public/assets/logos`), burgundy satin data-wave, Talks/Vision/OS route visuals (`public/assets/curated`). Source library: `~/Downloads/AIORA Website Asset Library 2026-09-09`.
+Also wired: 4K `ai.ora` wordmark + `ao` monogram (`public/assets/logos`), Talks/Vision/OS route visuals (`public/assets/curated`). Full source library: `~/Downloads/AIORA Website Asset Library 2026-09-09`. Remaining slots use a graceful crimson fallback; to swap any image, replace the file at the same path. Testimonials are text-only by design (no fabricated customer portraits).
 
 ## ⚠️ Claims to approve before go-live (do not ship as fact unverified)
 

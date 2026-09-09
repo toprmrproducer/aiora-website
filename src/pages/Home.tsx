@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import PageWrap from "../components/PageWrap";
 import { Reveal, Button, Section, Stat, Marquee, ImageSlot, icons, Arrow } from "../components/ui";
-import Orb from "../components/Orb";
 import CTASection from "../components/CTASection";
 import {
   deployments, offerings, gapStats, resultStats, whyCards,
@@ -15,18 +14,14 @@ export default function Home() {
       {/* ================= HERO ================= */}
       <section className="grain relative flex min-h-[100svh] items-center overflow-hidden bg-ink text-ivory">
         <div className="absolute inset-0">
-          <div className="absolute right-0 top-0 h-full w-full md:w-[56%]">
-            <ImageSlot src="/assets/scenes/hero-portrait.jpg" alt="AIORA hero" label="Cinematic hero" dark className="h-full w-full" />
-            <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/75 to-ink/10 md:via-ink/45" />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/40" />
-          </div>
-          <motion.div
-            initial={{ opacity: 0, scale: 0.85 }} animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-            className="absolute right-[4%] top-[16%] hidden h-[300px] w-[300px] md:block lg:h-[440px] lg:w-[440px]"
-          >
-            <Orb className="h-full w-full" />
-          </motion.div>
+          <motion.img
+            src="/assets/scenes/01-home-hero-eclipse.png" alt="" aria-hidden
+            initial={{ scale: 1.08, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1.8, ease: [0.22, 1, 0.36, 1] }}
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/20" />
+          <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/50" />
         </div>
 
         <div className="site-container relative w-full pt-24">
@@ -117,7 +112,7 @@ export default function Home() {
             </div>
           </div>
           <Reveal delay={0.1}>
-            <ImageSlot src="/assets/scenes/portal-figure.jpg" alt="A figure before a lit portal" label="Cinematic portal scene"
+            <ImageSlot src="/assets/scenes/02-implementation-gap-forest-portal.png" alt="A figure walking toward a lit portal in a dark forest" label="Cinematic portal scene"
               className="aspect-[4/5] w-full rounded-2xl" />
           </Reveal>
         </div>
@@ -125,9 +120,9 @@ export default function Home() {
 
       {/* ================= REAL RESULTS ================= */}
       <section className="grain relative overflow-hidden bg-ink py-24 text-ivory md:py-36">
-        <img src="/assets/abstract/satin-wave.png" alt="" aria-hidden
-          className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 w-full object-cover opacity-40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/60 to-ink" />
+        <img src="/assets/scenes/03-real-business-operations-panorama.png" alt="" aria-hidden
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/80 to-ink/70" />
         <div className="site-container relative">
           <div className="max-w-3xl">
             <Reveal><p className="eyebrow text-crimson">Proven across industries</p></Reveal>
@@ -255,23 +250,20 @@ export default function Home() {
       </Section>
 
       {/* ================= TESTIMONIAL 2 (featured) ================= */}
-      <section className="bg-charcoal py-24 text-ivory md:py-36">
-        <div className="site-container">
-          <div className="grid gap-12 lg:grid-cols-[0.9fr_1.6fr] lg:items-center">
-            <Reveal>
-              <ImageSlot src="/assets/scenes/testimonial.jpg" alt="Customer operator" label="Approved portrait"
-                className="aspect-square w-full max-w-xs rounded-2xl" />
-            </Reveal>
-            <Reveal delay={0.08}>
-              <div className="text-5xl leading-none text-wine">&ldquo;</div>
-              <blockquote className="display mt-4 text-[clamp(1.7rem,3.6vw,2.9rem)] font-light leading-[1.15]">
+      <section className="grain relative overflow-hidden bg-charcoal py-28 text-ivory md:py-40">
+        <div className="absolute inset-0 bg-radial-crimson opacity-25" />
+        <div className="site-container relative">
+          <Reveal>
+            <div className="mx-auto max-w-4xl text-center">
+              <div className="text-6xl leading-none text-wine">&ldquo;</div>
+              <blockquote className="display mt-4 text-[clamp(1.8rem,4vw,3.2rem)] font-light leading-[1.15]">
                 {testimonialFeatured.quote}
               </blockquote>
-              <figcaption className="mt-8 text-graphite-light">
+              <figcaption className="mt-10 text-graphite-light">
                 <span className="font-semibold text-ivory">{testimonialFeatured.who}</span> · {testimonialFeatured.org}
               </figcaption>
-            </Reveal>
-          </div>
+            </div>
+          </Reveal>
         </div>
       </section>
 

@@ -7,6 +7,7 @@ export default function Voice() {
     <PageWrap>
       <PageHero
         eyebrow="AIORA Voice"
+        imageSrc="/assets/scenes/05-aiora-talks-acoustic-portrait.png"
         title={<>Your phone should create <span className="text-wine">momentum</span>, not missed opportunities.</>}
         body="AIORA Voice helps your business handle inbound calls, understand why the customer called and move them toward a booking, order or qualified handoff."
         micro="Configured around your hours, services and escalation rules."

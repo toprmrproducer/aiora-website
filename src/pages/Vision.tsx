@@ -7,6 +7,7 @@ export default function Vision() {
     <PageWrap>
       <PageHero
         eyebrow="AIORA Vision"
+        imageSrc="/assets/scenes/06-aiora-vision-human-review-abstract.png"
         title={<>Do not wait for an incident to <span className="text-wine">start paying attention</span>.</>}
         body="AIORA Vision turns camera activity into reviewable alerts, so your team can focus on the moments that may need attention instead of watching hours of footage."
         micro="Detection and alert availability depend on approved camera setup and configured use cases."

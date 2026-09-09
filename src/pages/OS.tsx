@@ -7,6 +7,7 @@ export default function OS() {
     <PageWrap>
       <PageHero
         eyebrow="AIORA OS"
+        imageSrc="/assets/scenes/07-aiora-os-orchestration-landscape.png"
         title={<>Your customers get an answer. Your business <span className="text-wine">keeps moving</span>.</>}
         body="AIORA brings voice, WhatsApp, orders and customer follow-up into one operating layer, so every enquiry has somewhere to go."
         micro="Built around the way your business already works."

@@ -3,20 +3,27 @@ import { Reveal, Button, Section, ImageSlot, icons } from "./ui";
 import Orb from "./Orb";
 
 export function PageHero({
-  eyebrow, title, body, micro, primary, secondary,
+  eyebrow, title, body, micro, primary, secondary, imageSrc,
 }: {
-  eyebrow: string; title: ReactNode; body: string; micro?: string;
+  eyebrow: string; title: ReactNode; body: string; micro?: string; imageSrc?: string;
   primary: { label: string; to: string }; secondary?: { label: string; to: string };
 }) {
   return (
     <section className="grain relative flex min-h-[80svh] items-center overflow-hidden bg-ink text-ivory">
       <div className="absolute inset-0">
-        <div className="absolute inset-0 bg-radial-crimson opacity-40" />
+        {imageSrc ? (
+          <img src={imageSrc} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" />
+        ) : (
+          <div className="absolute inset-0 bg-radial-crimson opacity-40" />
+        )}
+        <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/30" />
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/60" />
       </div>
-      <div className="absolute right-[5%] top-1/2 hidden h-[340px] w-[340px] -translate-y-1/2 md:block lg:h-[460px] lg:w-[460px]">
-        <Orb className="h-full w-full" />
-      </div>
+      {!imageSrc && (
+        <div className="absolute right-[5%] top-1/2 hidden h-[340px] w-[340px] -translate-y-1/2 md:block lg:h-[460px] lg:w-[460px]">
+          <Orb className="h-full w-full" />
+        </div>
+      )}
       <div className="site-container relative w-full pt-24">
         <Reveal><p className="eyebrow text-ivory/70">{eyebrow}</p></Reveal>
         <Reveal delay={0.06}>
