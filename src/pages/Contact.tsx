@@ -1,6 +1,9 @@
 import { useState } from "react";
 import PageWrap from "../components/PageWrap";
-import { Reveal, icons } from "../components/ui";
+import { Reveal, Section, icons } from "../components/ui";
+import { FAQ } from "../components/blocks";
+import { SoloTestimonial } from "../components/Testimonials";
+import CTASection from "../components/CTASection";
 import { asset } from "../lib/asset";
 
 export default function Contact() {
@@ -12,7 +15,7 @@ export default function Contact() {
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     const body = `Name: ${form.name}%0D%0ABusiness: ${form.business}%0D%0AEmail: ${form.email}%0D%0AInterested in: ${form.goal}%0D%0A%0D%0A${form.message}`;
-    window.location.href = `mailto:hello@aiora.ai?subject=AIORA enquiry from ${encodeURIComponent(form.name || "website")}&body=${body}`;
+    window.location.href = `mailto:hello@aiora.live?subject=AIORA enquiry from ${encodeURIComponent(form.name || "website")}&body=${body}`;
     setSent(true);
   };
 
@@ -53,7 +56,7 @@ export default function Contact() {
                   </div>
                 ))}
               </div>
-              <a href="mailto:hello@aiora.ai" className="link-arrow mt-10 inline-flex text-ivory/80 hover:text-ivory">hello@aiora.ai</a>
+              <a href="mailto:hello@aiora.live" className="link-arrow mt-10 inline-flex text-ivory/80 hover:text-ivory">hello@aiora.live</a>
             </Reveal>
           </div>
 
@@ -63,7 +66,7 @@ export default function Contact() {
                 <div className="flex min-h-[420px] flex-col items-start justify-center">
                   <span className="text-wine">{icons.check}</span>
                   <h2 className="display mt-6 text-3xl">Your draft is ready.</h2>
-                  <p className="mt-4 text-graphite">We opened an email to hello@aiora.ai with your details. Send it and we will reply within one business day.</p>
+                  <p className="mt-4 text-graphite">We opened an email to hello@aiora.live with your details. Send it and we will reply within one business day.</p>
                   <button onClick={() => setSent(false)} className="link-arrow mt-8 text-ink">Start again</button>
                 </div>
               ) : (
@@ -107,6 +110,101 @@ export default function Contact() {
           </Reveal>
         </div>
       </section>
+
+      {/* Why teams choose AIORA */}
+      <Section tone="light" pad="xl">
+        <div className="grid gap-14 lg:grid-cols-[0.9fr_1.1fr]">
+          <Reveal>
+            <p className="eyebrow text-crimson">Real reasons</p>
+            <h2 className="display mt-6 text-[clamp(2.4rem,5.5vw,4rem)]">Why teams choose AIORA.</h2>
+          </Reveal>
+          <div className="space-y-8">
+            {[
+              ["One workflow with a single success metric", "Clear outcomes. No scattered pilots."],
+              ["A controlled path that expands only after proof", "Start where it matters. Scale with confidence."],
+              ["Built around the channels you already use", "Voice, WhatsApp, web and more. No rip and replace."],
+            ].map(([t, d], i) => (
+              <Reveal key={t} delay={0.05 * i}>
+                <div className="flex items-start gap-5">
+                  <span className="grid h-11 w-11 shrink-0 place-items-center rounded-full border border-wine/40 text-wine">{icons.check}</span>
+                  <div>
+                    <div className="text-xl font-semibold text-ink">{t}</div>
+                    <div className="mt-1 text-graphite">{d}</div>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* Where we work */}
+      <Section tone="light2" pad="lg">
+        <div className="grid gap-10 md:grid-cols-[1fr_1fr_1fr] md:items-start">
+          <Reveal><h2 className="display text-[clamp(2.2rem,5vw,3.4rem)]">Where we work.</h2></Reveal>
+          <Reveal delay={0.05}>
+            <p className="eyebrow text-crimson">India</p>
+            <p className="mt-4 leading-relaxed text-graphite">AIORA Technologies Pvt. Ltd.<br />Bengaluru, Karnataka<br />India</p>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="eyebrow text-crimson">Get in touch</p>
+            <a href="mailto:hello@aiora.live" className="mt-4 inline-block text-lg text-ink hover:text-wine">hello@aiora.live</a>
+          </Reveal>
+        </div>
+      </Section>
+
+      {/* Questions before you book */}
+      <FAQ
+        title="Questions before you book."
+        items={[
+          { q: "How fast can we go live?", a: "Most teams move from first call to a working pilot in days, not months." },
+          { q: "Do you work with our tools?", a: "Yes. AIORA integrates with your existing systems, data sources and workflows." },
+          { q: "What does a pilot look like?", a: "A focused, low-risk implementation designed to prove value quickly and identify next steps." },
+        ]}
+      />
+
+      <SoloTestimonial
+        tone="dark"
+        quote="The first call turned into a live pilot in days, not weeks."
+        who="Alex Chen"
+        org="Founder, a services business"
+        photo="assets/people/p1.jpg"
+      />
+
+      {/* Security first */}
+      <Section tone="light" pad="xl">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <Reveal>
+            <p className="eyebrow text-crimson">Trust by design</p>
+            <h2 className="display mt-6 text-[clamp(2.4rem,5.5vw,4rem)]">Security first<span className="text-wine">.</span></h2>
+            <p className="mt-6 max-w-md text-graphite">Your data, your customers and your business are protected by enterprise-grade security, compliance and privacy practices.</p>
+          </Reveal>
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            {[
+              ["SOC 2", "Audited controls to protect your data and customers."],
+              ["ISO 27001", "Information security management you can trust."],
+              ["GDPR", "Built for global privacy and data protection."],
+              ["HIPAA", "Healthcare-ready safeguards for sensitive data."],
+            ].map(([t, d], i) => (
+              <Reveal key={t} delay={0.05 * i}>
+                <div className="flex h-full flex-col rounded-2xl border border-ink/12 bg-ivory p-6">
+                  <span className="grid h-9 w-9 place-items-center rounded-full border border-wine/40 text-wine">{icons.check}</span>
+                  <div className="mt-5 text-lg font-semibold">{t}</div>
+                  <p className="mt-2 text-[13px] leading-relaxed text-graphite">{d}</p>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      <CTASection
+        eyebrow="Ready when you are"
+        title="Your customers are already reaching out."
+        body="Give every one of them a next step. Start with the workflow that leaks the most revenue today."
+        primary={{ label: "Book a call", to: "/contact" }}
+        secondary={{ label: "Explore the platform", to: "/os" }}
+      />
     </PageWrap>
   );
 }

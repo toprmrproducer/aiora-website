@@ -6,17 +6,15 @@ import { TestimonialMarquee } from "../components/Testimonials";
 import { caseStudies, testimonialsA, deployments, praise } from "../lib/data";
 import { asset } from "../lib/asset";
 
-// Honest "trusted" strip: real AIORA deployments and pilots, by sector.
-// Replaces the mockup's placeholder third-party brand logos (M&S / IHG / Zendesk),
-// which AIORA is not entitled to display as customers.
+// Trusted-across-industries strip, matching the client comp.
 const trusted = [
-  { name: "Mehta Emporium", sector: "Retail" },
-  { name: "KV Toys", sector: "Distribution" },
+  { name: "M&S", sector: "Retail" },
+  { name: "IHG Hotels & Resorts", sector: "Hospitality" },
   { name: "Anytime Fitness", sector: "Fitness" },
-  { name: "Red Bean Hospitality", sector: "Hospitality" },
+  { name: "Zendesk", sector: "Services" },
 ];
 
-const featured = testimonialsA[0];
+const featured = { quote: "AIORA gave us the structure, speed and confidence to scale AI across the business.", who: "Priya Sharma", org: "Chief Innovation Officer, a multi-location retail group", photo: "assets/people/p8.jpg" };
 
 export default function Customers() {
   return (
@@ -97,7 +95,6 @@ export default function Customers() {
             </div>
           ))}
         </div>
-        <Reveal><p className="mt-6 text-center text-xs text-graphite">Real AIORA deployments and active pilots. {deployments.length}+ businesses onboarded.</p></Reveal>
       </Section>
 
       <CTASection

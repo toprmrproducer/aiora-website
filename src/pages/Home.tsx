@@ -17,8 +17,8 @@ export default function Home() {
     <PageWrap>
       <section className="relative z-10 flex h-svh min-h-[720px] items-center overflow-hidden bg-ivory text-ivory">
         <CosmicScene src={asset("assets/scenes/hero-full.jpg")} objectPosition="center center" />
-        {/* Left readability wash only — right side stays fully clear over the subject */}
-        <div className="pointer-events-none absolute inset-0 z-[8]" style={{ background: "linear-gradient(90deg, var(--ivory) 0%, rgba(244,241,234,0.82) 24%, rgba(244,241,234,0.35) 42%, rgba(244,241,234,0) 56%)" }} />
+        {/* Soft readability wash behind the headline only. Extreme left and right edges stay clean. */}
+        <div className="pointer-events-none absolute inset-0 z-[8]" style={{ background: "linear-gradient(90deg, rgba(244,241,234,0.9) 0%, rgba(244,241,234,0.6) 26%, rgba(244,241,234,0.12) 46%, rgba(244,241,234,0) 58%)" }} />
 
         <div className="site-container relative z-10 w-full pb-16 pt-28">
           <div className="max-w-[40rem]">
@@ -47,7 +47,7 @@ export default function Home() {
                 </motion.span>
               ))}
               <motion.span
-                className="block text-wine font-tech-mono"
+                className="block text-wine"
                 initial={{ opacity: 0, y: 36 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.42 }}
@@ -241,29 +241,30 @@ export default function Home() {
         </div>
       </Section>
 
-      <Section tone="light2" pad="xl">
-        <div className="grid items-center gap-14 lg:grid-cols-[1.05fr_0.95fr]">
-          <Reveal>
-            <p className="eyebrow text-ink/45">Why adopt AI</p>
-            <h2 className="display mt-6 max-w-[14ch] text-[clamp(2.5rem,5.6vw,4.4rem)]">
-              A more capable and <span className="text-wine">human</span> future.
-            </h2>
-            <p className="mt-7 max-w-[46ch] text-[16px] leading-relaxed text-graphite">
-              AI is not just a technology shift. It is a chance to amplify human potential, solve bigger problems
-              and create a fairer, more prosperous world.
-            </p>
-            <div className="mt-10"><Button to="/os" variant="solid">Explore the possibilities</Button></div>
-          </Reveal>
-          <Reveal delay={0.1}>
-            <VideoFrame
-              src={asset("assets/video/helix.mp4")}
-              poster={asset("assets/posters/helix.jpg")}
-              object="contain"
-              className="aspect-[4/5] w-full bg-ivory"
-            />
-          </Reveal>
+      {/* Full-bleed edge-to-edge video, page ground matches the video */}
+      <section className="relative min-h-[86vh] overflow-hidden bg-ink text-ivory">
+        <VideoBg src={asset("assets/video/wave.mp4")} poster={asset("assets/posters/wave.jpg")} overlay="none" />
+        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink via-ink/55 to-ink/10" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink to-transparent" />
+        <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-ink/70 to-transparent" />
+        <div className="site-container relative flex min-h-[86vh] items-center py-28">
+          <div className="max-w-2xl">
+            <Reveal><p className="eyebrow text-crimson">Why adopt AI</p></Reveal>
+            <Reveal delay={0.05}>
+              <h2 className="display mt-6 max-w-[14ch] text-[clamp(2.6rem,6vw,5rem)]">
+                A more capable and <span className="text-wine">human</span> future.
+              </h2>
+            </Reveal>
+            <Reveal delay={0.1}>
+              <p className="lead mt-7 max-w-[46ch] text-graphite-light">
+                AI is not just a technology shift. It is a chance to amplify human potential, solve bigger problems
+                and create a fairer, more prosperous world.
+              </p>
+            </Reveal>
+            <Reveal delay={0.15}><div className="mt-10"><Button to="/os" variant="solidLight" arrow>Explore the possibilities</Button></div></Reveal>
+          </div>
         </div>
-      </Section>
+      </section>
 
       <Section tone="light" pad="xl">
         <div className="max-w-2xl">
