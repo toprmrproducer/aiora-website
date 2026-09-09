@@ -22,7 +22,7 @@ export default function OS() {
         eyebrow="The operating layer"
         title="One system your team can actually run."
         body="Bring voice, WhatsApp, orders and follow-up into one place so every enquiry has somewhere to go. The object on the right is the idea: one core, many orbits."
-        videoSrc={asset("assets/video/spin-form.mp4")}
+        videoSrc={asset("assets/video/stone-discs.mp4")}
         poster={asset("assets/posters/spin-form.jpg")}
         points={[
           "One place to review conversations, requests and customer activity.",

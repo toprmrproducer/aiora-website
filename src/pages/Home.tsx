@@ -164,7 +164,7 @@ export default function Home() {
       </section>
 
       <section className="relative overflow-hidden bg-ink py-32 text-ivory md:py-44">
-        <VideoBg src={asset("assets/video/wave.mp4")} poster={asset("assets/posters/wave.jpg")} overlay="mist" />
+        <VideoBg src={asset("assets/video/wave-loop.mp4")} poster={asset("assets/posters/wave.jpg")} overlay="mist" />
         <div className="site-container relative">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
             <div>
@@ -256,7 +256,7 @@ export default function Home() {
 
       {/* Full-bleed edge-to-edge video, page ground matches the video */}
       <section className="relative min-h-[86vh] overflow-hidden bg-ink text-ivory">
-        <VideoBg src={asset("assets/video/wave.mp4")} poster={asset("assets/posters/wave.jpg")} overlay="none" />
+        <VideoBg src={asset("assets/video/wave-slow.mp4")} poster={asset("assets/posters/wave.jpg")} overlay="none" />
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink via-ink/55 to-ink/10" />
         <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink to-transparent" />
         <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-ink/70 to-transparent" />

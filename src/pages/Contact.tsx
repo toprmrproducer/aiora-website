@@ -24,7 +24,9 @@ export default function Contact() {
   return (
     <PageWrap>
       <section className="relative min-h-screen overflow-hidden bg-ink pt-32 text-ivory">
-        <img src={asset("assets/scenes/support-human.png")} alt="" aria-hidden className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-30" />
+        <video autoPlay muted loop playsInline poster={asset("assets/scenes/support-human.png")} className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-40">
+          <source src={asset("assets/video/earth-beam.mp4")} type="video/mp4" />
+        </video>
         <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/85 to-ink/55" />
         <div className="site-container relative grid gap-16 pb-28 lg:grid-cols-[1fr_1fr] lg:items-start">
           <div>

@@ -15,7 +15,7 @@ export default function CTASection({
 }) {
   return (
     <section className="relative overflow-hidden bg-ink py-28 text-ivory md:py-40">
-      <VideoBg src={asset("assets/video/orb.mp4")} poster={asset("assets/posters/orb.jpg")} overlay="dark" />
+      <VideoBg src={asset("assets/video/red-horizon.mp4")} poster={asset("assets/posters/orb.jpg")} overlay="dark" />
       <div className="site-container relative">
         <div className="max-w-2xl">
           <Reveal><p className="eyebrow text-crimson">{eyebrow}</p></Reveal>
