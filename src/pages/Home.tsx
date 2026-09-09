@@ -15,13 +15,17 @@ import { asset } from "../lib/asset";
 export default function Home() {
   return (
     <PageWrap>
-      <section className="relative z-10 flex h-svh min-h-[720px] items-center overflow-hidden bg-ivory text-ivory">
-        {/* Live Figma "AI ORA HERO" composition — 11 floating layers, mouse parallax */}
-        <HeroLayers tone="light" />
-        {/* Soft readability wash behind the headline only. Extreme left and right edges stay clean. */}
-        <div className="pointer-events-none absolute inset-0 z-[8]" style={{ background: "linear-gradient(90deg, rgba(244,241,234,0.92) 0%, rgba(244,241,234,0.62) 28%, rgba(244,241,234,0.14) 48%, rgba(244,241,234,0) 60%)" }} />
+      <section className="relative z-10 overflow-hidden bg-ivory text-ink lg:flex lg:h-svh lg:min-h-[720px] lg:items-center">
+        {/* Figma "AI ORA HERO" composition. Image band on mobile, full-bleed on desktop. */}
+        <div className="relative h-[54svh] min-h-[380px] w-full lg:absolute lg:inset-0 lg:h-full">
+          <HeroLayers tone="light" />
+          {/* desktop: left readability wash; extreme edges stay clean */}
+          <div className="pointer-events-none absolute inset-0 z-[8] hidden lg:block" style={{ background: "linear-gradient(90deg, rgba(244,241,234,0.92) 0%, rgba(244,241,234,0.62) 28%, rgba(244,241,234,0.14) 48%, rgba(244,241,234,0) 60%)" }} />
+          {/* mobile: fade the band into the copy below */}
+          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[8] h-40 bg-gradient-to-t from-ivory to-transparent lg:hidden" />
+        </div>
 
-        <div className="site-container relative z-10 w-full pb-16 pt-28">
+        <div className="site-container relative z-10 w-full pb-14 pt-8 lg:pb-16 lg:pt-28">
           <div className="max-w-[40rem]">
             <motion.div
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.12 }}
