@@ -4,7 +4,7 @@ import PageWrap from "../components/PageWrap";
 import { Reveal, Button, Section, Stat, icons, Arrow } from "../components/ui";
 import { VideoBg, VideoFrame } from "../components/Media";
 import CTASection from "../components/CTASection";
-import CosmicScene from "../components/CosmicScene";
+import HeroLayers from "../components/HeroLayers";
 import Typewriter from "../components/Typewriter";
 import {
   offerings, gapStats, resultStats, whyCards,
@@ -16,9 +16,10 @@ export default function Home() {
   return (
     <PageWrap>
       <section className="relative z-10 flex h-svh min-h-[720px] items-center overflow-hidden bg-ivory text-ivory">
-        <CosmicScene src={asset("assets/scenes/hero-full.jpg")} objectPosition="center center" />
+        {/* Live Figma "AI ORA HERO" composition — 11 floating layers, mouse parallax */}
+        <HeroLayers tone="light" />
         {/* Soft readability wash behind the headline only. Extreme left and right edges stay clean. */}
-        <div className="pointer-events-none absolute inset-0 z-[8]" style={{ background: "linear-gradient(90deg, rgba(244,241,234,0.9) 0%, rgba(244,241,234,0.6) 26%, rgba(244,241,234,0.12) 46%, rgba(244,241,234,0) 58%)" }} />
+        <div className="pointer-events-none absolute inset-0 z-[8]" style={{ background: "linear-gradient(90deg, rgba(244,241,234,0.92) 0%, rgba(244,241,234,0.62) 28%, rgba(244,241,234,0.14) 48%, rgba(244,241,234,0) 60%)" }} />
 
         <div className="site-container relative z-10 w-full pb-16 pt-28">
           <div className="max-w-[40rem]">
@@ -95,21 +96,29 @@ export default function Home() {
                 fails to create lasting impact.
               </p>
             </Reveal>
-            <div className="mt-16 grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-0">
+            <div className="mt-14 grid grid-cols-1 gap-4 sm:grid-cols-3">
               {gapStats.map((s, i) => (
-                <Reveal key={s.small} delay={0.05 * i}>
-                  <div className={`sm:px-6 ${i === 0 ? "sm:pl-0" : "sm:border-l sm:border-ink/12"}`}>
+                <Reveal key={s.small} delay={0.06 * i}>
+                  <div className="group relative h-full overflow-hidden rounded-2xl border border-ink/10 bg-ivory-2/50 p-6 transition-colors hover:border-wine/30">
+                    <span className="absolute inset-x-0 top-0 h-[3px] origin-left scale-x-0 bg-wine transition-transform duration-500 group-hover:scale-x-100" />
                     <div className="display text-[clamp(2rem,3.2vw,2.7rem)] text-ink">{s.big}</div>
-                    <div className="mt-3 max-w-[18ch] text-[13px] leading-snug text-graphite">{s.small}</div>
+                    <div className="mt-3 text-[13px] leading-snug text-graphite">{s.small}</div>
                   </div>
                 </Reveal>
               ))}
             </div>
           </div>
-          <div className="flex items-center justify-center px-6 py-10 md:px-10 lg:py-16">
-            <Reveal className="w-full">
-              <div className="relative mx-auto aspect-[4/5] w-full max-w-[460px] overflow-hidden rounded-3xl shadow-[0_50px_120px_-50px_rgba(12,12,13,0.6)]">
+          <div className="relative flex items-center justify-center px-6 py-10 md:px-10 lg:py-16">
+            <div className="pointer-events-none absolute right-6 top-1/2 hidden h-[62%] w-[62%] -translate-y-1/2 rounded-3xl bg-wine/10 lg:block" />
+            <Reveal className="relative w-full">
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-[480px] overflow-hidden rounded-3xl shadow-[0_50px_120px_-50px_rgba(12,12,13,0.6)]">
                 <img src={asset("assets/scenes/02-implementation-gap-forest-portal.png")} alt="A figure before a towering lit portal" className="absolute inset-0 h-full w-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
+                <div className="absolute bottom-6 left-6 right-6">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-ivory/90 px-4 py-2 text-[12px] font-semibold text-ink backdrop-blur">
+                    <span className="h-1.5 w-1.5 rounded-full bg-wine" /> AIORA closes the gap
+                  </span>
+                </div>
               </div>
             </Reveal>
           </div>
