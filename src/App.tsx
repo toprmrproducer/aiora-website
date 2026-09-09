@@ -5,6 +5,7 @@ import Voice from "./pages/Voice";
 import WhatsApp from "./pages/WhatsApp";
 import Vision from "./pages/Vision";
 import OS from "./pages/OS";
+import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
         <Route path="/whatsapp" element={<WhatsApp />} />
         <Route path="/vision" element={<Vision />} />
         <Route path="/os" element={<OS />} />
+        <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Route>

@@ -84,6 +84,7 @@ export const icons: Record<string, JSX.Element> = {
   whatsapp: P("M20 12a8 8 0 0 1-11.7 7.1L4 20l1-4.2A8 8 0 1 1 20 12ZM9 9c0 4 2 6 6 6"),
   vision: P("M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6-10-6-10-6ZM12 9a3 3 0 1 0 0 6 3 3 0 0 0 0-6Z"),
   os: P("M4 5h16v11H4zM2 20h20M9 9h6M9 12h4"),
+  pin: P("M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11ZM12 8.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"),
   check: P("M4 12l5 5L20 6"),
   play: P("M8 5v14l11-7z"),
 };

@@ -16,8 +16,8 @@ export const productLinks: NavChild[] = [
 export const navLinks: NavLink[] = [
   { label: "Products", children: productLinks },
   { label: "Solutions", to: "/os" },
+  { label: "Pricing", to: "/pricing" },
   { label: "Customers", to: "/#proof" },
-  { label: "Resources", to: "/#platform" },
   { label: "Company", to: "/contact" },
 ];
 
@@ -115,8 +115,8 @@ export const footerCols = [
     title: "Company",
     links: [
       { label: "About", to: "/contact" },
+      { label: "Pricing", to: "/pricing" },
       { label: "Customers", to: "/#proof" },
-      { label: "Careers", to: "/contact" },
       { label: "Contact", to: "/contact" },
     ],
   },
