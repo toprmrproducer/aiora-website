@@ -68,7 +68,13 @@ export default function Nav() {
               })}
             </ul>
 
-            <div className="ml-auto flex items-center gap-2">
+            <div className="ml-auto flex items-center gap-3">
+              <a
+                href="https://dashboard.aiora.live/login"
+                className={`hidden text-[14px] font-semibold opacity-80 transition-opacity hover:opacity-100 md:inline-flex ${ink}`}
+              >
+                Command Center
+              </a>
               <Link
                 to="/contact"
                 className={`hidden rounded-full border px-5 py-2 text-[14px] font-semibold transition-colors md:inline-flex ${
@@ -123,7 +129,10 @@ export default function Nav() {
                   </div>
                 </div>
               ))}
-              <Link to="/contact" onClick={() => setMobile(false)} className="btn btn-solid mt-4 inline-flex">Book a call</Link>
+              <div className="mt-4 flex flex-col gap-3">
+                <Link to="/contact" onClick={() => setMobile(false)} className="btn btn-solid inline-flex">Book a call</Link>
+                <a href="https://dashboard.aiora.live/login" className="btn btn-outline inline-flex">Command Center</a>
+              </div>
             </div>
           </motion.div>
         )}
