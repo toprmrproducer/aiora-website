@@ -1,14 +1,18 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { navLinks, type NavChild } from "../lib/data";
 import { Wordmark } from "./Logo";
+import { BrandIcon } from "./BrandIcon";
 
 export default function Nav() {
   const [open, setOpen] = useState<string | null>(null);
   const [mobile, setMobile] = useState(false);
+  const [pastHero, setPastHero] = useState(false);
   const wrap = useRef<HTMLDivElement>(null);
   const { pathname } = useLocation();
+  const { scrollY } = useScroll();
+  useMotionValueEvent(scrollY, "change", (v) => setPastHero(v > window.innerHeight * 0.72));
 
   useEffect(() => { setOpen(null); setMobile(false); }, [pathname]);
 
@@ -21,15 +25,17 @@ export default function Nav() {
   }, []);
 
   const activeMega = navLinks.find((l) => l.label === open);
+  const light = pastHero;
+  const ink = light ? "text-ink" : "text-ivory";
 
   return (
     <>
       <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-5 md:pt-4">
         <div ref={wrap} className="pointer-events-auto mx-auto max-w-[1240px]">
-          <nav className="relative flex h-[58px] items-center rounded-2xl bg-[#f4f1ea] px-3 shadow-[0_16px_50px_-20px_rgba(12,12,13,0.45)] ring-1 ring-ink/10 md:h-[64px] md:px-5">
-            <Wordmark />
+          <nav className="relative flex h-[58px] items-center rounded-2xl bg-transparent px-3 md:h-[64px] md:px-5">
+            <Wordmark invert={!light} />
 
-            <ul className="absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 lg:flex">
+            <ul className={`absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 lg:flex ${ink}`}>
               {navLinks.map((l) => {
                 const isOpen = open === l.label;
                 const isOn = l.to ? pathname === l.to : Boolean(l.children?.some((c) => c.to === pathname));
@@ -39,7 +45,7 @@ export default function Nav() {
                       <Link
                         to={l.to}
                         onMouseEnter={() => setOpen(null)}
-                        className={`rounded-lg px-3.5 py-2 text-[13px] font-medium tracking-wide text-ink/80 transition-colors hover:text-ink ${isOn ? "text-ink underline decoration-ink/80 decoration-1 underline-offset-[10px]" : ""}`}
+                        className={`rounded-lg px-3.5 py-2 text-[13px] font-medium tracking-wide opacity-80 transition-opacity hover:opacity-100 ${isOn ? "opacity-100 underline decoration-current decoration-1 underline-offset-[10px]" : ""}`}
                       >
                         {l.label.toUpperCase()}
                       </Link>
@@ -47,7 +53,7 @@ export default function Nav() {
                       <button
                         onMouseEnter={() => setOpen(l.label)}
                         onClick={() => setOpen(isOpen ? null : l.label)}
-                        className={`rounded-lg px-3.5 py-2 text-[13px] font-medium tracking-wide text-ink/80 transition-colors hover:text-ink ${isOpen || isOn ? "text-ink underline decoration-ink/80 decoration-1 underline-offset-[10px]" : ""}`}
+                        className={`rounded-lg px-3.5 py-2 text-[13px] font-medium tracking-wide opacity-80 transition-opacity hover:opacity-100 ${isOpen || isOn ? "opacity-100 underline decoration-current decoration-1 underline-offset-[10px]" : ""}`}
                       >
                         {l.label.toUpperCase()}
                       </button>
@@ -60,11 +66,13 @@ export default function Nav() {
             <div className="ml-auto flex items-center gap-2">
               <Link
                 to="/contact"
-                className="hidden rounded-full border border-ink/20 px-5 py-2 text-[13px] font-medium text-ink transition-colors hover:bg-ink hover:text-ivory md:inline-flex"
+                className={`hidden rounded-full border px-5 py-2 text-[13px] font-medium transition-colors md:inline-flex ${
+                  light ? "border-ink/25 text-ink hover:bg-ink hover:text-ivory" : "border-ivory/40 text-ivory hover:bg-ivory hover:text-ink"
+                }`}
               >
                 Book a call
               </Link>
-              <button onClick={() => setMobile(true)} className="text-ink lg:hidden" aria-label="Menu">
+              <button onClick={() => setMobile(true)} className={`${ink} lg:hidden`} aria-label="Menu">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" /></svg>
               </button>
             </div>
@@ -126,10 +134,11 @@ function Mega({ items, onPick }: { items: NavChild[]; onPick: () => void }) {
 
   if (groups.length === 1) {
     return (
-      <div className="grid gap-2 p-5 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="grid gap-2 p-5 sm:grid-cols-2 lg:grid-cols-5">
         {items.map((c) => (
           <Link key={c.to + c.label} to={c.to} onClick={onPick} className="rounded-xl p-4 transition-colors hover:bg-ivory-2">
-            <div className="text-[16px] font-semibold text-ink">{c.label}</div>
+            <BrandIcon name={c.icon} />
+            <div className="mt-3 text-[16px] font-semibold text-ink">{c.label}</div>
             <div className="mt-1 text-[13px] leading-snug text-graphite">{c.desc}</div>
           </Link>
         ))}
@@ -145,9 +154,12 @@ function Mega({ items, onPick }: { items: NavChild[]; onPick: () => void }) {
           <ul className="mt-4 space-y-3">
             {g.rows.map((c) => (
               <li key={c.to + c.label}>
-                <Link to={c.to} onClick={onPick} className="block">
-                  <div className="text-[16px] font-semibold text-ink">{c.label}</div>
-                  {c.desc && <div className="mt-0.5 text-[13px] text-graphite">{c.desc}</div>}
+                <Link to={c.to} onClick={onPick} className="flex items-start gap-3">
+                  {c.icon && <BrandIcon name={c.icon} className="mt-0.5" />}
+                  <span>
+                    <span className="block text-[16px] font-semibold text-ink">{c.label}</span>
+                    {c.desc && <span className="mt-0.5 block text-[13px] text-graphite">{c.desc}</span>}
+                  </span>
                 </Link>
               </li>
             ))}

@@ -6,24 +6,20 @@ import { VideoBg, VideoFrame } from "../components/Media";
 import CTASection from "../components/CTASection";
 import {
   offerings, gapStats, resultStats, whyCards,
-  caseStudies, testimonialsA, testimonialFeatured, gapFails, stills,
+  caseStudies, testimonialsA, testimonialFeatured, gapFails,
 } from "../lib/data";
 import { asset } from "../lib/asset";
 
 export default function Home() {
   return (
     <PageWrap>
-      <section className="relative z-10 flex h-svh min-h-[640px] items-center overflow-hidden bg-[#171515] text-ivory">
-        {/* Portrait lives on the right with no wash over the face, matching the selected comp. */}
-        <div className="absolute inset-y-0 right-0 w-[70%] lg:w-[68%]" aria-hidden>
-          <img
-            src={asset("assets/posters/hero-planets.jpg")}
-            alt=""
-            className="absolute inset-0 h-full w-full object-cover"
-            style={{ objectPosition: "72% center" }}
-          />
-        </div>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-[52%] bg-gradient-to-r from-[#171515] from-40% via-[#171515]/80 to-transparent" />
+      <section className="relative z-10 flex h-svh min-h-[720px] items-center overflow-hidden text-ivory">
+        <img
+          src={asset("assets/scenes/hero-full.jpg")}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover"
+          style={{ objectPosition: "68% center" }}
+        />
 
         <div className="site-container relative z-10 w-full pb-16 pt-28">
           <div className="max-w-[38rem]">
@@ -84,18 +80,18 @@ export default function Home() {
 
       <section className="bg-ivory">
         <div className="grid lg:grid-cols-2">
-          <div className="flex flex-col justify-center px-6 py-20 md:px-12 md:py-28 lg:pl-[max(2.5rem,calc((100vw-1280px)/2+2.5rem))] lg:pr-16">
+          <div className="flex min-h-[78vh] flex-col justify-center px-6 py-28 md:px-16 md:py-40 lg:pl-[max(2.5rem,calc((100vw-1280px)/2+2.5rem))] lg:pr-20">
             <Reveal><p className="eyebrow text-ink/45">The implementation gap is real</p></Reveal>
             <Reveal delay={0.05}>
-              <h2 className="display mt-6 max-w-[16ch] text-[clamp(2.5rem,5.4vw,4.4rem)] text-ink">Most AI initiatives never make it past pilots.</h2>
+              <h2 className="display mt-8 max-w-[18ch] text-[clamp(2.8rem,6vw,5.2rem)] text-ink">Most AI initiatives never make it past pilots.</h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="mt-7 max-w-[46ch] text-[16px] leading-relaxed text-graphite md:text-[17px]">
+              <p className="mt-8 max-w-[52ch] text-[17px] leading-relaxed text-graphite md:text-[19px]">
                 Great models are not enough. Without the right operating system, AI stays in demos, drains budgets and
                 fails to create lasting impact.
               </p>
             </Reveal>
-            <div className="mt-14 grid grid-cols-1 gap-8 sm:grid-cols-3 sm:gap-0">
+            <div className="mt-16 grid grid-cols-1 gap-10 sm:grid-cols-3 sm:gap-0">
               {gapStats.map((s, i) => (
                 <Reveal key={s.small} delay={0.05 * i}>
                   <div className={`sm:px-6 ${i === 0 ? "sm:pl-0" : "sm:border-l sm:border-ink/12"}`}>
@@ -106,20 +102,20 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="relative min-h-[52vh] lg:min-h-full">
+          <div className="relative min-h-[70vh] lg:min-h-full">
             <img src={asset("assets/scenes/canyon-portal.png")} alt="A figure before a towering lit portal" className="absolute inset-0 h-full w-full object-cover" />
           </div>
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-ink py-24 text-ivory md:py-32">
+      <section className="relative overflow-hidden bg-ink py-32 text-ivory md:py-44">
         <img src={asset("assets/scenes/canyon-portal.png")} alt="" aria-hidden className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-55" />
         <div className="absolute inset-0 bg-gradient-to-r from-ink/88 via-ink/70 to-ink/35" />
-        <div className="site-container relative grid items-center gap-14 lg:grid-cols-[1.15fr_0.85fr]">
+        <div className="site-container relative grid items-center gap-16 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <Reveal><p className="eyebrow text-ivory/55">The implementation gap</p></Reveal>
             <Reveal delay={0.05}>
-              <h2 className="display mt-6 max-w-[14ch] text-[clamp(2.4rem,5.6vw,4.4rem)]">Most AI projects <span className="text-wine">never make it.</span></h2>
+              <h2 className="display mt-8 max-w-[14ch] text-[clamp(2.8rem,6.2vw,5.4rem)]">Most AI projects <span className="text-wine">never make it.</span></h2>
             </Reveal>
             <Reveal delay={0.1}>
               <p className="mt-6 max-w-[46ch] text-[16px] leading-relaxed text-ivory/70">
@@ -146,7 +142,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="relative overflow-hidden bg-ink py-24 text-ivory md:py-36">
+      <section className="relative overflow-hidden bg-ink py-32 text-ivory md:py-44">
         <VideoBg src={asset("assets/video/wave.mp4")} poster={asset("assets/posters/wave.jpg")} overlay="mist" />
         <div className="site-container relative">
           <div className="grid gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-end">
@@ -256,23 +252,6 @@ export default function Home() {
           </Reveal>
         </div>
       </Section>
-
-      <section className="bg-ink py-20 text-ivory md:py-28">
-        <div className="site-container mb-10">
-          <Reveal><p className="eyebrow text-ivory/55">The world we are building in</p></Reveal>
-          <Reveal delay={0.05}><h2 className="display mt-5 text-[clamp(2rem,4.5vw,3.4rem)]">Cinematic stills from the operating day.</h2></Reveal>
-        </div>
-        <div className="grid grid-cols-2 gap-2 px-2 md:grid-cols-4 md:gap-3 md:px-4">
-          {stills.map((s, i) => (
-            <Reveal key={s.src} delay={0.03 * i}>
-              <figure className="group relative aspect-[4/5] overflow-hidden">
-                <img src={asset(s.src)} alt={s.label} className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]" />
-                <figcaption className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-ink/80 to-transparent p-4 text-[12px] uppercase tracking-label text-ivory/80">{s.label}</figcaption>
-              </figure>
-            </Reveal>
-          ))}
-        </div>
-      </section>
 
       <Section tone="light" pad="xl">
         <div className="max-w-2xl">
