@@ -3,18 +3,23 @@ import { useEffect, useRef, type ReactNode } from "react";
 import { asset } from "../lib/asset";
 
 /*
-  AIORA "AI ORA HERO" composition (Raisa Project, Figma).
-  A controlled build: the woman is the anchored subject on the right with her FULL
-  face visible and her rectangular edges bled off-screen (no plate seam / wall).
-  The red planets sit behind her; a few small planets and asteroids drift in the
-  open left space. On mobile the left clutter is hidden and nothing overflows.
+  AIORA "AI ORA HERO" — the Figma "Section 1" stack rebuilt as a live scene.
+  The Figma board is a pile of separate image layers (woman + main planet + rings
+  baked into the plate, plus loose planets, asteroids and nebula haze). Here the
+  plate is the pinned base and the loose layers sit on top at their own depth, so
+  the whole thing gets a soft mouse parallax and drifts on idle. Pointer leaves →
+  everything eases back to rest. Touch / reduced-motion → just the flat plate.
 */
 
-function Float({
+const LAYER = (name: string) => asset(`assets/cosmic/hires/${name}`);
+const PLATE_PNG = asset("assets/scenes/hero-full.png");
+const PLATE_JPG = asset("assets/scenes/hero-full.jpg");
+
+function Layer({
   children,
   depth,
-  amp = 10,
-  dur = 22,
+  amp = 12,
+  dur = 24,
   className = "",
   mx,
   my,
@@ -27,13 +32,13 @@ function Float({
   mx: ReturnType<typeof useSpring>;
   my: ReturnType<typeof useSpring>;
 }) {
-  const reduce = useReducedMotion();
   const px = useTransform(mx, (v) => v * depth);
   const py = useTransform(my, (v) => v * depth);
   return (
-    <motion.div className={`absolute ${className}`} style={{ x: reduce ? 0 : px, y: reduce ? 0 : py, willChange: "transform" }}>
+    <motion.div className={`absolute ${className}`} style={{ x: px, y: py, willChange: "transform" }}>
       <motion.div
-        animate={reduce ? undefined : { y: [0, -amp, 0, amp * 0.7, 0] }}
+        className="h-full w-full"
+        animate={{ y: [0, -amp, 0, amp * 0.6, 0] }}
         transition={{ duration: dur, ease: "easeInOut", repeat: Infinity }}
       >
         {children}
@@ -42,74 +47,127 @@ function Float({
   );
 }
 
-const img = (src: string, cls: string) => (
-  <img src={asset(`assets/cosmic/${src}`)} alt="" aria-hidden draggable={false} className={`select-none ${cls}`} />
-);
-
 export default function HeroLayers({ className = "" }: { className?: string; tone?: "light" | "dark"; flip?: boolean }) {
   const ref = useRef<HTMLDivElement>(null);
+  const reduce = useReducedMotion();
   const rawX = useMotionValue(0);
   const rawY = useMotionValue(0);
-  const mx = useSpring(rawX, { stiffness: 55, damping: 22, mass: 0.6 });
-  const my = useSpring(rawY, { stiffness: 55, damping: 22, mass: 0.6 });
+  const mx = useSpring(rawX, { stiffness: 45, damping: 20, mass: 0.7 });
+  const my = useSpring(rawY, { stiffness: 45, damping: 20, mass: 0.7 });
 
   useEffect(() => {
+    if (reduce) return;
     const fine = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
     if (!fine) return;
     const onMove = (e: PointerEvent) => {
       const r = ref.current?.getBoundingClientRect();
       if (!r) return;
+      // normalised -1..1 from the scene centre
       rawX.set(((e.clientX - (r.left + r.width / 2)) / r.width) * 2);
       rawY.set(((e.clientY - (r.top + r.height / 2)) / r.height) * 2);
     };
+    const settle = () => {
+      rawX.set(0);
+      rawY.set(0);
+    };
     window.addEventListener("pointermove", onMove, { passive: true });
-    return () => window.removeEventListener("pointermove", onMove);
-  }, [rawX, rawY]);
+    window.addEventListener("blur", settle);
+    document.addEventListener("pointerleave", settle);
+    return () => {
+      window.removeEventListener("pointermove", onMove);
+      window.removeEventListener("blur", settle);
+      document.removeEventListener("pointerleave", settle);
+    };
+  }, [reduce, rawX, rawY]);
+
+  // Reduced motion / touch: flat plate only, no parallax rig.
+  if (reduce) {
+    return (
+      <div className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`} aria-hidden>
+        <picture>
+          <source srcSet={PLATE_PNG} type="image/png" />
+          <img
+            src={PLATE_JPG}
+            alt=""
+            className="h-full w-full select-none object-cover object-[78%_28%] sm:object-[76%_35%] lg:object-[right_center]"
+            draggable={false}
+            fetchPriority="high"
+          />
+        </picture>
+      </div>
+    );
+  }
 
   return (
     <div ref={ref} className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`} aria-hidden>
-      {/* Subject group anchored to the right. Its own overflow is hidden so the
-          woman's rectangular edges bleed off cleanly with no wall/gap. */}
-      <motion.div
-        initial={{ opacity: 0, scale: 1.03 }}
-        animate={{ opacity: 1, scale: 1 }}
-        transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute bottom-0 right-0 top-0 w-[86%] overflow-hidden sm:w-[68%] lg:w-[58%]"
-      >
-        {/* main planet, large, behind the woman */}
-        <Float mx={mx} my={my} depth={16} amp={12} dur={30} className="left-[6%] top-1/2 w-[86%] -translate-y-1/2">
-          {img("02_main_planet.png", "w-full")}
-        </Float>
-        {/* orbit rings around the planet */}
-        <Float mx={mx} my={my} depth={24} amp={8} dur={34} className="left-[2%] top-1/2 w-[92%] -translate-y-1/2 opacity-70 mix-blend-multiply">
-          {img("06_orbit_rings.png", "w-full")}
-        </Float>
-        {/* medium planet, upper */}
-        <Float mx={mx} my={my} depth={30} amp={16} dur={26} className="left-[2%] top-[-6%] w-[34%]">
-          {img("03_medium_planet.png", "w-full")}
-        </Float>
-        {/* the woman — full face, bled off the right and bottom edges */}
-        <Float mx={mx} my={my} depth={8} amp={5} dur={30} className="bottom-[-3%] right-[-10%] h-[100%]">
-          <img src={asset("assets/cosmic/01_woman.png")} alt="" aria-hidden draggable={false} className="h-full w-auto select-none object-contain object-bottom" />
-        </Float>
-        {/* small planet drifting near her shoulder */}
-        <Float mx={mx} my={my} depth={44} amp={22} dur={17} className="bottom-[10%] left-[24%] w-[13%]">
-          {img("04_small_planets.png", "w-full")}
-        </Float>
-      </motion.div>
+      {/* Base plate: woman + main planet + rings, pinned, faint counter-drift */}
+      <Layer mx={mx} my={my} depth={-5} amp={6} dur={40} className="inset-0 h-full w-full">
+        <picture>
+          <source srcSet={PLATE_PNG} type="image/png" />
+          <motion.img
+            src={PLATE_JPG}
+            alt=""
+            draggable={false}
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+            initial={{ opacity: 0, scale: 1.03 }}
+            animate={{ opacity: 1, scale: 1.04 }}
+            transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+            className="h-full w-full select-none object-cover object-[78%_28%] sm:object-[76%_35%] lg:object-[right_center]"
+          />
+        </picture>
+      </Layer>
 
-      {/* Open left space — subtle drifting accents, hidden on mobile so it never
-          clutters the headline or overflows. */}
-      <div className="hidden md:block">
-        <Float mx={mx} my={my} depth={52} amp={26} dur={15} className="left-[12%] top-[22%] w-[7%] opacity-90">
-          {img("04_small_planets.png", "w-full")}
-        </Float>
-        <Float mx={mx} my={my} depth={62} amp={30} dur={13} className="left-[34%] top-[46%] w-[8%] opacity-80 mix-blend-multiply">
-          {img("05_asteroids.png", "w-full")}
-        </Float>
-        <Float mx={mx} my={my} depth={40} amp={18} dur={19} className="left-[6%] top-[52%] w-[5%] opacity-70">
-          {img("04_small_planets.png", "w-full")}
-        </Float>
+      {/* Loose layers — desktop only. Kept faint and feathered so the left stays
+          clean like the comp; they exist to give the scene real parallax depth.
+          The group carries its own soft mask so no single layer's box edge can
+          ever show against the ivory. */}
+      <div className="hidden lg:block [mask-image:radial-gradient(80%_90%_at_46%_50%,#000_45%,transparent_92%)]">
+        {/* deep nebula haze trailing off toward the centre, edges masked to nothing */}
+        <Layer mx={mx} my={my} depth={14} amp={20} dur={32} className="left-[8%] top-[-10%] w-[52%] opacity-30">
+          <img
+            src={LAYER("layer-haze-a.png")}
+            alt=""
+            className="w-full select-none mix-blend-multiply blur-[3px] [mask-image:radial-gradient(60%_60%_at_60%_45%,#000_25%,transparent_78%)]"
+            draggable={false}
+          />
+        </Layer>
+
+        {/* low wisp under the planet, also fully feathered */}
+        <Layer mx={mx} my={my} depth={20} amp={18} dur={29} className="bottom-[-14%] left-[30%] w-[46%] opacity-25">
+          <img
+            src={LAYER("layer-haze-b.png")}
+            alt=""
+            className="w-full select-none mix-blend-multiply blur-[4px] [mask-image:radial-gradient(55%_55%_at_50%_50%,#000_20%,transparent_80%)]"
+            draggable={false}
+          />
+        </Layer>
+
+        {/* faint scatter of distant planets + rocks in the centre gap */}
+        <Layer mx={mx} my={my} depth={40} amp={22} dur={21} className="left-[24%] top-[24%] w-[30%] opacity-30">
+          <img
+            src={LAYER("layer-debris-planets.png")}
+            alt=""
+            className="w-full select-none [mask-image:radial-gradient(70%_70%_at_55%_45%,#000_35%,transparent_82%)]"
+            draggable={false}
+          />
+        </Layer>
+
+        {/* one crisp red planet drifting just left of her head */}
+        <Layer mx={mx} my={my} depth={30} amp={16} dur={27} className="left-[33%] top-[-4%] w-[13%] opacity-90">
+          <img src={LAYER("layer-planet-md.png")} alt="" className="w-full select-none" draggable={false} />
+        </Layer>
+
+        {/* foreground asteroids — nearest, largest travel, small + subtle */}
+        <Layer mx={mx} my={my} depth={58} amp={26} dur={17} className="left-[20%] top-[44%] w-[18%] opacity-55">
+          <img
+            src={LAYER("layer-asteroids.png")}
+            alt=""
+            className="w-full select-none [mask-image:radial-gradient(75%_75%_at_50%_50%,#000_40%,transparent_85%)]"
+            draggable={false}
+          />
+        </Layer>
       </div>
     </div>
   );

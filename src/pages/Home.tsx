@@ -17,18 +17,9 @@ export default function Home() {
     <PageWrap>
       {/* 1920x1080 Framer/Figma Hero Section */}
       <section className="relative z-10 overflow-hidden bg-ivory text-ink lg:h-screen lg:min-h-[720px] lg:max-h-[1080px] lg:flex lg:items-center">
-        {/* Visual background: full 1920x1080 proportioned visual on desktop, seamless upper background on mobile */}
+        {/* Visual background: the Figma "AI ORA HERO" layer stack, parallaxed on pointer move */}
         <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
-          <picture>
-            <source srcSet={asset("assets/scenes/hero-full.png")} type="image/png" />
-            <img
-              src={asset("assets/scenes/hero-full.jpg")}
-              alt="AIORA Cosmic Hero"
-              className="h-full w-full object-cover object-[78%_28%] sm:object-[76%_35%] lg:object-[right_center] select-none"
-              draggable={false}
-              fetchPriority="high"
-            />
-          </picture>
+          <HeroLayers />
           {/* Desktop gradient: seamlessly merges ivory into the composition on the left */}
           <div
             className="hidden lg:block absolute inset-0 z-[1]"
