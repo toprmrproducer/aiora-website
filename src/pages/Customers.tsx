@@ -3,16 +3,8 @@ import { PageHero } from "../components/blocks";
 import { Reveal, Section, Button } from "../components/ui";
 import CTASection from "../components/CTASection";
 import { TestimonialMarquee } from "../components/Testimonials";
-import { caseStudies, testimonialsA, deployments, praise } from "../lib/data";
+import { caseStudies, testimonialsA, praise, clientsWorkedWith, clientsOpenTo } from "../lib/data";
 import { asset } from "../lib/asset";
-
-// Trusted-across-industries strip, matching the client comp.
-const trusted = [
-  { name: "M&S", sector: "Retail" },
-  { name: "IHG Hotels & Resorts", sector: "Hospitality" },
-  { name: "Anytime Fitness", sector: "Fitness" },
-  { name: "Zendesk", sector: "Services" },
-];
 
 const featured = { quote: "AIORA gave us the structure, speed and confidence to scale AI across the business.", who: "Priya Sharma", org: "Chief Innovation Officer, a multi-location retail group", photo: "assets/people/p8.jpg" };
 
@@ -84,16 +76,32 @@ export default function Customers() {
 
       {/* Trusted across industries — honest, real deployments only */}
       <Section tone="light2" pad="lg">
-        <div className="text-center">
-          <Reveal><h2 className="display text-[clamp(1.9rem,4.4vw,3rem)]">Trusted across industries.</h2></Reveal>
-        </div>
-        <div className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-px overflow-hidden rounded-2xl border border-ink/10 bg-ink/10 md:grid-cols-4">
-          {trusted.map((t) => (
-            <div key={t.name} className="flex flex-col items-center gap-2 bg-ivory px-6 py-10 text-center">
-              <span className="text-lg font-semibold tracking-tight text-ink">{t.name}</span>
-              <span className="text-[11px] uppercase tracking-label text-graphite">{t.sector}</span>
-            </div>
-          ))}
+        <div className="grid gap-14 lg:grid-cols-2">
+          <Reveal>
+            <p className="eyebrow text-crimson">Businesses we work with</p>
+            <h2 className="display mt-6 text-[clamp(1.9rem,4vw,2.8rem)]">On the floor today.</h2>
+            <ul className="mt-8 divide-y divide-ink/10 border-y border-ink/10">
+              {clientsWorkedWith.map((name) => (
+                <li key={name} className="flex items-center gap-3 py-4 text-[17px] text-ink">
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-wine" />
+                  {name}
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="eyebrow text-ink/45">Built to work with</p>
+            <h2 className="display mt-6 text-[clamp(1.9rem,4vw,2.8rem)]">Where AIORA fits next.</h2>
+            <ul className="mt-8 divide-y divide-ink/10 border-y border-ink/10">
+              {clientsOpenTo.map((name) => (
+                <li key={name} className="flex items-center gap-3 py-4 text-[17px] text-graphite">
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-ink/25" />
+                  {name}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-6 text-xs text-graphite">This roster is maintained by the AIORA team and changes as new deployments go live.</p>
+          </Reveal>
         </div>
       </Section>
 

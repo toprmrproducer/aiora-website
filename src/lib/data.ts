@@ -38,8 +38,37 @@ export const navLinks: NavLink[] = [
   { label: "Company", children: companyLinks },
 ];
 
-// Real deployments (honest trust strip — replaces the mockup's placeholder big-tech logos)
-export const deployments = ["Mehta Emporium", "KV Toys", "Anytime Fitness", "Red Bean Hospitality"];
+// Real deployments (honest trust strip). Edit these lists freely as the roster changes.
+export const deployments = [
+  "Altim Metals Pvt Ltd",
+  "VSR Gold",
+  "Nutrimaven",
+  "Valdaria Impex Pvt Ltd",
+  "KV Toys India Ltd",
+  "Badlapur Textiles Industries Pvt Ltd",
+  "Mehta Sawantraj Hanwantraj",
+];
+
+// Businesses AIORA has deployed for. Safe to add or remove any time.
+export const clientsWorkedWith = [
+  "Altim Metals Pvt Ltd",
+  "VSR Gold",
+  "Nutrimaven",
+  "Valdaria Impex Pvt Ltd",
+  "KV Toys India Ltd",
+  "Badlapur Textiles Industries Pvt Ltd",
+  "Mehta Sawantraj Hanwantraj",
+];
+
+// Businesses AIORA is set up to work with next. Editable placeholder roster.
+export const clientsOpenTo = [
+  "Retail and grocery chains",
+  "Jewellery and bullion houses",
+  "Textile and apparel manufacturers",
+  "Distributors and importers",
+  "Clinics and multi-location services",
+  "Restaurants, hotels and venues",
+];
 
 export const offerings = [
   {
@@ -116,28 +145,57 @@ export const whyCards = [
   { title: "Build what is next", body: "Create new products, services and business models for the future.", icon: "build" },
 ];
 
-// Real, scope-honest case studies (no invented ROI beyond supplied figures).
+// Real, scope-honest case studies. Descriptions state what the deployment does;
+// no invented ROI figures. Edit freely as the roster changes.
 export const caseStudies = [
   {
-    name: "Mehta Emporium",
-    kind: "AI Voice",
-    result: "Inbound calls answered with business context and routed to the right next step.",
-    status: "Deployed",
-    image: "assets/scenes/05-aiora-talks-acoustic-portrait.png",
-  },
-  {
-    name: "KV Toys",
-    kind: "Workflow automation",
-    result: "Workflow streamlined. 30% error reduction and a 13% revenue lift reported.",
+    name: "Altim Metals Pvt Ltd",
+    kind: "AIORA Ops",
+    result: "The order desk runs on AIORA Ops. Purchase orders are punched and reconciled, sales orders are raised against them, and the daily sales and pending reports go out on their own instead of being built by hand every evening.",
     status: "Deployed",
     image: "assets/scenes/03-real-business-operations-panorama.png",
   },
   {
-    name: "Anytime Fitness",
-    kind: "Voice + Vision",
-    result: "Voice agent for member enquiries with AIORA Vision on the floor.",
-    status: "In build",
-    image: "assets/scenes/sc-team-night.jpg",
+    name: "VSR Gold",
+    kind: "AIORA Talks",
+    result: "Inbound calls to the counter are answered in the customer's language, rate and availability questions are handled on the spot, and anything that needs a person is routed with the details already captured.",
+    status: "Deployed",
+    image: "assets/scenes/sc-voice-hero.jpg",
+  },
+  {
+    name: "Nutrimaven",
+    kind: "AIORA Apps",
+    result: "Product and stock questions on WhatsApp are answered from the live catalogue, orders are taken inside the same thread, and repeat customers get their usual list rebuilt in a few messages.",
+    status: "Deployed",
+    image: "assets/scenes/sc-whatsapp-hero.jpg",
+  },
+  {
+    name: "Valdaria Impex Pvt Ltd",
+    kind: "AIORA Trade",
+    result: "Enquiries from buyers are qualified and quoted, dispatch and logistics status is handled without a person chasing it, and the team sees every open deal in one place.",
+    status: "Deployed",
+    image: "assets/scenes/sc-os-hero.jpg",
+  },
+  {
+    name: "KV Toys India Ltd",
+    kind: "AIORA Ops + Apps",
+    result: "Catalogue selling and the order desk run together: shopping-list messages become structured orders, the paperwork is reconciled automatically, and the daily reports land without manual work.",
+    status: "Deployed",
+    image: "assets/scenes/sc-retail-hero.jpg",
+  },
+  {
+    name: "Badlapur Textiles Industries Pvt Ltd",
+    kind: "AIORA Vision",
+    result: "Staff attendance is read from the existing cameras, restricted-zone and after-hours activity is flagged for review, and the floor team gets a shortlist of clips to check instead of hours of footage.",
+    status: "Deployed",
+    image: "assets/scenes/sc-vision-hero.jpg",
+  },
+  {
+    name: "Mehta Sawantraj Hanwantraj",
+    kind: "AIORA Talks + Ops",
+    result: "The phone line never rings out: calls are answered and captured, and the order and reconciliation workflow behind them runs on AIORA Ops so nothing is re-keyed.",
+    status: "Deployed",
+    image: "assets/scenes/sc-customers-band.jpg",
   },
 ];
 

@@ -119,52 +119,54 @@ export default function HeroLayers({ className = "" }: { className?: string; ton
         </picture>
       </Layer>
 
-      {/* Loose layers — desktop only. Kept faint and feathered so the left stays
-          clean like the comp; they exist to give the scene real parallax depth.
-          The group carries its own soft mask so no single layer's box edge can
-          ever show against the ivory. */}
-      <div className="hidden lg:block [mask-image:radial-gradient(80%_90%_at_46%_50%,#000_45%,transparent_92%)]">
-        {/* deep nebula haze trailing off toward the centre, edges masked to nothing */}
-        <Layer mx={mx} my={my} depth={14} amp={20} dur={32} className="left-[8%] top-[-10%] w-[52%] opacity-30">
+      {/* Loose layers — desktop only. These are the separate Figma "Section 1"
+          elements (medium planet, small planets, asteroids, nebula haze) stacked
+          over the plate the way the board has them, each drifting on its own
+          parallax depth. The group carries a soft mask so no layer box edge can
+          show against the ivory; the page's own left scrim keeps the headline
+          readable where the debris passes behind it. */}
+      <div className="hidden lg:block [mask-image:radial-gradient(92%_100%_at_44%_50%,#000_58%,transparent_97%)]">
+        {/* deep nebula haze trailing across the open left */}
+        <Layer mx={mx} my={my} depth={14} amp={20} dur={32} className="left-[2%] top-[-12%] w-[58%] opacity-45">
           <img
             src={LAYER("layer-haze-a.png")}
             alt=""
-            className="w-full select-none mix-blend-multiply blur-[3px] [mask-image:radial-gradient(60%_60%_at_60%_45%,#000_25%,transparent_78%)]"
+            className="w-full select-none mix-blend-multiply blur-[2px] [mask-image:radial-gradient(65%_65%_at_60%_45%,#000_30%,transparent_82%)]"
             draggable={false}
           />
         </Layer>
 
-        {/* low wisp under the planet, also fully feathered */}
-        <Layer mx={mx} my={my} depth={20} amp={18} dur={29} className="bottom-[-14%] left-[30%] w-[46%] opacity-25">
+        {/* low wisp under the planet */}
+        <Layer mx={mx} my={my} depth={20} amp={18} dur={29} className="bottom-[-16%] left-[26%] w-[50%] opacity-30">
           <img
             src={LAYER("layer-haze-b.png")}
             alt=""
-            className="w-full select-none mix-blend-multiply blur-[4px] [mask-image:radial-gradient(55%_55%_at_50%_50%,#000_20%,transparent_80%)]"
+            className="w-full select-none mix-blend-multiply blur-[3px] [mask-image:radial-gradient(55%_55%_at_50%_50%,#000_25%,transparent_82%)]"
             draggable={false}
           />
         </Layer>
 
-        {/* faint scatter of distant planets + rocks in the centre gap */}
-        <Layer mx={mx} my={my} depth={40} amp={22} dur={21} className="left-[24%] top-[24%] w-[30%] opacity-30">
+        {/* scatter of small planets + rocks across the centre-left, as on the board */}
+        <Layer mx={mx} my={my} depth={40} amp={22} dur={21} className="left-[12%] top-[16%] w-[42%] opacity-70">
           <img
             src={LAYER("layer-debris-planets.png")}
             alt=""
-            className="w-full select-none [mask-image:radial-gradient(70%_70%_at_55%_45%,#000_35%,transparent_82%)]"
+            className="w-full select-none [mask-image:radial-gradient(78%_78%_at_55%_45%,#000_45%,transparent_88%)]"
             draggable={false}
           />
         </Layer>
 
-        {/* one crisp red planet drifting just left of her head */}
-        <Layer mx={mx} my={my} depth={30} amp={16} dur={27} className="left-[33%] top-[-4%] w-[13%] opacity-90">
+        {/* the medium red planet, upper area, drifting left of her head */}
+        <Layer mx={mx} my={my} depth={30} amp={16} dur={27} className="left-[26%] top-[-8%] w-[17%]">
           <img src={LAYER("layer-planet-md.png")} alt="" className="w-full select-none" draggable={false} />
         </Layer>
 
-        {/* foreground asteroids — nearest, largest travel, small + subtle */}
-        <Layer mx={mx} my={my} depth={58} amp={26} dur={17} className="left-[20%] top-[44%] w-[18%] opacity-55">
+        {/* foreground asteroid cluster — nearest, largest travel */}
+        <Layer mx={mx} my={my} depth={58} amp={26} dur={17} className="left-[14%] top-[42%] w-[22%] opacity-80">
           <img
             src={LAYER("layer-asteroids.png")}
             alt=""
-            className="w-full select-none [mask-image:radial-gradient(75%_75%_at_50%_50%,#000_40%,transparent_85%)]"
+            className="w-full select-none [mask-image:radial-gradient(80%_80%_at_50%_50%,#000_48%,transparent_88%)]"
             draggable={false}
           />
         </Layer>

@@ -15,8 +15,8 @@ export default function Voice() {
         eyebrow="AIORA Voice"
         cosmic
         imageSrc={asset("assets/scenes/sc-voice-hero.jpg")}
-        imagePosition="72% center"
-        title={<>Your phone should create <span className="text-wine">momentum</span>, not missed opportunities.</>}
+        imagePosition="82% center"
+        title={<>Your phone should create <span className="text-wine">momentum</span>.</>}
         body="AIORA Voice handles inbound calls, understands why the customer called and moves them toward a booking, order or qualified handoff."
         micro="Configured around your hours, services and escalation rules."
         primary={{ label: "Hear how it works", to: "/contact" }}

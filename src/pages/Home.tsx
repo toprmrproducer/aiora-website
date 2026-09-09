@@ -258,28 +258,29 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Full-bleed edge-to-edge video, page ground matches the video */}
-      <section className="relative min-h-[86vh] overflow-hidden bg-ink text-ivory">
-        <VideoBg src={asset("assets/video/wave-slow.mp4")} poster={asset("assets/posters/wave.jpg")} overlay="none" />
-        <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-ink via-ink/55 to-ink/10" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-ink to-transparent" />
-        <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-ink/70 to-transparent" />
-        <div className="site-container relative flex min-h-[86vh] items-center py-28">
-          <div className="max-w-2xl">
+      {/* Why adopt AI — compact, centered, contained video */}
+      <section className="bg-ink py-24 text-ivory md:py-32">
+        <div className="site-container">
+          <div className="mx-auto max-w-2xl text-center">
             <Reveal><p className="eyebrow text-crimson">Why adopt AI</p></Reveal>
             <Reveal delay={0.05}>
-              <h2 className="display mt-6 max-w-[14ch] text-[clamp(2.6rem,6vw,5rem)]">
+              <h2 className="display mt-6 text-[clamp(2.4rem,5vw,3.8rem)]">
                 A more capable and <span className="text-wine">human</span> future.
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="lead mt-7 max-w-[46ch] text-graphite-light">
+              <p className="lead mx-auto mt-6 max-w-[48ch] text-graphite-light">
                 AI is not just a technology shift. It is a chance to amplify human potential, solve bigger problems
                 and create a fairer, more prosperous world.
               </p>
             </Reveal>
-            <Reveal delay={0.15}><div className="mt-10"><Button to="/os" variant="solidLight" arrow>Explore the possibilities</Button></div></Reveal>
+            <Reveal delay={0.15}><div className="mt-9 flex justify-center"><Button to="/os" variant="solidLight" arrow>Explore the possibilities</Button></div></Reveal>
           </div>
+          <Reveal delay={0.1}>
+            <div className="mx-auto mt-14 max-w-4xl overflow-hidden rounded-2xl border border-ivory/10">
+              <VideoFrame src={asset("assets/video/wave-slow.mp4")} poster={asset("assets/posters/wave.jpg")} className="aspect-video w-full" />
+            </div>
+          </Reveal>
         </div>
       </section>
 

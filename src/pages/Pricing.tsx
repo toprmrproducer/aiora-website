@@ -5,18 +5,16 @@ import CTASection from "../components/CTASection";
 import { asset } from "../lib/asset";
 
 const lines = [
-  { name: "AIORA Sales", tag: "Wins and closes business on WhatsApp", icon: "growth",
-    body: "Marketing campaigns, lead qualification, quotations, invoicing, collections and WhatsApp catalogue selling. One agent from first enquiry to money received." },
   { name: "AIORA Ops", tag: "Runs the daily order desk", icon: "os",
     body: "PO punching, PO reconciliation, PO tracker, PO-to-SO conversion, daily sales reports and pending reports. The paperwork your team currently does by hand." },
   { name: "AIORA Talks", tag: "Handles the phone", icon: "voice",
     body: "Inbound order calls, outbound calling campaigns and appointment booking, in Indian languages, on a real phone number." },
-  { name: "AIORA Tracks", tag: "Knows where everything is", icon: "pin",
-    body: "Inventory levels, delivery and logistics status, and live location of field sales reps and delivery riders." },
+  { name: "AIORA Trade", tag: "Wins the business and moves the goods", icon: "growth",
+    body: "Lead qualification, quotations, invoicing, collections and WhatsApp catalogue selling, plus live delivery and logistics status and field-rep location. First enquiry to money received to dispatch confirmed." },
   { name: "AIORA Vision", tag: "Watches the site", icon: "vision",
     body: "Staff attendance from camera, theft detection, heat mapping and perimeter breach alerts on your existing CCTV." },
-  { name: "AIORA Assists", tag: "Answers anything about your business", icon: "smart",
-    body: "Ask in plain language about orders, sales, purchases, clients, vendors, stock and batches, and get the answer from your own data, instantly." },
+  { name: "AIORA Apps", tag: "Answers anything about your business", icon: "smart",
+    body: "Ask in plain language about orders, sales, purchases, clients, vendors, stock and batches and get the answer from your own data, instantly. Ships with the WhatsApp UI and the AIORA Dashboard." },
 ];
 
 const usage = [
@@ -27,9 +25,9 @@ const usage = [
 ];
 
 const examples = [
-  { who: "Retail shop", cfg: "Sales + Vision (4 cameras)", cost: "2 x 3,999 = Rs. 7,998 / month", setup: "Setup Rs. 9,999 one time" },
-  { who: "Distributor", cfg: "Sales + Ops + Tracks + Assists", cost: "4 x 3,999 = Rs. 15,996 / month", setup: "Setup Rs. 9,999 one time" },
-  { who: "Clinic", cfg: "Talks + Sales, ~1,000 call minutes", cost: "2 x 3,999 = 7,998 + (1,000 x 5.50) = Rs. 13,498 / month", setup: "Setup Rs. 9,999 one time" },
+  { who: "Retail shop", cfg: "Trade + Vision (4 cameras)", cost: "2 x 3,999 = Rs. 7,998 / month", setup: "Setup Rs. 9,999 one time" },
+  { who: "Distributor", cfg: "Trade + Ops + Apps", cost: "3 x 3,999 = Rs. 11,997 / month", setup: "Setup Rs. 9,999 one time" },
+  { who: "Clinic", cfg: "Talks + Trade, ~1,000 call minutes", cost: "2 x 3,999 = 7,998 + (1,000 x 5.50) = Rs. 13,498 / month", setup: "Setup Rs. 9,999 one time" },
   { who: "Factory", cfg: "Vision with 10 cameras + Ops", cost: "2 x 3,999 = 7,998 + (6 x 1,999) = Rs. 19,992 / month", setup: "Setup Rs. 9,999 one time" },
 ];
 
@@ -37,13 +35,13 @@ export default function Pricing() {
   return (
     <PageWrap>
       <PageHero
-        eyebrow="AIORA, six agent lines"
+        eyebrow="AIORA, five agent lines"
         cosmic
-        imageSrc={asset("assets/scenes/pricing-rings-wide.jpg")}
-        imagePosition="70% center"
+        imageSrc={asset("assets/scenes/sc-pricing-hero.jpg")}
+        imagePosition="65% center"
         title={<>Not a chatbot. Agents that <span className="text-wine">act</span> inside your systems.</>}
         body="Each agent captures, understands, decides and acts inside your own systems. Every agent comes with a WhatsApp interface for your team and customers, plus the AIORA Dashboard."
-        micro="One flat price per agent. Run one, or run all six."
+        micro="One flat price per agent. Run one, or run all five."
         primary={{ label: "Book a call", to: "/contact" }}
         secondary={{ label: "Explore the platform", to: "/os" }}
       />
@@ -86,11 +84,11 @@ export default function Pricing() {
         </div>
       </Section>
 
-      {/* The six lines */}
+      {/* The five lines */}
       <Section tone="light2" pad="xl">
         <div className="max-w-3xl">
-          <Reveal><p className="eyebrow text-crimson">The six lines</p></Reveal>
-          <Reveal delay={0.05}><h2 className="display mt-6 text-[clamp(2.2rem,5.5vw,4rem)]">One price. Six ways to run your business.</h2></Reveal>
+          <Reveal><p className="eyebrow text-crimson">The five lines</p></Reveal>
+          <Reveal delay={0.05}><h2 className="display mt-6 text-[clamp(2.2rem,5.5vw,4rem)]">One price. Five ways to run your business.</h2></Reveal>
         </div>
         <div className="mt-14 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {lines.map((l, i) => (
@@ -114,8 +112,8 @@ export default function Pricing() {
         <div className="site-container">
           <div className="max-w-3xl">
             <Reveal><p className="eyebrow text-crimson">Usage billed separately</p></Reveal>
-            <Reveal delay={0.05}><h2 className="display mt-6 text-[clamp(2rem,5vw,3.4rem)]">Four lines run flat. Two carry real usage.</h2></Reveal>
-            <Reveal delay={0.1}><p className="lead mt-6 text-graphite-light">Four of the six lines run entirely on the monthly subscription. Two carry real per-unit cost and are billed on usage.</p></Reveal>
+            <Reveal delay={0.05}><h2 className="display mt-6 text-[clamp(2rem,5vw,3.4rem)]">Three lines run flat. Two carry real usage.</h2></Reveal>
+            <Reveal delay={0.1}><p className="lead mt-6 text-graphite-light">Three of the five lines run entirely on the monthly subscription. Two carry real per-unit cost and are billed on usage.</p></Reveal>
           </div>
           <div className="mt-12 divide-y divide-ivory/12 border-y border-ivory/12">
             {usage.map((u, i) => (
@@ -152,7 +150,7 @@ export default function Pricing() {
         </div>
         <Reveal>
           <p className="mt-8 max-w-2xl text-sm text-graphite">
-            Run one agent or all six. The setup fee is charged once, not per agent, and covers configuration, integration with your existing systems, and team onboarding.
+            Run one agent or all five. The setup fee is charged once, not per agent, and covers configuration, integration with your existing systems, and team onboarding.
           </p>
         </Reveal>
       </Section>
@@ -234,7 +232,7 @@ export default function Pricing() {
         title="Pick the agent that pays for itself first."
         body="Start with the one line that removes the most manual work or wins the most revenue today, then add the rest when it is proven."
         primary={{ label: "Book a call", to: "/contact" }}
-        secondary={{ label: "See the six lines", to: "/os" }}
+        secondary={{ label: "See the five lines", to: "/os" }}
       />
     </PageWrap>
   );

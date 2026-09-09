@@ -88,16 +88,14 @@ export default function Contact() {
                   <div>
                     <label className="eyebrow text-graphite">What do you want to improve first?</label>
                     <select value={form.goal} onChange={set("goal")} className={`${field} mt-2`}>
-                      <option>AIORA Voice</option>
-                      <option>WhatsApp AI</option>
-                      <option>AIORA Vision</option>
-                      <option>AIORA OS (the full platform)</option>
-                      <option>AIORA Sales</option>
                       <option>AIORA Ops</option>
                       <option>AIORA Talks</option>
-                      <option>AIORA Tracks</option>
-                      <option>AIORA Assists</option>
-                      <option>Pricing / six agent lines</option>
+                      <option>AIORA Trade</option>
+                      <option>AIORA Vision</option>
+                      <option>AIORA Apps</option>
+                      <option>The full platform</option>
+                      <option>Pricing / agent lines</option>
+                      <option>Not sure yet</option>
                     </select>
                   </div>
                   <div>
