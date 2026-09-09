@@ -8,47 +8,70 @@ import HeroLayers from "../components/HeroLayers";
 import Typewriter from "../components/Typewriter";
 import {
   offerings, gapStats, resultStats, whyCards,
-  caseStudies, testimonialsA, testimonialFeatured, gapFails,
+  caseStudies, testimonialsA, testimonialFeatured, deployments,
 } from "../lib/data";
 import { asset } from "../lib/asset";
 
 export default function Home() {
   return (
     <PageWrap>
-      <section className="relative z-10 overflow-hidden bg-ivory text-ink">
-        {/* The exact 1920x1080 AI ORA HERO frame. Shown whole on desktop (copy overlays
-            the frame's empty left space, matching Figma); cropped to the subject on
-            mobile with the copy stacked below so it stays readable and sexy. */}
-        <div className="relative w-full">
-          <img
-            src={asset("assets/scenes/hero-full.jpg")}
-            alt="AIORA"
-            className="block h-[54svh] min-h-[380px] w-full object-cover object-[76%_center] lg:h-auto lg:aspect-[1920/1032] lg:max-h-[92svh] lg:object-[right_center]"
+      {/* 1920x1080 Framer/Figma Hero Section */}
+      <section className="relative z-10 overflow-hidden bg-ivory text-ink lg:h-screen lg:min-h-[720px] lg:max-h-[1080px] lg:flex lg:items-center">
+        {/* Visual background: full 1920x1080 proportioned visual on desktop, seamless upper background on mobile */}
+        <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden">
+          <picture>
+            <source srcSet={asset("assets/scenes/hero-full.png")} type="image/png" />
+            <img
+              src={asset("assets/scenes/hero-full.jpg")}
+              alt="AIORA Cosmic Hero"
+              className="h-full w-full object-cover object-[78%_28%] sm:object-[76%_35%] lg:object-[right_center] select-none"
+              draggable={false}
+              fetchPriority="high"
+            />
+          </picture>
+          {/* Desktop gradient: seamlessly merges ivory into the composition on the left */}
+          <div
+            className="hidden lg:block absolute inset-0 z-[1]"
+            style={{
+              background: "linear-gradient(90deg, #F4F1EA 0%, #F4F1EA 28%, rgba(244,241,234,0.88) 42%, rgba(244,241,234,0.3) 56%, rgba(244,241,234,0) 70%)"
+            }}
           />
-          <div className="pointer-events-none absolute inset-0 z-[8] hidden lg:block" style={{ background: "linear-gradient(90deg, rgba(244,241,234,0.96) 0%, rgba(244,241,234,0.6) 30%, rgba(244,241,234,0.1) 50%, rgba(244,241,234,0) 60%)" }} />
-          <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[8] h-40 bg-gradient-to-t from-ivory to-transparent lg:hidden" />
+          {/* Mobile gradient: fades the top image softly into the ivory background below */}
+          <div
+            className="lg:hidden absolute inset-0 z-[1]"
+            style={{
+              background: "linear-gradient(180deg, rgba(244,241,234,0.1) 0%, rgba(244,241,234,0.65) 44%, rgba(244,241,234,0.96) 68%, #F4F1EA 88%)"
+            }}
+          />
         </div>
 
-        <div className="site-container relative z-10 w-full pb-14 pt-8 lg:absolute lg:inset-0 lg:flex lg:items-center lg:pb-0 lg:pt-0">
-          <div className="max-w-[40rem]">
+        {/* Hero content */}
+        <div className="site-container relative z-10 w-full pt-28 pb-16 sm:pt-36 sm:pb-20 lg:py-0">
+          <div className="max-w-[42rem]">
+            {/* 5-star rating */}
             <motion.div
-              initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.12 }}
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.12 }}
               className="flex items-center gap-3"
             >
               <span className="flex gap-0.5 text-wine" aria-hidden>
                 {Array.from({ length: 5 }).map((_, i) => (
-                  <svg key={i} width="17" height="17" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.2 6.8.8-5 4.6 1.3 6.7L12 17.9 5.9 20.3 7.2 13.6 2.2 9l6.8-.8z" /></svg>
+                  <svg key={i} width="17" height="17" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 2l2.9 6.2 6.8.8-5 4.6 1.3 6.7L12 17.9 5.9 20.3 7.2 13.6 2.2 9l6.8-.8z" />
+                  </svg>
                 ))}
               </span>
-              <span className="eyebrow font-bold text-ink/60">Five-star rated by the businesses we build for</span>
+              <span className="eyebrow font-bold text-ink/70">Five-star rated by the businesses we build for</span>
             </motion.div>
 
-            <h1 aria-label="AI that gets results, confidently." className="display-tech mt-7 text-[clamp(3rem,7vw,5.9rem)] text-ink">
+            {/* Headline */}
+            <h1 aria-label="AI that gets results, confidently." className="display-tech mt-6 sm:mt-7 text-[clamp(2.75rem,6.5vw,5.6rem)] leading-[0.98] text-ink">
               {["AI that gets", "results"].map((line, i) => (
                 <motion.span
                   key={i}
                   className="block"
-                  initial={{ opacity: 0, y: 36 }}
+                  initial={{ opacity: 0, y: 32 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.22 + i * 0.1 }}
                 >
@@ -57,7 +80,7 @@ export default function Home() {
               ))}
               <motion.span
                 className="block text-wine"
-                initial={{ opacity: 0, y: 36 }}
+                initial={{ opacity: 0, y: 32 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.42 }}
               >
@@ -65,9 +88,12 @@ export default function Home() {
               </motion.span>
             </h1>
 
+            {/* CTAs */}
             <motion.div
-              initial={{ opacity: 0, y: 18 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.78 }}
-              className="mt-10 flex flex-wrap items-center gap-3"
+              initial={{ opacity: 0, y: 18 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.75 }}
+              className="mt-8 sm:mt-10 flex flex-wrap items-center gap-3.5"
             >
               <Button to="/contact" variant="solid">Book a call</Button>
               <Button to="/os" variant="outline">Explore our products</Button>
@@ -75,19 +101,36 @@ export default function Home() {
           </div>
         </div>
 
-        <div className="absolute right-8 top-1/2 hidden -translate-y-1/2 flex-col items-end gap-3 xl:flex">
-          <span className="mb-2 block h-10 w-px bg-ivory/35" />
+        {/* Right-hand rail matching Figma/Framer frame */}
+        <div className="absolute right-8 top-1/2 hidden -translate-y-1/2 flex-col items-end gap-3 xl:flex pointer-events-none z-10">
+          <span className="mb-2 block h-10 w-px bg-ink/20" />
           {["People", "Ideas", "Systems", "A brighter", "tomorrow"].map((t, i) => (
             <motion.span
               key={t}
               initial={{ opacity: 0, x: 16 }}
-              animate={{ opacity: 0.8, x: 0 }}
+              animate={{ opacity: 0.75, x: 0 }}
               transition={{ delay: 1 + i * 0.08 }}
-              className="text-[10px] uppercase tracking-[0.28em] text-ivory/80"
+              className="text-[10px] uppercase tracking-[0.28em] text-ink/75 font-medium"
             >
               {t}
             </motion.span>
           ))}
+        </div>
+      </section>
+
+      {/* Trust Strip */}
+      <section className="relative z-10 border-y border-ink/10 bg-ivory py-8 md:py-10">
+        <div className="site-container">
+          <p className="text-center text-[11px] font-semibold uppercase tracking-[0.22em] text-graphite">
+            Trusted across real deployments
+          </p>
+          <div className="mt-6 flex flex-wrap items-center justify-center gap-8 md:gap-16">
+            {deployments.map((name) => (
+              <span key={name} className="display text-lg tracking-tight text-ink/65 hover:text-ink transition-colors md:text-xl font-medium">
+                {name}
+              </span>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -129,40 +172,6 @@ export default function Home() {
                 </div>
               </div>
             </Reveal>
-          </div>
-        </div>
-      </section>
-
-      <section className="relative overflow-hidden bg-ink py-32 text-ivory md:py-44">
-        <img src={asset("assets/stock/stock-15.png")} alt="" aria-hidden className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-75" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/50 to-ink/10" />
-        <div className="site-container relative grid items-center gap-16 lg:grid-cols-[1.15fr_0.85fr]">
-          <div>
-            <Reveal><p className="eyebrow text-ivory/55">The implementation gap</p></Reveal>
-            <Reveal delay={0.05}>
-              <h2 className="display mt-8 max-w-[14ch] text-[clamp(2.8rem,6.2vw,5.4rem)]">Most AI projects <span className="text-wine">never make it.</span></h2>
-            </Reveal>
-            <Reveal delay={0.1}>
-              <p className="mt-6 max-w-[46ch] text-[16px] leading-relaxed text-ivory/70">
-                Great ideas get stuck in pilots, lost in complexity, or fail to deliver real value. AIORA closes the gap
-                with a structured, end-to-end operating system built for execution.
-              </p>
-            </Reveal>
-            <Reveal delay={0.15}>
-              <div className="mt-10"><Button to="/os" variant="outlineLight">See how it works</Button></div>
-            </Reveal>
-          </div>
-          <div className="space-y-1">
-            {gapFails.map((item, i) => (
-              <Reveal key={item} delay={0.05 * i}>
-                <div className="flex items-center gap-4 py-3.5">
-                  <span className="text-wine" aria-hidden>
-                    <svg width="14" height="14" viewBox="0 0 16 16" fill="none"><path d="M4 4l8 8M12 4l-8 8" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" /></svg>
-                  </span>
-                  <span className="text-[17px] text-ivory/90">{item}</span>
-                </div>
-              </Reveal>
-            ))}
           </div>
         </div>
       </section>
