@@ -29,7 +29,7 @@ export function PageHero({
           <Orb className="h-full w-full" />
         </div>
       )}
-      <div className="site-container relative w-full pt-24">
+      <div className="site-container relative w-full pt-32">
         <Reveal><p className="eyebrow text-ivory/70">{eyebrow}</p></Reveal>
         <Reveal delay={0.06}>
           <h1 className="display mt-7 max-w-[15ch] text-[clamp(2.8rem,7vw,5.8rem)]">{title}</h1>

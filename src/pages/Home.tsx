@@ -22,18 +22,10 @@ export default function Home() {
             className="absolute inset-0 h-full w-full object-cover"
             style={{ objectPosition: "72% center" }}
           />
-          <video
-            className="absolute inset-0 hidden h-full w-full object-cover md:block"
-            style={{ objectPosition: "72% center" }}
-            autoPlay muted loop playsInline preload="metadata"
-            poster={asset("assets/posters/hero-planets.jpg")}
-          >
-            <source src={asset("assets/video/hero-planets.mp4")} type="video/mp4" />
-          </video>
         </div>
         <div className="pointer-events-none absolute inset-y-0 left-0 w-[52%] bg-gradient-to-r from-[#171515] from-40% via-[#171515]/80 to-transparent" />
 
-        <div className="site-container relative z-10 w-full pt-20 pb-16">
+        <div className="site-container relative z-10 w-full pb-16 pt-28">
           <div className="max-w-[38rem]">
             <motion.p
               initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, delay: 0.12 }}
@@ -282,26 +274,32 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="overflow-hidden bg-ink py-24 text-ivory md:py-32">
-        <div className="site-container">
+      <Section tone="light" pad="xl">
+        <div className="max-w-2xl">
           <Reveal><p className="eyebrow text-crimson">What teams say</p></Reveal>
+          <Reveal delay={0.05}>
+            <h2 className="display mt-6 text-[clamp(2.2rem,5vw,3.8rem)]">People who run the work, not another dashboard.</h2>
+          </Reveal>
         </div>
-        <div className="mt-14 space-y-6">
-          {[testimonialsA.slice(0, 2), testimonialsA.slice(2, 4)].map((row, ri) => (
-            <div key={ri} className="relative overflow-hidden">
-              <div className={`flex w-max gap-6 ${ri % 2 ? "animate-marquee [animation-direction:reverse]" : "animate-marquee"}`}>
-                {[...row, ...row, ...row].map((t, i) => (
-                  <figure key={i} className="w-[380px] shrink-0 rounded-2xl border border-ivory/12 bg-charcoal p-8">
-                    <div className="text-4xl leading-none text-wine">&ldquo;</div>
-                    <blockquote className="mt-3 text-lg leading-relaxed">{t.quote}</blockquote>
-                    <figcaption className="mt-6 text-sm text-graphite-light">{t.who} · {t.org}</figcaption>
-                  </figure>
-                ))}
-              </div>
-            </div>
+        <div className="mt-16 grid gap-6 md:grid-cols-2">
+          {testimonialsA.map((t, i) => (
+            <Reveal key={t.who} delay={0.05 * i}>
+              <figure className="flex h-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-ivory-2/40 md:flex-row">
+                <div className="relative aspect-[4/5] w-full shrink-0 md:aspect-auto md:w-[42%]">
+                  <img src={asset(t.photo)} alt="" className="absolute inset-0 h-full w-full object-cover object-top" />
+                </div>
+                <div className="flex flex-1 flex-col justify-between p-7 md:p-8">
+                  <blockquote className="text-[17px] leading-relaxed text-ink">{t.quote}</blockquote>
+                  <figcaption className="mt-8">
+                    <div className="font-semibold text-ink">{t.who}</div>
+                    <div className="mt-1 text-sm text-graphite">{t.org}</div>
+                  </figcaption>
+                </div>
+              </figure>
+            </Reveal>
           ))}
         </div>
-      </section>
+      </Section>
 
       <Section id="proof" tone="light" pad="xl">
         <div className="flex flex-wrap items-end justify-between gap-6">
@@ -337,20 +335,22 @@ export default function Home() {
         <Reveal><p className="mt-8 text-xs text-graphite">Evidence shown by delivery status. Measured outcomes are confirmed with each client before publication.</p></Reveal>
       </Section>
 
-      <section className="relative overflow-hidden bg-charcoal py-28 text-ivory md:py-40">
-        <img src={asset("assets/scenes/support-human.png")} alt="" aria-hidden className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-25" />
-        <div className="absolute inset-0 bg-ink/70" />
-        <div className="site-container relative">
+      <section className="bg-ink py-20 text-ivory md:py-28">
+        <div className="site-container grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal>
-            <div className="mx-auto max-w-4xl text-center">
-              <div className="text-6xl leading-none text-wine">&ldquo;</div>
-              <blockquote className="display mt-4 text-[clamp(1.8rem,4vw,3.2rem)] font-light leading-[1.15]">
-                {testimonialFeatured.quote}
-              </blockquote>
-              <figcaption className="mt-10 text-graphite-light">
-                <span className="font-semibold text-ivory">{testimonialFeatured.who}</span> · {testimonialFeatured.org}
-              </figcaption>
+            <div className="overflow-hidden rounded-2xl">
+              <img src={asset(testimonialFeatured.photo)} alt="" className="aspect-[4/3] w-full object-cover" />
             </div>
+          </Reveal>
+          <Reveal delay={0.08}>
+            <p className="eyebrow text-ivory/55">From the floor</p>
+            <blockquote className="display mt-6 text-[clamp(1.7rem,3.4vw,2.6rem)] font-light leading-[1.2]">
+              {testimonialFeatured.quote}
+            </blockquote>
+            <figcaption className="mt-8 text-graphite-light">
+              <span className="font-semibold text-ivory">{testimonialFeatured.who}</span>
+              <span className="mt-1 block">{testimonialFeatured.org}</span>
+            </figcaption>
           </Reveal>
         </div>
       </section>

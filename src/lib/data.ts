@@ -3,7 +3,7 @@
 // PROOF DISCIPLINE: no fabricated client identities. Aggregate stats + testimonials
 // are illustrative/placeholder and listed in README "Claims to approve".
 
-export type NavChild = { label: string; to: string; desc: string };
+export type NavChild = { label: string; to: string; desc: string; group?: string };
 export type NavLink = { label: string; to?: string; children?: NavChild[] };
 
 export const productLinks: NavChild[] = [
@@ -13,12 +13,26 @@ export const productLinks: NavChild[] = [
   { label: "AIORA OS", to: "/os", desc: "One operating layer for calls, chats, orders and follow-up." },
 ];
 
+export const solutionLinks: NavChild[] = [
+  { group: "By workflow", label: "Voice", to: "/voice", desc: "Answer the phone and move the caller forward." },
+  { group: "By workflow", label: "WhatsApp", to: "/whatsapp", desc: "Give every message a next step." },
+  { group: "By workflow", label: "Vision", to: "/vision", desc: "Surface the footage that needs a human." },
+  { group: "By industry", label: "Retail and grocery", to: "/os", desc: "Catalog, orders and follow-up in one loop." },
+  { group: "By industry", label: "Clinics and services", to: "/os", desc: "Capture the enquiry and book the slot." },
+  { group: "By industry", label: "Hospitality", to: "/os", desc: "Answer, book and route before they go elsewhere." },
+];
+
+export const companyLinks: NavChild[] = [
+  { group: "Company", label: "Talk to AIORA", to: "/contact", desc: "Start with the workflow that leaks the most revenue." },
+  { group: "Company", label: "Customers", to: "/#proof", desc: "Deployments, labelled honestly." },
+  { group: "Company", label: "Pricing", to: "/pricing", desc: "Six agent lines. One monthly price." },
+];
+
 export const navLinks: NavLink[] = [
   { label: "Products", children: productLinks },
-  { label: "Solutions", to: "/os" },
+  { label: "Solutions", children: solutionLinks },
   { label: "Pricing", to: "/pricing" },
-  { label: "Customers", to: "/#proof" },
-  { label: "Company", to: "/contact" },
+  { label: "Company", children: companyLinks },
 ];
 
 // Real deployments (honest trust strip — replaces the mockup's placeholder big-tech logos)
@@ -120,18 +134,19 @@ export const caseStudies = [
   },
 ];
 
-// Illustrative testimonials — role-based, no fabricated names/photos. Swap on client approval.
+// Illustrative testimonials. Portraits are generated art direction, not named clients.
 export const testimonialsA = [
-  { quote: "AIORA gave us the structure, speed and confidence to scale AI across the business.", who: "Chief Innovation Officer", org: "Multi-location retail group" },
-  { quote: "The difference is they start with the result, then deploy only what moves it.", who: "Operations Lead", org: "Hospitality brand" },
-  { quote: "Our phone stopped being the weak point. Every caller now has somewhere to go.", who: "Owner", org: "Service business" },
-  { quote: "It sounds like our business, only more consistent, at every hour.", who: "Founder", org: "D2C brand" },
+  { quote: "AIORA gave us the structure, speed and confidence to scale AI across the business.", who: "Chief Innovation Officer", org: "Multi-location retail group", photo: "assets/people/p1.jpg" },
+  { quote: "The difference is they start with the result, then deploy only what moves it.", who: "Operations Lead", org: "Hospitality brand", photo: "assets/people/p2.jpg" },
+  { quote: "Our phone stopped being the weak point. Every caller now has somewhere to go.", who: "Owner", org: "Service business", photo: "assets/people/p3.jpg" },
+  { quote: "It sounds like our business, only more consistent, at every hour.", who: "Founder", org: "D2C brand", photo: "assets/people/p4.jpg" },
 ];
 
 export const testimonialFeatured = {
   quote: "We stopped losing customers to a busy line. AIORA answers, captures intent and books the next step, so the team can actually serve the people in front of them.",
   who: "Operations Director",
   org: "Multi-location services group",
+  photo: "assets/people/team.jpg",
 };
 
 export const footerCols = [
