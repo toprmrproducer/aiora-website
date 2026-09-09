@@ -12,6 +12,7 @@ import { asset } from "../lib/asset";
 */
 
 const LAYER = (name: string) => asset(`assets/cosmic/hires/${name}`);
+const COSMIC = (name: string) => asset(`assets/cosmic/${name}`);
 const PLATE_PNG = asset("assets/scenes/hero-full.png");
 const PLATE_JPG = asset("assets/scenes/hero-full.jpg");
 
@@ -125,48 +126,61 @@ export default function HeroLayers({ className = "" }: { className?: string; ton
           parallax depth. The group carries a soft mask so no layer box edge can
           show against the ivory; the page's own left scrim keeps the headline
           readable where the debris passes behind it. */}
-      <div className="hidden lg:block [mask-image:radial-gradient(92%_100%_at_44%_50%,#000_58%,transparent_97%)]">
-        {/* deep nebula haze trailing across the open left */}
-        <Layer mx={mx} my={my} depth={14} amp={20} dur={32} className="left-[2%] top-[-12%] w-[58%] opacity-45">
+      <div className="hidden lg:block [mask-image:radial-gradient(100%_115%_at_46%_50%,#000_62%,transparent_98%)]">
+        {/* faint outer atmosphere behind everything */}
+        <Layer mx={mx} my={my} depth={12} amp={18} dur={34} className="left-[6%] top-[-16%] w-[56%] opacity-35">
           <img
             src={LAYER("layer-haze-a.png")}
             alt=""
-            className="w-full select-none mix-blend-multiply blur-[2px] [mask-image:radial-gradient(65%_65%_at_60%_45%,#000_30%,transparent_82%)]"
+            className="w-full select-none mix-blend-multiply blur-[3px] [mask-image:radial-gradient(65%_65%_at_58%_45%,#000_28%,transparent_84%)]"
             draggable={false}
           />
         </Layer>
 
-        {/* low wisp under the planet */}
-        <Layer mx={mx} my={my} depth={20} amp={18} dur={29} className="bottom-[-16%] left-[26%] w-[50%] opacity-30">
+        {/* the pink nebula smoke trailing left from the planet — the Figma signature */}
+        <Layer mx={mx} my={my} depth={22} amp={16} dur={30} className="left-[16%] top-[10%] w-[50%] opacity-75">
           <img
             src={LAYER("layer-haze-b.png")}
             alt=""
-            className="w-full select-none mix-blend-multiply blur-[3px] [mask-image:radial-gradient(55%_55%_at_50%_50%,#000_25%,transparent_82%)]"
+            className="w-full select-none mix-blend-multiply blur-[1px] [mask-image:radial-gradient(62%_62%_at_58%_48%,#000_34%,transparent_86%)]"
             draggable={false}
           />
         </Layer>
 
-        {/* scatter of small planets + rocks across the centre-left, as on the board */}
-        <Layer mx={mx} my={my} depth={40} amp={22} dur={21} className="left-[12%] top-[16%] w-[42%] opacity-70">
+        {/* scatter of small planets + rocks across the centre-left */}
+        <Layer mx={mx} my={my} depth={40} amp={22} dur={21} className="left-[8%] top-[12%] w-[46%] opacity-80">
           <img
             src={LAYER("layer-debris-planets.png")}
             alt=""
-            className="w-full select-none [mask-image:radial-gradient(78%_78%_at_55%_45%,#000_45%,transparent_88%)]"
+            className="w-full select-none [mask-image:radial-gradient(80%_80%_at_54%_46%,#000_52%,transparent_90%)]"
             draggable={false}
           />
         </Layer>
 
-        {/* the medium red planet, upper area, drifting left of her head */}
-        <Layer mx={mx} my={my} depth={30} amp={16} dur={27} className="left-[26%] top-[-8%] w-[17%]">
+        {/* medium red planet, upper-left area */}
+        <Layer mx={mx} my={my} depth={30} amp={16} dur={27} className="left-[22%] top-[-10%] w-[19%]">
           <img src={LAYER("layer-planet-md.png")} alt="" className="w-full select-none" draggable={false} />
         </Layer>
 
-        {/* foreground asteroid cluster — nearest, largest travel */}
-        <Layer mx={mx} my={my} depth={58} amp={26} dur={17} className="left-[14%] top-[42%] w-[22%] opacity-80">
+        {/* small planet drifting far left */}
+        <Layer mx={mx} my={my} depth={50} amp={24} dur={19} className="left-[6%] top-[34%] w-[6%] opacity-90">
+          <img src={COSMIC("04_small_planets.png")} alt="" className="w-full select-none" draggable={false} />
+        </Layer>
+
+        {/* foreground asteroid clusters — nearest, largest travel */}
+        <Layer mx={mx} my={my} depth={58} amp={26} dur={17} className="left-[18%] top-[38%] w-[20%] opacity-95">
           <img
             src={LAYER("layer-asteroids.png")}
             alt=""
-            className="w-full select-none [mask-image:radial-gradient(80%_80%_at_50%_50%,#000_48%,transparent_88%)]"
+            className="w-full select-none [mask-image:radial-gradient(82%_82%_at_50%_48%,#000_55%,transparent_90%)]"
+            draggable={false}
+          />
+        </Layer>
+        <Layer mx={mx} my={my} depth={64} amp={28} dur={14} className="left-[30%] top-[58%] w-[12%] opacity-85">
+          <img
+            src={COSMIC("05_asteroids.png")}
+            alt=""
+            className="w-full select-none [mask-image:radial-gradient(80%_80%_at_50%_50%,#000_50%,transparent_88%)]"
             draggable={false}
           />
         </Layer>

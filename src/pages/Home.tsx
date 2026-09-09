@@ -127,7 +127,7 @@ export default function Home() {
 
       <section className="bg-ivory">
         <div className="grid lg:grid-cols-2">
-          <div className="flex min-h-[78vh] flex-col justify-center px-6 py-28 md:px-12 md:py-40 lg:pl-[max(2.5rem,calc((100vw-1440px)/2+2.5rem))] lg:pr-16">
+          <div className="flex flex-col justify-center px-6 py-24 md:px-12 md:py-28 lg:pl-[max(2.5rem,calc((100vw-1440px)/2+2.5rem))] lg:pr-16">
             <Reveal><p className="eyebrow text-ink/45">The implementation gap is real</p></Reveal>
             <Reveal delay={0.05}>
               <h2 className="display mt-8 max-w-[18ch] text-[clamp(2.8rem,6vw,5.2rem)] text-ink">Most AI initiatives never make it past pilots.</h2>
@@ -150,13 +150,12 @@ export default function Home() {
               ))}
             </div>
           </div>
-          <div className="relative flex items-center justify-center px-6 py-10 md:px-10 lg:py-16">
-            <div className="pointer-events-none absolute right-6 top-1/2 hidden h-[62%] w-[62%] -translate-y-1/2 rounded-3xl bg-wine/10 lg:block" />
+          <div className="relative flex items-center justify-center px-6 py-12 md:px-10 lg:py-16">
             <Reveal className="relative w-full">
-              <div className="relative mx-auto aspect-[4/5] w-full max-w-[480px] overflow-hidden rounded-3xl shadow-[0_50px_120px_-50px_rgba(12,12,13,0.6)]">
+              <div className="relative mx-auto aspect-[4/5] w-full max-w-[460px] overflow-hidden rounded-3xl border border-ink/10 shadow-[0_40px_100px_-55px_rgba(12,12,13,0.55)]">
                 <img src={asset("assets/scenes/02-implementation-gap-forest-portal.png")} alt="A figure before a towering lit portal" className="absolute inset-0 h-full w-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-ink/50 via-transparent to-transparent" />
-                <div className="absolute bottom-6 left-6 right-6">
+                <div className="absolute inset-0 bg-gradient-to-t from-ink/55 via-transparent to-transparent" />
+                <div className="absolute bottom-5 left-5 right-5">
                   <span className="inline-flex items-center gap-2 rounded-full bg-ivory/90 px-4 py-2 text-[12px] font-semibold text-ink backdrop-blur">
                     <span className="h-1.5 w-1.5 rounded-full bg-wine" /> AIORA closes the gap
                   </span>
@@ -258,27 +257,27 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* Why adopt AI — compact, centered, contained video */}
-      <section className="bg-ink py-24 text-ivory md:py-32">
+      {/* Why adopt AI — tight band, centered, thin cinematic video */}
+      <section className="bg-ink py-14 text-ivory md:py-16">
         <div className="site-container">
           <div className="mx-auto max-w-2xl text-center">
             <Reveal><p className="eyebrow text-crimson">Why adopt AI</p></Reveal>
             <Reveal delay={0.05}>
-              <h2 className="display mt-6 text-[clamp(2.4rem,5vw,3.8rem)]">
+              <h2 className="display mt-5 text-[clamp(2.2rem,4.4vw,3.4rem)]">
                 A more capable and <span className="text-wine">human</span> future.
               </h2>
             </Reveal>
             <Reveal delay={0.1}>
-              <p className="lead mx-auto mt-6 max-w-[48ch] text-graphite-light">
+              <p className="mx-auto mt-5 max-w-[46ch] text-[15px] leading-relaxed text-graphite-light md:text-base">
                 AI is not just a technology shift. It is a chance to amplify human potential, solve bigger problems
                 and create a fairer, more prosperous world.
               </p>
             </Reveal>
-            <Reveal delay={0.15}><div className="mt-9 flex justify-center"><Button to="/os" variant="solidLight" arrow>Explore the possibilities</Button></div></Reveal>
+            <Reveal delay={0.15}><div className="mt-7 flex justify-center"><Button to="/os" variant="solidLight" arrow>Explore the possibilities</Button></div></Reveal>
           </div>
           <Reveal delay={0.1}>
-            <div className="mx-auto mt-14 max-w-4xl overflow-hidden rounded-2xl border border-ivory/10">
-              <VideoFrame src={asset("assets/video/wave-slow.mp4")} poster={asset("assets/posters/wave.jpg")} className="aspect-video w-full" />
+            <div className="mx-auto mt-10 max-w-3xl overflow-hidden rounded-2xl border border-ivory/10">
+              <VideoFrame src={asset("assets/video/wave-slow.mp4")} poster={asset("assets/posters/wave.jpg")} className="aspect-[21/9] w-full" />
             </div>
           </Reveal>
         </div>
