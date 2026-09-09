@@ -29,12 +29,15 @@ export default function Nav() {
   const onHome = pathname === "/";
   const light = onHome || pastHero;
   const ink = light ? "text-ink" : "text-ivory";
+  const surface = light
+    ? "bg-ivory/90 ring-ink/10 shadow-[0_14px_42px_-26px_rgba(12,12,13,0.55)]"
+    : "bg-ink/75 ring-ivory/20 shadow-[0_16px_48px_-24px_rgba(0,0,0,0.75)]";
 
   return (
     <>
       <header className="pointer-events-none fixed inset-x-0 top-0 z-50 px-3 pt-3 md:px-5 md:pt-4">
         <div ref={wrap} className="pointer-events-auto mx-auto max-w-[1240px]">
-          <nav className="relative flex h-[58px] items-center rounded-2xl bg-transparent px-3 md:h-[64px] md:px-5">
+          <nav className={`relative flex h-[58px] items-center rounded-2xl px-3 backdrop-blur-xl ring-1 transition-colors duration-300 md:h-[64px] md:px-5 ${surface}`}>
             <Wordmark invert={!light} />
 
             <ul className={`absolute left-1/2 hidden -translate-x-1/2 items-center gap-1 lg:flex ${ink}`}>

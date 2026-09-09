@@ -15,10 +15,9 @@ export default function Home() {
   return (
     <PageWrap>
       <section className="relative z-10 flex h-svh min-h-[720px] items-center overflow-hidden bg-ivory text-ivory">
-        <CosmicScene />
-        {/* Ivory wash keeps the headline legible over the left half of the scene. */}
-        <div className="pointer-events-none absolute inset-0 z-[8] bg-gradient-to-r from-ivory via-ivory/75 to-transparent md:via-ivory/45 lg:via-ivory/30" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[8] h-40 bg-gradient-to-t from-ivory to-transparent" />
+        <CosmicScene src={asset("assets/scenes/hero-full.jpg")} objectPosition="center center" />
+        <div className="pointer-events-none absolute inset-0 z-[8] bg-gradient-to-r from-ivory/95 via-ivory/50 to-transparent md:via-ivory/40 lg:via-ivory/30" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[8] h-32 bg-gradient-to-t from-ivory/80 to-transparent" />
 
         <div className="site-container relative z-10 w-full pb-16 pt-28">
           <div className="max-w-[38rem]">
@@ -83,7 +82,7 @@ export default function Home() {
 
       <section className="bg-ivory">
         <div className="grid lg:grid-cols-2">
-          <div className="flex min-h-[78vh] flex-col justify-center px-6 py-28 md:px-16 md:py-40 lg:pl-[max(2.5rem,calc((100vw-1280px)/2+2.5rem))] lg:pr-20">
+          <div className="flex min-h-[78vh] flex-col justify-center px-6 py-28 md:px-12 md:py-40 lg:pl-[max(2.5rem,calc((100vw-1440px)/2+2.5rem))] lg:pr-16">
             <Reveal><p className="eyebrow text-ink/45">The implementation gap is real</p></Reveal>
             <Reveal delay={0.05}>
               <h2 className="display mt-8 max-w-[18ch] text-[clamp(2.8rem,6vw,5.2rem)] text-ink">Most AI initiatives never make it past pilots.</h2>
@@ -106,14 +105,14 @@ export default function Home() {
             </div>
           </div>
           <div className="relative min-h-[70vh] lg:min-h-full">
-            <img src={asset("assets/scenes/canyon-portal.png")} alt="A figure before a towering lit portal" className="absolute inset-0 h-full w-full object-cover" />
+            <img src={asset("assets/scenes/02-implementation-gap-forest-portal.png")} alt="A figure before a towering lit portal" className="absolute inset-0 h-full w-full object-cover" />
           </div>
         </div>
       </section>
 
       <section className="relative overflow-hidden bg-ink py-32 text-ivory md:py-44">
-        <img src={asset("assets/scenes/canyon-portal.png")} alt="" aria-hidden className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-55" />
-        <div className="absolute inset-0 bg-gradient-to-r from-ink/88 via-ink/70 to-ink/35" />
+        <img src={asset("assets/scenes/03-real-business-operations-panorama.png")} alt="" aria-hidden className="pointer-events-none absolute inset-0 h-full w-full object-cover opacity-75" />
+        <div className="absolute inset-0 bg-gradient-to-r from-ink/80 via-ink/50 to-ink/10" />
         <div className="site-container relative grid items-center gap-16 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
             <Reveal><p className="eyebrow text-ivory/55">The implementation gap</p></Reveal>
@@ -186,7 +185,7 @@ export default function Home() {
               <Link to={o.to}
                 className="card-lift group flex h-full flex-col overflow-hidden rounded-2xl border border-ink/10 bg-ivory hover:border-ink/25 hover:shadow-[0_30px_70px_-30px_rgba(12,12,13,0.35)]">
                 <div className="relative aspect-[16/9] overflow-hidden">
-                  <img src={asset(o.image)} alt="" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.04]" />
+                  <img src={asset(o.image)} alt="" loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.025]" style={{ objectPosition: o.position }} />
                   <div className="absolute inset-0 bg-gradient-to-t from-ink/50 to-transparent" />
                 </div>
                 <div className="flex flex-1 flex-col justify-between p-8 md:p-10">

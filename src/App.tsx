@@ -3,9 +3,11 @@ import Layout from "./components/Layout";
 import Home from "./pages/Home";
 import Voice from "./pages/Voice";
 import WhatsApp from "./pages/WhatsApp";
+import Meta from "./pages/Meta";
 import Vision from "./pages/Vision";
 import OS from "./pages/OS";
 import Pricing from "./pages/Pricing";
+import Customers from "./pages/Customers";
 import Contact from "./pages/Contact";
 import Affiliate from "./pages/Affiliate";
 import Legal from "./pages/Legal";
@@ -17,9 +19,11 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="/voice" element={<Voice />} />
         <Route path="/whatsapp" element={<WhatsApp />} />
+        <Route path="/meta" element={<Meta />} />
         <Route path="/vision" element={<Vision />} />
         <Route path="/os" element={<OS />} />
         <Route path="/pricing" element={<Pricing />} />
+        <Route path="/customers" element={<Customers />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/affiliate" element={<Affiliate />} />
         <Route path="/partners" element={<Navigate to="/affiliate" replace />} />

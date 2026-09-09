@@ -23,7 +23,7 @@ Spacing: 8px grid. Section padding `py-28 md:py-40`. Site max width `1280px`. Ra
 
 ## 3. Type
 
-Display: Outfit 300, tracking `-0.038em`, leading `0.92` (matches the selected comps). Body and UI: Manrope 400-600. Eyebrow: 11px, uppercase, tracking `0.22em`. Body never below 16px. Wordmark: uppercase AIORA, tracking `0.34em`. Hero headline is three stacked lines, all ivory. Do not tint "performance" wine.
+Display: Outfit 400, tracking `-0.032em`, leading `0.94` for crisp rendering at responsive sizes. Body and UI: Manrope 400-600. Eyebrow: 11px, uppercase, tracking `0.22em`. Body never below 16px. Wordmark: uppercase AIORA, tracking `0.34em`. Hero headline is three stacked lines. Use wine only for the designated accent phrase.
 
 ## 4. Layout grammar
 
@@ -49,17 +49,18 @@ GPU only: transform, opacity, filter. Ease `[0.22, 1, 0.36, 1]`. Reveals 0.7-0.9
 
 | Slot | File |
 |---|---|
-| Home hero | `/assets/video/hero-planets.mp4` |
+| Home hero | `/assets/scenes/hero-full.jpg` |
 | Results band | `/assets/video/wave.mp4` |
 | Implementation gap | `/assets/scenes/canyon-portal.png` |
-| Voice hero | `/assets/scenes/voice-human.png` + wave video in-page |
+| Voice hero | `/assets/scenes/voice-human.png` |
 | WhatsApp | `/assets/scenes/team.png` (hand + chat) |
-| Vision | `/assets/scenes/forest-portal.png` |
-| OS / pricing object | `/assets/video/orbit-structure.mp4`, `/assets/video/orb.mp4` |
+| Vision | `/assets/scenes/06-aiora-vision-human-review-abstract.png` |
+| OS / pricing object | `/assets/scenes/07-aiora-os-orchestration-landscape.png`, `/assets/posters/orb.jpg` |
 | Future / why | `/assets/video/spin-form.mp4`, `/assets/video/helix.mp4` |
 | Contact | `/assets/scenes/support-human.png` |
 
 Videos are 8s H.264 loops, audio stripped, Veo footer cropped.
+Hero scenes use their supplied full-resolution composed images with explicit object positions. Do not rebuild them from the low-resolution separated cosmic cutouts.
 
 ## 8. Accessibility and debt
 

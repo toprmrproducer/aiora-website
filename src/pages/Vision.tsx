@@ -9,6 +9,8 @@ export default function Vision() {
       <PageHero
         eyebrow="AIORA Vision"
         cosmic
+        imageSrc={asset("assets/scenes/06-aiora-vision-human-review-abstract.png")}
+        imagePosition="center center"
         title={<>Do not wait for an incident to <span className="text-wine">start paying attention</span>.</>}
         body="AIORA Vision turns camera activity into reviewable alerts, so your team can focus on the moments that may need attention instead of watching hours of footage."
         micro="Detection and alert availability depend on approved camera setup and configured use cases."
@@ -20,7 +22,7 @@ export default function Vision() {
         eyebrow="See the moment, then review it"
         title="Your team should know where to look."
         body="AIORA Vision turns camera activity into reviewable alerts, so people spend time on the footage that may need attention instead of watching hours of empty screens."
-        imageSrc={asset("assets/scenes/canyon-portal.png")}
+        imageSrc={asset("assets/curated/vision-route-review.webp")}
         imageLabel="Site review"
       />
 

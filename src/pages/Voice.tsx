@@ -9,6 +9,8 @@ export default function Voice() {
       <PageHero
         eyebrow="AIORA Voice"
         cosmic
+        imageSrc={asset("assets/scenes/voice-human.png")}
+        imagePosition="72% 40%"
         title={<>Your phone should create <span className="text-wine">momentum</span>, not missed opportunities.</>}
         body="AIORA Voice helps your business handle inbound calls, understand why the customer called and move them toward a booking, order or qualified handoff."
         micro="Configured around your hours, services and escalation rules."
@@ -20,8 +22,6 @@ export default function Voice() {
         eyebrow="The real cost"
         title="A missed call is rarely just a missed call."
         body="It can be the appointment that never gets booked, the order that goes elsewhere or the customer who never calls back. When your team is serving people, driving or simply overloaded, the phone cannot be the weak point."
-        videoSrc={asset("assets/video/wave.mp4")}
-        poster={asset("assets/posters/wave.jpg")}
         imageSrc={asset("assets/scenes/voice-human.png")}
         imageLabel="Voice portrait"
       />

@@ -9,7 +9,7 @@ export type NavLink = { label: string; to?: string; children?: NavChild[] };
 export const productLinks: NavChild[] = [
   { label: "AIORA Voice", to: "/voice", desc: "Inbound calls that create momentum, not missed opportunities.", icon: "voice" },
   { label: "WhatsApp", to: "/whatsapp", desc: "Every WhatsApp conversation, answered with context.", icon: "whatsapp" },
-  { label: "Meta", to: "/whatsapp", desc: "Facebook and Instagram conversations, handled with the same context.", icon: "meta" },
+  { label: "Meta", to: "/meta", desc: "Facebook and Instagram conversations, handled with the same context.", icon: "meta" },
   { label: "AIORA Vision", to: "/vision", desc: "Camera activity turned into reviewable alerts.", icon: "vision" },
   { label: "AIORA OS", to: "/os", desc: "One operating layer for calls, chats, orders and follow-up.", icon: "os" },
 ];
@@ -17,7 +17,7 @@ export const productLinks: NavChild[] = [
 export const solutionLinks: NavChild[] = [
   { group: "By workflow", label: "Voice", to: "/voice", desc: "Answer the phone and move the caller forward.", icon: "voice" },
   { group: "By workflow", label: "WhatsApp", to: "/whatsapp", desc: "Give every message a next step.", icon: "whatsapp" },
-  { group: "By workflow", label: "Meta", to: "/whatsapp", desc: "Meet customers on Facebook and Instagram.", icon: "meta" },
+  { group: "By workflow", label: "Meta", to: "/meta", desc: "Meet customers on Facebook and Instagram.", icon: "meta" },
   { group: "By workflow", label: "Vision", to: "/vision", desc: "Surface the footage that needs a human.", icon: "vision" },
   { group: "By industry", label: "Retail and grocery", to: "/os", desc: "Catalog, orders and follow-up in one loop." },
   { group: "By industry", label: "Clinics and services", to: "/os", desc: "Capture the enquiry and book the slot." },
@@ -26,7 +26,7 @@ export const solutionLinks: NavChild[] = [
 
 export const companyLinks: NavChild[] = [
   { group: "Company", label: "Talk to AIORA", to: "/contact", desc: "Start with the workflow that leaks the most revenue." },
-  { group: "Company", label: "Customers", to: "/#proof", desc: "Deployments, labelled honestly." },
+  { group: "Company", label: "Customers", to: "/customers", desc: "Deployments, labelled honestly." },
   { group: "Company", label: "Pricing", to: "/pricing", desc: "Six agent lines. One monthly price." },
   { group: "Company", label: "Affiliate Program", to: "/affiliate", desc: "Earn a 50/50 revenue share as an AIORA partner." },
 ];
@@ -49,6 +49,7 @@ export const offerings = [
     to: "/voice",
     art: "voice",
     image: "assets/scenes/voice-human.png",
+    position: "center 34%",
   },
   {
     tag: "WHATSAPP AI",
@@ -57,6 +58,7 @@ export const offerings = [
     to: "/whatsapp",
     art: "whatsapp",
     image: "assets/scenes/team.png",
+    position: "center 44%",
   },
   {
     tag: "AIORA VISION",
@@ -64,7 +66,8 @@ export const offerings = [
     body: "Turn camera activity into reviewable alerts, so your team focuses on the moments that matter.",
     to: "/vision",
     art: "vision",
-    image: "assets/scenes/forest-portal.png",
+    image: "assets/scenes/06-aiora-vision-human-review-abstract.png",
+    position: "center center",
   },
   {
     tag: "AIORA OS",
@@ -73,6 +76,7 @@ export const offerings = [
     to: "/os",
     art: "os",
     image: "assets/scenes/07-aiora-os-orchestration-landscape.png",
+    position: "center center",
   },
 ];
 
@@ -159,7 +163,7 @@ export const footerCols = [
     links: [
       { label: "About", to: "/contact" },
       { label: "Pricing", to: "/pricing" },
-      { label: "Customers", to: "/#proof" },
+      { label: "Customers", to: "/customers" },
       { label: "Affiliate Program", to: "/affiliate" },
       { label: "Contact", to: "/contact" },
     ],

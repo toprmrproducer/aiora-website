@@ -38,8 +38,9 @@ export default function Pricing() {
     <PageWrap>
       <PageHero
         eyebrow="AIORA, six agent lines"
-        videoSrc={asset("assets/video/orb.mp4")}
-        poster={asset("assets/posters/orb.jpg")}
+        cosmic
+        imageSrc={asset("assets/scenes/hero-full.jpg")}
+        imagePosition="74% 40%"
         title={<>Not a chatbot. Agents that <span className="text-wine">act</span> inside your systems.</>}
         body="Each agent captures, understands, decides and acts inside your own systems. Every agent comes with a WhatsApp interface for your team and customers, plus the AIORA Dashboard."
         micro="One flat price per agent. Run one, or run all six."
@@ -154,6 +155,76 @@ export default function Pricing() {
             Run one agent or all six. The setup fee is charged once, not per agent, and covers configuration, integration with your existing systems, and team onboarding.
           </p>
         </Reveal>
+      </Section>
+
+      {/* Every agent, fully equipped */}
+      <section className="grain relative overflow-hidden bg-ink py-24 text-ivory md:py-32">
+        <div className="site-container relative">
+          <div className="grid gap-8 lg:grid-cols-[1fr_1fr] lg:items-end">
+            <Reveal>
+              <p className="eyebrow text-crimson">Built for real work</p>
+              <h2 className="display mt-6 text-[clamp(2.2rem,5.2vw,3.8rem)]">Every agent, fully equipped<span className="text-wine">.</span></h2>
+            </Reveal>
+            <Reveal delay={0.05}>
+              <p className="text-graphite-light lg:pb-2">
+                From customer conversations to operations, AIORA gives your team everything they need to perform from day one.
+              </p>
+            </Reveal>
+          </div>
+          <div className="mt-14 grid gap-6 md:grid-cols-2">
+            <Reveal>
+              <div className="flex h-full flex-col rounded-2xl border border-ivory/12 bg-charcoal p-8 md:p-10">
+                <span className="grid h-12 w-12 place-items-center rounded-xl bg-[#25D366] text-ink">{icons.whatsapp}</span>
+                <h3 className="mt-7 text-2xl font-medium">WhatsApp UI</h3>
+                <p className="mt-4 text-graphite-light">
+                  Your team works where your customers already are. Natural conversations, instant answers, real results.
+                </p>
+                <div className="mt-8 space-y-3">
+                  <div className="ml-auto max-w-[80%] rounded-2xl rounded-br-sm bg-[#25D366]/90 px-4 py-2.5 text-sm text-ink">Do you have this in stock?</div>
+                  <div className="max-w-[85%] rounded-2xl rounded-bl-sm bg-ivory/10 px-4 py-2.5 text-sm text-ivory/90">Yes, it is in stock. Would you like me to place an order for you?</div>
+                  <div className="ml-auto max-w-[60%] rounded-2xl rounded-br-sm bg-[#25D366]/90 px-4 py-2.5 text-sm text-ink">Yes, please.</div>
+                </div>
+              </div>
+            </Reveal>
+            <Reveal delay={0.06}>
+              <div className="flex h-full flex-col rounded-2xl border border-ivory/12 bg-charcoal p-8 md:p-10">
+                <span className="grid h-12 w-12 place-items-center rounded-xl bg-wine/20 text-wine">{icons.os}</span>
+                <h3 className="mt-7 text-2xl font-medium">AIORA Dashboard</h3>
+                <p className="mt-4 text-graphite-light">
+                  Get full visibility across conversations, customers, revenue and operations, all in one place.
+                </p>
+                <div className="mt-8 grid grid-cols-2 gap-4">
+                  <div className="rounded-xl border border-ivory/10 bg-ink/60 p-5">
+                    <div className="text-[11px] uppercase tracking-label text-graphite-light">Total revenue</div>
+                    <div className="display mt-2 text-2xl">Rs. 2,48,930</div>
+                    <div className="mt-1 text-xs text-emerald-400">&uarr; 12%</div>
+                  </div>
+                  <div className="rounded-xl border border-ivory/10 bg-ink/60 p-5">
+                    <div className="text-[11px] uppercase tracking-label text-graphite-light">Conversations</div>
+                    <div className="display mt-2 text-2xl">1,429</div>
+                    <div className="mt-1 text-xs text-emerald-400">&uarr; 28%</div>
+                  </div>
+                </div>
+                <p className="mt-4 text-[11px] text-graphite-light">Illustrative dashboard. Figures shown are sample data.</p>
+              </div>
+            </Reveal>
+          </div>
+        </div>
+      </section>
+
+      {/* Partner testimonial */}
+      <Section tone="light" pad="lg">
+        <div className="mx-auto max-w-4xl text-center">
+          <Reveal><p className="eyebrow text-crimson">Real partners. Real impact.</p></Reveal>
+          <Reveal delay={0.05}>
+            <blockquote className="display mt-8 text-[clamp(1.9rem,4.4vw,3.2rem)] font-light leading-[1.2]">
+              &ldquo;We started with one agent, saw the return, then added three more.&rdquo;
+            </blockquote>
+          </Reveal>
+          <Reveal delay={0.1}>
+            <p className="mt-8 text-sm text-graphite">Founder, a multi-location retailer</p>
+          </Reveal>
+        </div>
       </Section>
 
       <CTASection

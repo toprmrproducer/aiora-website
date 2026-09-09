@@ -10,7 +10,7 @@
   color-scheme: light;
 }
 
-* { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+* { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; font-synthesis: none; }
 
 html { scroll-behavior: smooth; }
 @media (prefers-reduced-motion: reduce) {
@@ -29,15 +29,22 @@ body {
 
 ::selection { background: rgba(124, 37, 48, 0.9); color: #f4f1ea; }
 
+@media (min-width: 768px) {
+  .hero-scene-page {
+    left: auto;
+    width: 72%;
+  }
+}
+
 @layer components {
   .site-container { @apply mx-auto w-full max-w-site px-6 md:px-10; }
 
   /* Editorial display: Outfit Light, matching the selected comps */
   .display {
     font-family: Outfit, Manrope, system-ui, sans-serif;
-    font-weight: 300;
-    letter-spacing: -0.038em;
-    line-height: 0.92;
+    font-weight: 400;
+    letter-spacing: -0.032em;
+    line-height: 0.94;
   }
   .display-serif-accent { font-weight: 400; font-style: italic; }
 

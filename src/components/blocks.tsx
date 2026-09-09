@@ -5,9 +5,10 @@ import { VideoBg, VideoFrame } from "./Media";
 import CosmicScene from "./CosmicScene";
 
 export function PageHero({
-  eyebrow, title, body, micro, primary, secondary, imageSrc, videoSrc, poster, cosmic, cosmicFlip,
+  eyebrow, title, body, micro, primary, secondary, imageSrc, imagePosition, videoSrc, poster, cosmic, cosmicFlip,
 }: {
   eyebrow: string; title: ReactNode; body: string; micro?: string; imageSrc?: string; videoSrc?: string; poster?: string;
+  imagePosition?: string;
   cosmic?: boolean; cosmicFlip?: boolean;
   primary: { label: string; to: string }; secondary?: { label: string; to: string };
 }) {
@@ -16,18 +17,17 @@ export function PageHero({
       <div className="absolute inset-0">
         {cosmic ? (
           <>
-            <CosmicScene tone="dark" flip={cosmicFlip} />
-            {/* Keep the copy side readable over the floating scene. */}
-            <div className={`pointer-events-none absolute inset-0 z-[8] bg-gradient-to-r ${cosmicFlip ? "from-ink/10 via-ink/55 to-ink" : "from-ink via-ink/70 to-ink/10"}`} />
-            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[8] h-32 bg-gradient-to-t from-ink to-transparent" />
+            <CosmicScene className="hero-scene-page" src={imageSrc} objectPosition={imagePosition} tone="dark" flip={cosmicFlip} />
+            <div className={`pointer-events-none absolute inset-0 z-[8] bg-gradient-to-r ${cosmicFlip ? "from-transparent via-ink/50 to-ink/90" : "from-ink/90 via-ink/50 to-transparent"}`} />
+            <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[8] h-28 bg-gradient-to-t from-ink/60 to-transparent" />
           </>
         ) : videoSrc ? (
           <VideoBg src={videoSrc} poster={poster || imageSrc} overlay="dark" />
         ) : imageSrc ? (
           <>
-            <img src={imageSrc} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" />
-            <div className="absolute inset-0 bg-gradient-to-r from-ink via-ink/80 to-ink/25" />
-            <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/60" />
+            <img src={imageSrc} alt="" aria-hidden className="absolute inset-0 h-full w-full object-cover" style={{ objectPosition: imagePosition }} />
+            <div className="absolute inset-0 bg-gradient-to-r from-ink/90 via-ink/50 to-ink/10" />
+            <div className="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-ink/30" />
           </>
         ) : (
           <div className="absolute inset-0 bg-radial-crimson opacity-40" />

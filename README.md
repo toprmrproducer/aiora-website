@@ -38,13 +38,15 @@ All copy is from the client-approved mockups + the vault AIORA Funnel Copy. Moti
 
 ## Images
 
-Real cinematic scenes are wired from the AIORA asset library into `public/assets/scenes/` (all QA-passed, no text, logos or fabricated proof):
+Real cinematic scenes are wired from the AIORA asset library into `public/assets/scenes/` (all QA-passed, no text, logos or fabricated proof). Full-resolution composed scenes are used for heroes so crops remain crisp and edge-to-edge without exposed cutout plates:
 
 - `01-home-hero-eclipse.png` — home hero, full bleed
 - `02-implementation-gap-forest-portal.png` — implementation-gap section
 - `03-real-business-operations-panorama.png` — results section background
 - `05/06/07-...` — Voice / Vision / OS page heroes
 - `08-final-cta-cosmic-threshold.png` — available for CTA use
+
+The separated files under `public/assets/cosmic/` are retained as source material, but are not enlarged as primary hero layers because their source resolution is too low for a crisp full-width render.
 
 Also wired: 4K `ai.ora` wordmark + `ao` monogram (`public/assets/logos`), Talks/Vision/OS route visuals (`public/assets/curated`). Full source library: `~/Downloads/AIORA Website Asset Library 2026-09-09`. Remaining slots use a graceful crimson fallback; to swap any image, replace the file at the same path. Testimonials are text-only by design (no fabricated customer portraits).
 
