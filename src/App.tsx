@@ -13,6 +13,9 @@ import Affiliate from "./pages/Affiliate";
 import Retail from "./pages/Retail";
 import Clinics from "./pages/Clinics";
 import Hospitality from "./pages/Hospitality";
+import Integrates from "./pages/Integrates";
+import Tracks from "./pages/Tracks";
+import Assist from "./pages/Assist";
 import Legal from "./pages/Legal";
 
 export default function App() {
@@ -33,6 +36,12 @@ export default function App() {
         <Route path="/retail" element={<Retail />} />
         <Route path="/clinics" element={<Clinics />} />
         <Route path="/hospitality" element={<Hospitality />} />
+        <Route path="/integrates" element={<Integrates />} />
+        <Route path="/tracks" element={<Tracks />} />
+        <Route path="/assist" element={<Assist />} />
+        <Route path="/talks" element={<Navigate to="/voice" replace />} />
+        <Route path="/sales-automation" element={<Navigate to="/whatsapp" replace />} />
+        <Route path="/ops" element={<Navigate to="/os" replace />} />
         <Route path="/privacy" element={<Legal kind="privacy" />} />
         <Route path="/legal" element={<Legal kind="terms" />} />
         <Route path="*" element={<Navigate to="/" replace />} />

@@ -7,17 +7,20 @@ export type NavChild = { label: string; to: string; desc: string; group?: string
 export type NavLink = { label: string; to?: string; children?: NavChild[] };
 
 export const productLinks: NavChild[] = [
-  { label: "AIORA Voice", to: "/voice", desc: "Inbound calls that create momentum, not missed opportunities.", icon: "voice" },
-  { label: "WhatsApp", to: "/whatsapp", desc: "Every WhatsApp conversation, answered with context.", icon: "whatsapp" },
-  { label: "Meta", to: "/meta", desc: "Facebook and Instagram conversations, handled with the same context.", icon: "meta" },
+  { label: "AIORA Talks", to: "/voice", desc: "Inbound and outbound calls, answered and captured.", icon: "voice" },
+  { label: "AIORA Sales Automation", to: "/whatsapp", desc: "WhatsApp selling, from first enquiry to money received.", icon: "whatsapp" },
+  { label: "AIORA Ops", to: "/os", desc: "The daily order desk: POs, SOs, reconciliation and reports.", icon: "os" },
+  { label: "AIORA Integrates", to: "/integrates", desc: "Connect the tools you already run so nothing is re-keyed.", icon: "build" },
+  { label: "AIORA Tracks", to: "/tracks", desc: "Inventory, delivery status and field-team location, live.", icon: "pin" },
+  { label: "AIORA Assist", to: "/assist", desc: "Ask your own business data in plain language.", icon: "smart" },
   { label: "AIORA Vision", to: "/vision", desc: "Camera activity turned into reviewable alerts.", icon: "vision" },
-  { label: "AIORA OS", to: "/os", desc: "One operating layer for calls, chats, orders and follow-up.", icon: "os" },
+  { label: "Meta", to: "/meta", desc: "Facebook and Instagram conversations, handled with context.", icon: "meta" },
 ];
 
 export const solutionLinks: NavChild[] = [
-  { group: "By workflow", label: "Voice", to: "/voice", desc: "Answer the phone and move the caller forward.", icon: "voice" },
-  { group: "By workflow", label: "WhatsApp", to: "/whatsapp", desc: "Give every message a next step.", icon: "whatsapp" },
-  { group: "By workflow", label: "Meta", to: "/meta", desc: "Meet customers on Facebook and Instagram.", icon: "meta" },
+  { group: "By workflow", label: "Talks", to: "/voice", desc: "Answer the phone and move the caller forward.", icon: "voice" },
+  { group: "By workflow", label: "Sales Automation", to: "/whatsapp", desc: "Give every message a next step, all the way to the sale.", icon: "whatsapp" },
+  { group: "By workflow", label: "Ops", to: "/os", desc: "Run the order desk without the manual paperwork.", icon: "os" },
   { group: "By workflow", label: "Vision", to: "/vision", desc: "Surface the footage that needs a human.", icon: "vision" },
   { group: "By industry", label: "Retail and grocery", to: "/retail", desc: "Catalog, orders and follow-up in one loop." },
   { group: "By industry", label: "Clinics and services", to: "/clinics", desc: "Capture the enquiry and book the slot." },
@@ -27,7 +30,7 @@ export const solutionLinks: NavChild[] = [
 export const companyLinks: NavChild[] = [
   { group: "Company", label: "Talk to AIORA", to: "/contact", desc: "Start with the workflow that leaks the most revenue." },
   { group: "Company", label: "Customers", to: "/customers", desc: "Deployments, labelled honestly." },
-  { group: "Company", label: "Pricing", to: "/pricing", desc: "Six agent lines. One monthly price." },
+  { group: "Company", label: "Pricing", to: "/pricing", desc: "Seven agent lines. One monthly price." },
   { group: "Company", label: "Affiliate Program", to: "/affiliate", desc: "Earn a 50/50 revenue share as an AIORA partner." },
 ];
 
@@ -40,24 +43,21 @@ export const navLinks: NavLink[] = [
 
 // Real deployments (honest trust strip). Edit these lists freely as the roster changes.
 export const deployments = [
-  "Altim Metals Pvt Ltd",
-  "VSR Gold",
-  "Nutrimaven",
-  "Valdaria Impex Pvt Ltd",
-  "KV Toys India Ltd",
-  "Badlapur Textiles Industries Pvt Ltd",
+  "K V Toys",
+  "Mehta Emporium Jewellers",
+  "Society Stores",
   "Mehta Sawantraj Hanwantraj",
+  "Badlapur Textiles Industries Pvt Ltd",
 ];
 
 // Businesses AIORA has deployed for. Safe to add or remove any time.
 export const clientsWorkedWith = [
-  "Altim Metals Pvt Ltd",
-  "VSR Gold",
-  "Nutrimaven",
-  "Valdaria Impex Pvt Ltd",
+  "K V Toys",
+  "Mehta Emporium Jewellers",
+  "Society Stores",
+  "Mehta Sawantraj Hanwantraj",
   "KV Toys India Ltd",
   "Badlapur Textiles Industries Pvt Ltd",
-  "Mehta Sawantraj Hanwantraj",
 ];
 
 // Businesses AIORA is set up to work with next. Editable placeholder roster.
@@ -72,7 +72,7 @@ export const clientsOpenTo = [
 
 export const offerings = [
   {
-    tag: "AIORA VOICE",
+    tag: "AIORA TALKS",
     title: "Your phone becomes a reliable first response.",
     body: "Handle common calls, capture intent and move customers toward the right next action.",
     to: "/voice",
@@ -81,8 +81,8 @@ export const offerings = [
     position: "center 34%",
   },
   {
-    tag: "WHATSAPP AI",
-    title: "Every WhatsApp conversation has context.",
+    tag: "AIORA SALES AUTOMATION",
+    title: "Every WhatsApp conversation moves toward the sale.",
     body: "Help customers find answers, browse options, book and place requests without waiting for a person.",
     to: "/whatsapp",
     art: "whatsapp",
@@ -99,9 +99,9 @@ export const offerings = [
     position: "center center",
   },
   {
-    tag: "AIORA OS",
+    tag: "AIORA OPS",
     title: "One operating layer your team can actually run.",
-    body: "Bring voice, WhatsApp, orders and follow-up into one place, so every enquiry has somewhere to go.",
+    body: "Bring calls, WhatsApp, orders and follow-up into one place, so every enquiry has somewhere to go.",
     to: "/os",
     art: "os",
     image: "assets/scenes/07-aiora-os-orchestration-landscape.png",
@@ -149,37 +149,37 @@ export const whyCards = [
 // no invented ROI figures. Edit freely as the roster changes.
 export const caseStudies = [
   {
-    name: "Altim Metals Pvt Ltd",
+    name: "K V Toys",
     kind: "AIORA Ops",
     result: "The order desk runs on AIORA Ops. Purchase orders are punched and reconciled, sales orders are raised against them, and the daily sales and pending reports go out on their own instead of being built by hand every evening.",
     status: "Deployed",
     image: "assets/scenes/03-real-business-operations-panorama.png",
   },
   {
-    name: "VSR Gold",
+    name: "Mehta Emporium Jewellers",
     kind: "AIORA Talks",
     result: "Inbound calls to the counter are answered in the customer's language, rate and availability questions are handled on the spot, and anything that needs a person is routed with the details already captured.",
     status: "Deployed",
     image: "assets/scenes/sc-voice-hero.jpg",
   },
   {
-    name: "Nutrimaven",
-    kind: "AIORA Apps",
+    name: "Society Stores",
+    kind: "AIORA Sales Automation",
     result: "Product and stock questions on WhatsApp are answered from the live catalogue, orders are taken inside the same thread, and repeat customers get their usual list rebuilt in a few messages.",
     status: "Deployed",
     image: "assets/scenes/sc-whatsapp-hero.jpg",
   },
   {
-    name: "Valdaria Impex Pvt Ltd",
-    kind: "AIORA Trade",
+    name: "Mehta Sawantraj Hanwantraj",
+    kind: "AIORA Sales Automation + Tracks",
     result: "Enquiries from buyers are qualified and quoted, dispatch and logistics status is handled without a person chasing it, and the team sees every open deal in one place.",
     status: "Deployed",
     image: "assets/scenes/sc-os-hero.jpg",
   },
   {
     name: "KV Toys India Ltd",
-    kind: "AIORA Ops + Apps",
-    result: "Catalogue selling and the order desk run together: shopping-list messages become structured orders, the paperwork is reconciled automatically, and the daily reports land without manual work.",
+    kind: "AIORA Integrates",
+    result: "Catalogue selling and the order desk run together: shopping-list messages become structured orders, the paperwork is reconciled automatically across the existing tools, and the daily reports land without manual work.",
     status: "Deployed",
     image: "assets/scenes/sc-retail-hero.jpg",
   },
@@ -189,13 +189,6 @@ export const caseStudies = [
     result: "Staff attendance is read from the existing cameras, restricted-zone and after-hours activity is flagged for review, and the floor team gets a shortlist of clips to check instead of hours of footage.",
     status: "Deployed",
     image: "assets/scenes/sc-vision-hero.jpg",
-  },
-  {
-    name: "Mehta Sawantraj Hanwantraj",
-    kind: "AIORA Talks + Ops",
-    result: "The phone line never rings out: calls are answered and captured, and the order and reconciliation workflow behind them runs on AIORA Ops so nothing is re-keyed.",
-    status: "Deployed",
-    image: "assets/scenes/sc-customers-band.jpg",
   },
 ];
 
@@ -238,10 +231,10 @@ export const footerCols = [
   {
     title: "Resources",
     links: [
-      { label: "Platform", to: "/os" },
-      { label: "AIORA Voice", to: "/voice" },
+      { label: "AIORA Talks", to: "/voice" },
+      { label: "AIORA Sales Automation", to: "/whatsapp" },
+      { label: "AIORA Ops", to: "/os" },
       { label: "AIORA Vision", to: "/vision" },
-      { label: "WhatsApp AI", to: "/whatsapp" },
     ],
   },
 ];

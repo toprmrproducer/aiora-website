@@ -106,7 +106,7 @@ export default function Meta() {
         title="Turn social conversations into customers."
         body="Bring the same business context to every comment, DM and story reply across Facebook and Instagram."
         primary={{ label: "Book a call", to: "/contact" }}
-        secondary={{ label: "See WhatsApp AI", to: "/whatsapp" }}
+        secondary={{ label: "See AIORA Sales Automation", to: "/whatsapp" }}
       />
     </PageWrap>
   );

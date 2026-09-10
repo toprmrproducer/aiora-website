@@ -7,7 +7,7 @@ export default function OS() {
   return (
     <PageWrap>
       <PageHero
-        eyebrow="AIORA OS"
+        eyebrow="AIORA Ops"
         cosmic
         imageSrc={asset("assets/scenes/sc-os-hero.jpg")}
         imagePosition="center 40%"
@@ -49,8 +49,8 @@ export default function OS() {
         tone="light2"
         cols={4}
         cards={[
-          { title: "AIORA Voice", body: "Your phone becomes a reliable first response that captures intent and moves customers forward.", icon: "voice" },
-          { title: "WhatsApp AI", body: "Every conversation has context, so customers find answers, browse, book and request without waiting.", icon: "whatsapp" },
+          { title: "AIORA Talks", body: "Your phone becomes a reliable first response that captures intent and moves customers forward.", icon: "voice" },
+          { title: "AIORA Sales Automation", body: "Every conversation has context, so customers find answers, browse, book and request without waiting.", icon: "whatsapp" },
           { title: "Photo to Order", body: "Turn a customer's shopping-list photo into a clearer, faster route to fulfilment.", icon: "check" },
           { title: "Smart Catalog", body: "Make products simple to find, share and browse across the channels customers already use.", icon: "os" },
         ]}
@@ -85,7 +85,7 @@ export default function OS() {
         title="Give every customer a next step, not a dead end."
         body="Start with the customer conversation, call flow or order process that creates the most pressure today."
         primary={{ label: "Talk to AIORA", to: "/contact" }}
-        secondary={{ label: "See AIORA Voice", to: "/voice" }}
+        secondary={{ label: "See AIORA Talks", to: "/voice" }}
       />
     </PageWrap>
   );

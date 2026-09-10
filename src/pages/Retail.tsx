@@ -68,7 +68,7 @@ export default function Retail() {
         title="Stop losing the basket to a slow reply."
         body="Pick the busiest counter, connect the catalog and give every enquiry a next step."
         primary={{ label: "Book a call", to: "/contact" }}
-        secondary={{ label: "See AIORA Voice", to: "/voice" }}
+        secondary={{ label: "See AIORA Talks", to: "/voice" }}
       />
     </PageWrap>
   );

@@ -8,7 +8,7 @@ import { asset } from "../lib/asset";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
-  const [form, setForm] = useState({ name: "", business: "", email: "", goal: "AIORA Voice", message: "" });
+  const [form, setForm] = useState({ name: "", business: "", email: "", goal: "AIORA Talks", message: "" });
   const set = (k: string) => (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) =>
     setForm((f) => ({ ...f, [k]: e.target.value }));
 
@@ -88,11 +88,13 @@ export default function Contact() {
                   <div>
                     <label className="eyebrow text-graphite">What do you want to improve first?</label>
                     <select value={form.goal} onChange={set("goal")} className={`${field} mt-2`}>
-                      <option>AIORA Ops</option>
                       <option>AIORA Talks</option>
-                      <option>AIORA Trade</option>
+                      <option>AIORA Sales Automation</option>
+                      <option>AIORA Ops</option>
+                      <option>AIORA Integrates</option>
+                      <option>AIORA Tracks</option>
+                      <option>AIORA Assist</option>
                       <option>AIORA Vision</option>
-                      <option>AIORA Apps</option>
                       <option>The full platform</option>
                       <option>Pricing / agent lines</option>
                       <option>Not sure yet</option>

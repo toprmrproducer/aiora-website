@@ -33,7 +33,7 @@ export function VoiceCallMock() {
     { who: "aiora", text: "Booked for 11:30am Saturday. I have sent a confirmation to your number." },
   ];
   return (
-    <Frame label="AIORA Voice · live call">
+    <Frame label="AIORA Talks · live call">
       <div className="flex items-center justify-between rounded-2xl bg-ink/60 px-4 py-3">
         <div className="flex items-center gap-3">
           <span className="relative grid h-9 w-9 place-items-center rounded-full bg-wine/20 text-wine">
@@ -76,7 +76,7 @@ export function WhatsAppThreadMock() {
     { me: true, t: "Reserved. Pickup is ready after 4pm. Sending the invoice now." },
   ];
   return (
-    <Frame label="WhatsApp AI · thread">
+    <Frame label="AIORA Sales Automation · thread">
       <div className="space-y-2.5">
         {msgs.map((m, i) => (
           <motion.div key={i} variants={rise} custom={i} initial="hidden" whileInView="show" viewport={viewport}

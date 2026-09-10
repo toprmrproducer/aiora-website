@@ -12,12 +12,12 @@ export default function Voice() {
   return (
     <PageWrap>
       <PageHero
-        eyebrow="AIORA Voice"
+        eyebrow="AIORA Talks"
         cosmic
         imageSrc={asset("assets/scenes/sc-voice-hero.jpg")}
         imagePosition="82% center"
         title={<>Your phone should create <span className="text-wine">momentum</span>.</>}
-        body="AIORA Voice handles inbound calls, understands why the customer called and moves them toward a booking, order or qualified handoff."
+        body="AIORA Talks handles inbound and outbound calls, understands why the customer called and moves them toward a booking, order or qualified handoff."
         micro="Configured around your hours, services and escalation rules."
         primary={{ label: "Hear how it works", to: "/contact" }}
         secondary={{ label: "Build my call flow", to: "/contact" }}
@@ -29,7 +29,7 @@ export default function Voice() {
         <div className="site-container relative grid items-center gap-14 lg:grid-cols-2">
           <Reveal>
             <p className="eyebrow text-crimson">Live demo</p>
-            <h2 className="display mt-6 text-[clamp(2.4rem,5.4vw,4.2rem)]">Talk to AIORA Voice.</h2>
+            <h2 className="display mt-6 text-[clamp(2.4rem,5.4vw,4.2rem)]">Talk to AIORA Talks.</h2>
             <p className="lead mt-7 max-w-prose2 text-graphite-light">
               The most affordable AI voice on the market, in a real conversation. Tap to speak and our sales associate answers, understands and moves you to the next step.
             </p>

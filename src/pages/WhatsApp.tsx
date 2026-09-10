@@ -9,7 +9,7 @@ export default function WhatsApp() {
   return (
     <PageWrap>
       <PageHero
-        eyebrow="WhatsApp AI"
+        eyebrow="AIORA Sales Automation"
         cosmic
         imageSrc={asset("assets/scenes/sc-whatsapp-hero.jpg")}
         imagePosition="60% center"
@@ -69,7 +69,7 @@ export default function WhatsApp() {
         title="Every WhatsApp enquiry should reach an answer."
         body="Start with the conversation that creates the most pressure today and give it a reliable next step."
         primary={{ label: "Book a call", to: "/contact" }}
-        secondary={{ label: "See AIORA Voice", to: "/voice" }}
+        secondary={{ label: "See AIORA Talks", to: "/voice" }}
       />
     </PageWrap>
   );

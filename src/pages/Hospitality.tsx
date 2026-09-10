@@ -68,7 +68,7 @@ export default function Hospitality() {
         title="Win the booking that goes to the fastest reply."
         body="Connect the reservation system, load the information and answer every guest before they move on."
         primary={{ label: "Book a call", to: "/contact" }}
-        secondary={{ label: "See WhatsApp AI", to: "/whatsapp" }}
+        secondary={{ label: "See AIORA Sales Automation", to: "/whatsapp" }}
       />
     </PageWrap>
   );

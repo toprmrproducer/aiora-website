@@ -69,7 +69,7 @@ export default function Clinics() {
         title="Never lose a ready-to-book enquiry to a ringing phone."
         body="Connect the calendar, set the intake questions and let every caller leave with a slot."
         primary={{ label: "Book a call", to: "/contact" }}
-        secondary={{ label: "See AIORA Voice", to: "/voice" }}
+        secondary={{ label: "See AIORA Talks", to: "/voice" }}
       />
     </PageWrap>
   );
