@@ -5,6 +5,7 @@ import { FAQ } from "../components/blocks";
 import { SoloTestimonial } from "../components/Testimonials";
 import CTASection from "../components/CTASection";
 import { asset } from "../lib/asset";
+import { contactEmail, offices } from "../lib/data";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -15,7 +16,7 @@ export default function Contact() {
   const submit = (e: React.FormEvent) => {
     e.preventDefault();
     const body = `Name: ${form.name}%0D%0ABusiness: ${form.business}%0D%0AEmail: ${form.email}%0D%0AInterested in: ${form.goal}%0D%0A%0D%0A${form.message}`;
-    window.location.href = `mailto:hello@aiora.live?subject=AIORA enquiry from ${encodeURIComponent(form.name || "website")}&body=${body}`;
+    window.location.href = `mailto:${contactEmail}?subject=AIORA enquiry from ${encodeURIComponent(form.name || "website")}&body=${body}`;
     setSent(true);
   };
 
@@ -58,7 +59,7 @@ export default function Contact() {
                   </div>
                 ))}
               </div>
-              <a href="mailto:hello@aiora.live" className="link-arrow mt-10 inline-flex text-ivory/80 hover:text-ivory">hello@aiora.live</a>
+              <a href={`mailto:${contactEmail}`} className="link-arrow mt-10 inline-flex text-ivory/80 hover:text-ivory">{contactEmail}</a>
             </Reveal>
           </div>
 
@@ -68,7 +69,7 @@ export default function Contact() {
                 <div className="flex min-h-[420px] flex-col items-start justify-center">
                   <span className="text-wine">{icons.check}</span>
                   <h2 className="display mt-6 text-3xl">Your draft is ready.</h2>
-                  <p className="mt-4 text-graphite">We opened an email to hello@aiora.live with your details. Send it and we will reply within one business day.</p>
+                  <p className="mt-4 text-graphite">We opened an email to {contactEmail} with your details. Send it and we will reply within one business day.</p>
                   <button onClick={() => setSent(false)} className="link-arrow mt-8 text-ink">Start again</button>
                 </div>
               ) : (
@@ -141,17 +142,60 @@ export default function Contact() {
       </Section>
 
       {/* Where we work */}
-      <Section tone="light2" pad="lg">
-        <div className="grid gap-10 md:grid-cols-[1fr_1fr_1fr] md:items-start">
-          <Reveal><h2 className="display text-[clamp(2.2rem,5vw,3.4rem)]">Where we work.</h2></Reveal>
-          <Reveal delay={0.05}>
-            <p className="eyebrow text-crimson">India</p>
-            <p className="mt-4 leading-relaxed text-graphite">AIORA Technologies Pvt. Ltd.<br />Bengaluru, Karnataka<br />India</p>
+      <Section id="offices" tone="light2" pad="xl">
+        <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-start">
+          <Reveal>
+            <p className="eyebrow text-crimson">Our offices</p>
+            <h2 className="display mt-6 text-[clamp(2.4rem,5.5vw,4rem)]">Where we work<span className="text-wine">.</span></h2>
+            <p className="mt-6 max-w-md text-graphite">
+              Come and see us, call the team, or send a note. Whichever office you reach, the same people
+              own the result you signed up for.
+            </p>
+            <a href={`mailto:${contactEmail}`} className="link-arrow mt-8 inline-flex text-ink hover:text-wine">
+              {contactEmail}
+            </a>
           </Reveal>
-          <Reveal delay={0.1}>
-            <p className="eyebrow text-crimson">Get in touch</p>
-            <a href="mailto:hello@aiora.live" className="mt-4 inline-block text-lg text-ink hover:text-wine">hello@aiora.live</a>
-          </Reveal>
+
+          <div className={`grid gap-4 ${offices.length > 1 ? "sm:grid-cols-2" : ""}`}>
+            {offices.map((o, i) => (
+              <Reveal key={`${o.city}-${o.country}`} delay={0.05 * i}>
+                <address className="flex h-full flex-col rounded-2xl border border-ink/12 bg-ivory p-6 not-italic md:p-7">
+                  <span className="grid h-9 w-9 place-items-center rounded-full border border-wine/40 text-wine">
+                    {icons.pin}
+                  </span>
+                  <p className="eyebrow mt-5 text-crimson">{o.label}</p>
+                  <div className="mt-2 text-xl font-semibold text-ink">
+                    {o.city}
+                    <span className="text-graphite-light">, {o.country}</span>
+                  </div>
+                  <div className="mt-3 space-y-0.5 text-[15px] leading-relaxed text-graphite">
+                    {o.entity && <div className="font-medium text-ink/80">{o.entity}</div>}
+                    {o.address.map((line) => (
+                      <div key={line}>{line}</div>
+                    ))}
+                  </div>
+                  <div className="mt-5 space-y-2 border-t border-ink/10 pt-5 text-[15px] [&_svg]:h-[18px] [&_svg]:w-[18px]">
+                    {o.phone && (
+                      <a
+                        href={`tel:${o.phone.replace(/[^+\d]/g, "")}`}
+                        className="flex items-center gap-2.5 text-ink transition-colors hover:text-wine"
+                      >
+                        <span className="text-wine/70">{icons.phone}</span>
+                        {o.phone}
+                      </a>
+                    )}
+                    <a
+                      href={`mailto:${o.email ?? contactEmail}`}
+                      className="flex items-center gap-2.5 text-ink transition-colors hover:text-wine"
+                    >
+                      <span className="text-wine/70">{icons.mail}</span>
+                      {o.email ?? contactEmail}
+                    </a>
+                  </div>
+                </address>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </Section>
 

@@ -115,6 +115,8 @@ export const icons: Record<string, JSX.Element> = {
   pin: P("M12 21s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11ZM12 8.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4Z"),
   check: P("M4 12l5 5L20 6"),
   play: P("M8 5v14l11-7z"),
+  mail: P("M3 6h18v12H3zM3 7l9 6 9-6"),
+  phone: P("M6 3h3l2 5-2.5 1.5a12 12 0 0 0 6 6L16 13l5 2v3a2 2 0 0 1-2.2 2A17 17 0 0 1 4 5.2 2 2 0 0 1 6 3Z"),
 };
 
 /* ---------- Animated Stat ---------- */

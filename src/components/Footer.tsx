@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { footerCols } from "../lib/data";
+import { footerCols, contactEmail } from "../lib/data";
 import { Wordmark } from "./Logo";
 import { asset } from "../lib/asset";
 
@@ -13,8 +13,8 @@ export default function Footer() {
             <p className="mt-5 max-w-xs text-sm leading-relaxed text-graphite-light">
               AI operations built around return. One operating layer for voice, WhatsApp, vision and orders.
             </p>
-            <a href="mailto:hello@aiora.ai" className="link-arrow mt-6 inline-flex text-ivory/80 hover:text-ivory">
-              hello@aiora.ai
+            <a href={`mailto:${contactEmail}`} className="link-arrow mt-6 inline-flex text-ivory/80 hover:text-ivory">
+              {contactEmail}
             </a>
           </div>
           {footerCols.map((col) => (

@@ -6,6 +6,39 @@
 export type NavChild = { label: string; to: string; desc: string; group?: string; icon?: string };
 export type NavLink = { label: string; to?: string; children?: NavChild[] };
 
+/* ---------------------------------------------------------------------------
+   CONTACT DETAILS — single source of truth for the whole site.
+   Footer, Contact page and legal pages all read from here, so a change made
+   in this block updates every place the detail appears.
+--------------------------------------------------------------------------- */
+
+// NOTE: the site previously showed hello@aiora.ai in the footer and legal pages
+// but hello@aiora.live on the contact page. README documents hello@aiora.ai, so
+// that is the value used everywhere now. Change this one line if it is wrong.
+export const contactEmail = "hello@aiora.ai";
+
+export type Office = {
+  city: string;
+  country: string;
+  label: string;           // "Head office", "Registered office", "Sales office"
+  entity?: string;         // legal entity operating from this address
+  address: string[];       // street / area / city / postcode, one line each
+  phone?: string;          // E.164 preferred, e.g. "+91 80 4567 8900"
+  email?: string;          // office-specific inbox, falls back to contactEmail
+};
+
+// TO ADD A GLOBAL OFFICE: copy one block below, fill in the real address and
+// phone, and it renders automatically on /contact. No other file needs editing.
+export const offices: Office[] = [
+  {
+    city: "Bengaluru",
+    country: "India",
+    label: "Head office",
+    entity: "AIORA Technologies Pvt. Ltd.",
+    address: ["Bengaluru, Karnataka", "India"],
+  },
+];
+
 export const productLinks: NavChild[] = [
   { label: "AIORA Talks", to: "/voice", desc: "Inbound and outbound calls, answered and captured.", icon: "voice" },
   { label: "AIORA Sales Automation", to: "/whatsapp", desc: "WhatsApp selling, from first enquiry to money received.", icon: "whatsapp" },
